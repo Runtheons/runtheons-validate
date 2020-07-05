@@ -1,7 +1,7 @@
 /**
  *  @author Ousseni Bara
  *  @github iamousseni
- *  @version 1.0
+ *  @version 1.0.0.0
  */
 
 
@@ -71,42 +71,45 @@ module.exports = class RuntheonsValidate {
 	}
 
 	validate(objSchema, objData) {
-		var errors = {};
+		let errors = [];
 		for (const property in objSchema) {
 			let data = objData[property];
 			let propertyCheck = property;
 			let schema = objSchema[property];
+			let error = {};
 			for (const property in schema) {
 				switch (property) {
 					case 'type':
 						if (!this.checkType(data, schema[property]))
-							errors.type = `Error on property passed: ` + propertyCheck + " \r\n" + `The schema declared doesn't match with the data passed. ` +
+							error.type = `The schema declared doesn't match with the data passed. ` +
 								" \r\n Schema Type: " + schema[property] + " \r\n Data Type: " + this.getType(data);
 						break;
 					case 'size':
 						if (!this.checkSize(data, schema[property]))
-							errors['size'] = `Error on property passed: ` + propertyCheck + " \r\n" + `The schema declared doesn't match with the data passed. ` +
+							error.size = `The schema declared doesn't match with the data passed. ` +
 								" \r\n Schema size: " + schema[property] + " \r\n Data size: " + this.getType(data);
 						break;
 					case 'required':
 						if (schema[property] && !this.checkRequired(data, schema[property]))
-							errors['required'] = `Error on property passed: ` + propertyCheck + " \r\n" + `The schema declared doesn't match with the data passed. ` +
+							error.required = `The schema declared doesn't match with the data passed. ` +
 								" \r\n Schema required: " + schema[property] + " \r\n Data passed is null or empty ";
 						break;
 					case 'min':
 						if (schema[property] && !this.checkMin(data, schema[property]))
-							errors['required'] = `Error on property passed: ` + propertyCheck + " \r\n" + `The schema declared doesn't match with the data passed. ` +
+							error.min = `The schema declared doesn't match with the data passed. ` +
 								" \r\n Schema min value: " + schema[property] + " \r\n Data passed: " + data;
 						break;
 					case 'max':
 						if (schema[property] && !this.checkMax(data, schema[property]))
-							errors['required'] = `Error on property passed: ` + propertyCheck + " \r\n" + `The schema declared doesn't match with the data passed. ` +
+							error.max = `The schema declared doesn't match with the data passed. ` +
 								" \r\n Schema max value: " + schema[property] + " \r\n Data passed: " + data;
 						break;
-
-
 				}
 			}
+
+			//if there was errors than added to array of errors
+			if(!this.isEmptyObj(error))
+				errors[propertyCheck] = error;
 		}
 
 		return this.isEmptyObj(errors) ? { result: true, errors: errors } : { result: false, errors: errors };
