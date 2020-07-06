@@ -31,7 +31,12 @@ console.log(validator.validate(objSchema, objData));
 					max: "The schema declared doesn't match with the data passed.  \r\n" +
 						' Schema max value: 8 \r\n' +
 						' Data passed: 9'
+				},
+				description: {
+					type: "The schema declared doesn't match with the data passed.  \r\n" +
+						' Schema Type: string \r\n' +
+						' Data Type: integer'
 				}
 			]
-		}
+	}
  */
