@@ -1,118 +1,84 @@
 /**
  *  @author Ousseni Bara
+ *  @author Zexal0807
  *  @github iamousseni
- *  @version 1.0.0.0
+ *  @version 1.1.0.0
  */
 
+import {data} from './data.js';
 
 module.exports = class RuntheonsValidate {
-	isString(data) {
-		return typeof data === 'string';
-	}
-
-	isInt(data) {
-		return Number.isInteger(data);
-	}
-
-	getType(data) {
-		let type = null;
-		switch (typeof data) {
-			case 'string':
-				type = typeof data;
-				break;
-			case 'number':
-				if (Number.isInteger(data))
-					type = 'integer';
-				else if (Number(data) === data && data % 1 !== 0)
-					type = 'float';
-				break;
-		}
-
-		return type;
-	}
-
-	checkType(data, type) {
-		switch (type) {
-			case 'string':
-				return typeof data === type;
-			case 'integer':
-				return Number.isInteger(data);
-			default:
-				return false;
-		}
-	}
-
-	checkSize(data, size) {
-		switch (typeof data) {
-			case 'string':
-				return data.length <= size;
-			case 'number':
-				return data <= size;
-			default:
-				return false;
-		}
-	}
-
-	checkRequired(data, required) {
-		if (required)
-			return data.length >= 0 || data !== null;
-	}
-
-	checkMin(data, min) {
-		return data >= min;
-	}
-
-	checkMax(data, min) {
-		return data <= min;
-	}
-
-	isEmptyObj(obj) {
-		return Object.keys(obj).length === 0;
-	}
 
 	validate(objSchema, objData) {
 		let errors = [];
 		for (const property in objSchema) {
-			let data = objData[property];
-			let propertyCheck = property;
-			let schema = objSchema[property];
-			let error = {};
-			for (const property in schema) {
-				switch (property) {
-					case 'type':
-						if (!this.checkType(data, schema[property]))
-							error.type = `The schema declared doesn't match with the data passed. ` +
-								" \r\n Schema Type: " + schema[property] + " \r\n Data Type: " + this.getType(data);
-						break;
-					case 'size':
-						if (!this.checkSize(data, schema[property]))
-							error.size = `The schema declared doesn't match with the data passed. ` +
-								" \r\n Schema size: " + schema[property] + " \r\n Data size: " + this.getType(data);
-						break;
-					case 'required':
-						if (schema[property] && !this.checkRequired(data, schema[property]))
-							error.required = `The schema declared doesn't match with the data passed. ` +
-								" \r\n Schema required: " + schema[property] + " \r\n Data passed is null or empty ";
-						break;
-					case 'min':
-						if (schema[property] && !this.checkMin(data, schema[property]))
-							error.min = `The schema declared doesn't match with the data passed. ` +
-								" \r\n Schema min value: " + schema[property] + " \r\n Data passed: " + data;
-						break;
-					case 'max':
-						if (schema[property] && !this.checkMax(data, schema[property]))
-							error.max = `The schema declared doesn't match with the data passed. ` +
-								" \r\n Schema max value: " + schema[property] + " \r\n Data passed: " + data;
-						break;
-				}
-			}
-
-			//if there was errors than added to array of errors
-			if(!this.isEmptyObj(error))
-				errors[propertyCheck] = error;
+			_val(objSchema[property], objData[property], &errors);
 		}
-
 		return this.isEmptyObj(errors) ? { result: true, errors: errors } : { result: false, errors: errors };
+	}
+		
+	_val(objSchema, objData, errors){
+		let error = {};
+		
+		switch(objSchema['type']){
+			case 'array':
+				//controllo se davvero è un array
+				if(!Array.isArray(objData))
+					return false;
+				//se davvero è un array controlo se c'è il parametro obbligatorio of
+				if(objSchema.of == undefined)
+					return false;
+				//Controllo che tutti gli elementi siano dello stesso schema indicato in objSchema.of
+				for(let i = 0, i < objData.length; i++){
+					if(!_val(objSchema.of, objData[i]))
+						return false;
+				}
+				return true;
+			case 'int':
+				return data.int.validate(objSchema, objData);
+			case 'float':
+				return data.float.validate(objSchema, objData);
+			case 'double':
+				return data.double.validate(objSchema, objData);
+			default:
+				return false;
+		}
+		/*
+		for (const property in objSchema) {
+			switch (property) {
+				case 'type':
+					//type definition is required
+					if (!this.checkType(data, objSchema[property]))
+						error.type = `The schema declared doesn't match with the data passed. ` +
+							" \r\n Schema Type: " + objSchema[property] + " \r\n Data Type: " + this.getType(data);
+					break;
+				case 'size':
+					if (!this.checkSize(data, objSchema[property]))
+						error.size = `The schema declared doesn't match with the data passed. ` +
+							" \r\n Schema size: " + objSchema[property] + " \r\n Data size: " + this.getType(data);
+					break;
+				case 'required':
+					if (objSchema[property] && !this.checkRequired(data, objSchema[property]))
+						error.required = `The schema declared doesn't match with the data passed. ` +
+							" \r\n Schema required: " + objSchema[property] + " \r\n Data passed is null or empty ";
+					break;
+				case 'min':
+					if (objSchema[property] && !this.checkMin(data, objSchema[property]))
+						error.min = `The schema declared doesn't match with the data passed. ` +
+							" \r\n Schema min value: " + objSchema[property] + " \r\n Data passed: " + data;
+					break;
+				case 'max':
+					if (objSchema[property] && !this.checkMax(data, objSchema[property]))
+						error.max = `The schema declared doesn't match with the data passed. ` +
+							" \r\n Schema max value: " + objSchema[property] + " \r\n Data passed: " + data;
+					break;
+			}
+		}
+*/
+		//if there was errors than added to array of errors
+		/*if(!this.isEmptyObj(error))
+			errors[propertyCheck] = error;
+		*/
 	}
 };
 
