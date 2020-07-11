@@ -6,18 +6,18 @@
 
 //Definizione di un generale valore
 class superData{
-	function validate(schema, value){
+	function validate(property, schema, value, errors){
 		let ret = true;
-		for (const property in schema) {
-			switch(property){
+		for (const pp in schema) {
+			switch(pp){
 				case 'min':
-					ret = this.min(schema, value);
+					ret = this.min(property, schema, value, &errors);
 					break
 				case 'max':
-					ret = this.min(schema, value);
+					ret = this.min(property, schema, value, &errors);
 					break
 				case 'required':
-					ret = this.required(schema, value);
+					ret = this.required(property, schema, value, &errors);
 					break
 				default:
 					break;
@@ -27,68 +27,64 @@ class superData{
 		}
 		return true;
 	}
-	function min(schema, value){ return true }	//per alcuni tipi può non esistere min e max(bool)
-	function max(schema, value){ return true }
-	abstract function required(schema, value);
+	function max(property, schema, value, errors){
+		if(value <= schema['max']{
+			errors.push(property+" is not greater than "+schema['max']);
+			return false;
+		}
+		return true;
+	}
+	function required(property, schema, value, errors){
+		if(value == undefined || value == null || value == ""){
+			errors.push(property+" is required");
+			return false;
+		}
+		return true;
+	}
+	abstract function required(property, schema, value, errors);
 }
+//Numeric data (int, double, float..)
 class numberData extends superData{
-	function validate(schema, value){
-		if(typeof value = "number")
+	function validate(property, schema, value, errors){
+		if(typeof value = "number"){
+			errors.push(property+" is not a number");
 			return false;
-		else
-			super.validate(schema, value);
-	}	
-	function min(schema, value){
-		if(value >= schema['min'])
-			return false;
+		}else
+			super.validate(property, schema, value, &errors);
 	}
-	function max(schema, value){
-		if(value <= schema['max'])
+	function required(property, schema, value, errors){
+		if(value == undefined || value == null || value == ""){
+			errors.push(property+" is required");
 			return false;
-	}
-	function required(schema, value){
-		if(value == undefined || value == null || value == "")
-			return false;
+		}
+		return true;
 	}
 }
+//String data (string, date, datetime, ip, mac, email.....)
 class stringData extends superData{
-	function required(schema, value){
-		if(value == undefined || value == null || value == "")
+	function required(property, schema, value, errors){
+			errors.push(property+" is required");
 			return false;
+		}
+		return true;
 	}
 }
 
 exports.data = {
 	int : class intData extends numberData{
 		//Per gli int controllo che non abbia parte decimale dividendo per 1
-		function validate(schema, value){
-			if(value%1 != 0)
+		function validate(property, schema, value, errors){
+			if(value%1 != 0){
+				errors.push(property+" is not int");
 				return false;
-			else
-			super.validate(schema, value);
+			}else
+			super.validate(property, schema, value, &errors);
 		}
 	},
-	float: class floatData extends numberData{},
-	double: class doubleData extends numberData{},
+	float : class floatData extends numberData{},
+	double : class doubleData extends numberData{},
 	string : stringData,
-	date : class dateData extends stringData{
-		function min(schema, value){
-			if(value >= schema['min'])
-				return false;
-		}
-		function max(schema, value){
-			if(value <= schema['max'])
-				return false;
-		}
-	},
-	datetime : class datetimeData extends stringData{
-		function min(schema, value){
-			if(value >= schema['min'])
-				return false;
-		}
-		function max(schema, value){
-			if(value <= schema['max'])
-				return false;
-		}
-	}
+	date : class dateData extends stringData{},
+	datetime : class datetimeData extends stringData{}
+	//Here we can add new type
 };
