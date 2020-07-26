@@ -1,8 +1,8 @@
 {
-  "name": "@runtheons/runtheons-validate",
-  "version": "1.0.0",
+  "name": "runtheons-validate",
+  "version": "1.1.0",
   "description": "useful package to manage in the easiest way possible the validation of data passed through API",
-  "main": "validate/Runtheons_validate.js",
+  "main": "index.js",
   "dependencies": {
     "npmrc": "^1.1.1"
   },
@@ -18,7 +18,10 @@
     "endpoint validation",
     "api validation"
   ],
-  "author": "iamousseni",
+  "author": [
+	"iamousseni",
+	"Zexal0807"
+	],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/iamousseni/runtheons-validate/issues"
