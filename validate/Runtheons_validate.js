@@ -23,11 +23,10 @@ module.exports = class RuntheonsValidate {
 		switch(objSchema['type']){
 			case 'object':
 				//Alcuni controlli
-				
 				var s = Object.entries(objData);
 
 				for(let i = 0; i < s.length; i++){
-					this._val(property+"."+s[i][0], objSchema.of, s[i][1], errors);
+					this._val(property+"."+s[i][0], objSchema.of[s[i][0]], s[i][1], errors);
 				}
 
 				break;
