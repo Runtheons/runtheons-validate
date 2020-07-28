@@ -21,6 +21,16 @@ module.exports = class RuntheonsValidate {
 			errors.push(property+" haven't 'type' parameter");
 		}
 		switch(objSchema['type']){
+			case: 'object':
+				//Alcuni controlli
+				
+				var s = Object.entries(objData);
+
+				for(let i = 0; i < s.length; i++){
+					this._val(property+"."+s[i][0], objSchema.of, s[i][1], errors);
+				}
+
+				break;
 			case 'array':
 				if(objSchema['required'] == undefined || objSchema['required'] == true){
 					if(objData == undefined){
