@@ -21,7 +21,7 @@ module.exports = class RuntheonsValidate {
 			errors.push(property+" haven't 'type' parameter");
 		}
 		switch(objSchema['type']){
-			case: 'object':
+			case 'object':
 				//Alcuni controlli
 				
 				var s = Object.entries(objData);
