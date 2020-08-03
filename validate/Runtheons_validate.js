@@ -2,7 +2,7 @@
  *  @author Ousseni Bara
  *  @author Zexal0807
  *  @github iamousseni
- *  @version 1.1.1.1
+ *  @version 1.2.0.0
  */
 
 const data = require('./data.js');
@@ -13,7 +13,7 @@ module.exports = class RuntheonsValidate {
 		for (const property in objSchema) {
 			this._val(property, objSchema[property], objData[property], errors);
 		}
-		var result = (errors.lenght == 0 ? true : false);
+		var result = (errors.length == 0 ? true : false);
 		return { result: result, errors: errors };
 	}
 		
@@ -69,6 +69,18 @@ module.exports = class RuntheonsValidate {
 				break;
 			case 'string':
 				data.string.validate(property, objSchema, objData, errors);
+				break;
+			case 'date':
+				data.date.validate(property, objSchema, objData, errors);
+				break;
+			case 'datetime':
+				data.datetime.validate(property, objSchema, objData, errors);
+				break;
+			case 'email':
+				data.email.validate(property, objSchema, objData, errors);
+				break;
+			case 'file':
+				data.file.validate(property, objSchema, objData, errors);
 				break;
 			default:
 				errors.push(property+" type is unknown");

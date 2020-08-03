@@ -1,23 +1,22 @@
 /**
  *  @author Zexal0807
  *  @github iamousseni
- *  @version 1.0.0.0
+ *  @version 1.2.0.0
  */
 
 //Definizione di un generale valore
 class superData{
 	validate(property, schema, value, errors){
-		let ret = true;
 		for (const pp in schema) {
 			switch(pp){
 				case 'min':
-					ret = this.min(property, schema, value, errors);
+					this.min(property, schema, value, errors);
 					break
 				case 'max':
-					ret = this.max(property, schema, value, errors);
+					this.max(property, schema, value, errors);
 					break
 				case 'required':
-					ret = this.required(property, schema, value, errors);
+					this.required(property, schema, value, errors);
 					break
 				default:
 					break;
@@ -49,8 +48,9 @@ class numberData extends superData{
 	validate(property, schema, value, errors){
 		if(typeof value != "number"){
 			errors.push(property+" is not a number");
-		}else
+		}else{
 			super.validate(property, schema, value, errors);
+		}
 	}
 }
 
@@ -59,8 +59,9 @@ class stringData extends superData{
 	validate(property, schema, value, errors){
 		if(typeof value != "string"){
 			errors.push(property+" is not a string");
-		}else
+		}else{
 			super.validate(property, schema, value, errors);
+		}
 	}
 }
 
@@ -77,7 +78,35 @@ module.exports = {
 	float : new class floatData extends numberData{},
 	double : new class doubleData extends numberData{},
 	string : new stringData,
-	date : new class dateData extends stringData{},
-	datetime : new class datetimeData extends stringData{}
+	date : new class dateData extends stringData{
+		//from format
+	},
+	datetime : new class datetimeData extends stringData{
+		//from format
+	},
+	email : new class emailData extends stringData{
+		validate(property, schema, value, errors){
+			super.validate(property, schema, value, errors);
+			var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if(!reg.test(value)){
+				errors.push(property+" is not a email");
+			}
+		}
+	},
+	file : new class fileData extends superData{
+		max(property, schema, value, errors){}
+		min(property, schema, value, errors){}
+		validate(property, schema, value, errors){
+			super.validate(property, schema, value, errors);
+	/*		
+	if (!req.files || Object.keys(req.files).length === 0) {
+		return res.status(400).send('No files were uploaded.');
+	}*/
+			
+
+			errors.push(property+" is not a file");
+			
+		}
+	}
 	//Here we can add new type
 };
