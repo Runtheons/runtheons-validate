@@ -4,6 +4,7 @@
   "description": "useful package to manage in the easiest way possible the validation of data passed through API",
   "main": "index.js",
   "dependencies": {
+    "moment": "^2.27.0",
     "npmrc": "^1.1.1"
   },
   "devDependencies": {},
@@ -19,8 +20,8 @@
     "api validation"
   ],
   "author": [
-	"iamousseni",
-	"Zexal0807"
+    "iamousseni",
+    "Zexal0807"
   ],
   "license": "ISC",
   "bugs": {

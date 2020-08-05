@@ -23,21 +23,26 @@ module.exports = class RuntheonsValidate {
 		}
 		switch(objSchema['type']){
 			case 'object':
-				if(objSchema['required'] == undefined && objSchema['required'] == true){
+				if(objSchema['required'] == undefined || objSchema['required'] == true){
 					if(objData == undefined){
 						errors.push(property+" is required");
 					}else{
-						//Alcuni controlli
-						var s = Object.entries(objData);
+						//controlo se c'è il parametro obbligatorio of
+						if(objSchema.of == undefined){
+							errors.push(property+" haven't 'of' parameter");
+						}else{
+							//Alcuni controlli
+							var s = Object.entries(objData);
 
-						for(let i = 0; i < s.length; i++){
-							this._val(property+"."+s[i][0], objSchema.of[s[i][0]], s[i][1], errors);
+							for(let i = 0; i < s.length; i++){
+								this._val(property+"."+s[i][0], objSchema.of[s[i][0]], s[i][1], errors);
+							}
 						}
 					}
 				}
 				break;
 			case 'array':
-				if(objSchema['required'] == undefined && objSchema['required'] == true){
+				if(objSchema['required'] == undefined || objSchema['required'] == true){
 					if(objData == undefined){
 						errors.push(property+" is required");
 					}else{
