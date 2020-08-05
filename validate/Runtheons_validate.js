@@ -72,21 +72,28 @@ module.exports = class RuntheonsValidate {
 			case 'double':
 				data.double.validate(property, objSchema, objData, errors);
 				break;
+				
 			case 'string':
 				data.string.validate(property, objSchema, objData, errors);
-				break;
-			case 'date':
-				data.date.validate(property, objSchema, objData, errors);
-				break;
-			case 'datetime':
-				data.datetime.validate(property, objSchema, objData, errors);
 				break;
 			case 'email':
 				data.email.validate(property, objSchema, objData, errors);
 				break;
+				
+			case 'date':
+				data.date.validate(property, objSchema, objData, errors);
+				break;
+			case 'dateTime':
+				data.dateTime.validate(property, objSchema, objData, errors);
+				break;
+			case 'time':
+				data.time.validate(property, objSchema, objData, errors);
+				break;
+				
 			case 'file':
 				data.file.validate(property, objSchema, objData, errors);
 				break;
+				
 			default:
 				errors.push(property+" type is unknown");
 		}
