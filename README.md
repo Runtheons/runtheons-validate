@@ -33,14 +33,14 @@ This repository contains the source code and official documentation of the endpo
 It is necessary to define an object schema that defines the input you want to receive, for each element of the object it is necessary to define its type:
 
 The types of inputs are:
-- int
-- float
-- double
-- string
-- date
-- datetime
-- object
-- array
+- [int](https://github.com/iamousseni/runtheons-validate#int "int")
+- [float](https://github.com/iamousseni/runtheons-validate#float "float")
+- [double](https://github.com/iamousseni/runtheons-validate#double "double")
+- [string](https://github.com/iamousseni/runtheons-validate#string "string")
+- [email](https://github.com/iamousseni/runtheons-validate#email "email")
+- [date](https://github.com/iamousseni/runtheons-validate#date "date")
+- [datetime](https://github.com/iamousseni/runtheons-validate#datetime "time")
+- [time](https://github.com/iamousseni/runtheons-validate#time "time")
 
 Here an example
 ```javascript
@@ -56,8 +56,64 @@ var objSchema = {
 }
 ```
 
-Each type of input is defined in `validate/data.js` as a class that extends from the superclass data, to add a new data type it is necessary to add a new export in data.js.
-This new type already has some attributes (eg Max, min, required), you can/should overwrite the function otherwise it will always return true.
+New type 
+
+## int
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal value that the input can be |
+| max        | int   | Set the minimum value that can be the input |
+| required   | bool  | Set if this field is required               |
+
+## float
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal value that the input can be |
+| max        | int   | Set the minimum value that can be the input |
+| required   | bool  | Set if this field is required               |
+
+## double
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal value that the input can be |
+| max        | int   | Set the minimum value that can be the input |
+| required   | bool  | Set if this field is required               |
+
+## string
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required               |
+| reg   | string  | A regular expression that must match the input |
+
+
+## email
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required               |
+
+
+## date
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal value that the input can be |
+| max        | int   | Set the minimum value that can be the input |
+| required   | bool  | Set if this field is required               |
+
+
+## datetime
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal value that the input can be |
+| max        | int   | Set the minimum value that can be the input |
+| required   | bool  | Set if this field is required               |
+
+
+## time
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal value that the input can be |
+| max        | int   | Set the minimum value that can be the input |
+| required   | bool  | Set if this field is required               |
 
 # Example of use
 
@@ -155,5 +211,10 @@ When the validator understands the type of input, it calls the validator method 
 
 - root
     - index.js > Export of the validator
-    - validate/data.js > Data type of the validator
+    - validate/data.js > The export data type of the validator
+	- superData.js > The super class of a data
+	- numberData.js > The class of a number data, it provides int, float and double type
+	- stringData.js > The class of a string data, it provides string and email type
+	- dateData.js > The class of a date data, it provides date, datetime and time type
+	- fileData.js > The class of a file data, it provides file type
     - validate/Runtheons_validate.js > Main program of the validator

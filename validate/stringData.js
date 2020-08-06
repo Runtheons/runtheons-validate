@@ -5,7 +5,7 @@ class stringData extends superData{
 	
 	constructor(){
 		super();
-		this.attr = ["min", "max", "required", "reg"];
+		this.attr = ["required", "reg"];
 	}
 	
 	validate(property, schema, value, errors){
@@ -27,6 +27,12 @@ class stringData extends superData{
 exports.string = stringData
 
 exports.email = class emailData extends stringData{
+	
+	constructor(){
+		super();
+		this.attr = ["required"];
+	}
+	
 	validate(property, schema, value, errors){
 		super.validate(property, schema, value, errors);
 		var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
