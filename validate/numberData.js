@@ -2,6 +2,11 @@ const superData = require("./superData");
 
 //Numeric data (int, double, float..)
 class numberData extends superData{
+	
+	constructor(){
+		this.attr = ["min", "max", "required"];
+	}
+	
 	validate(property, schema, value, errors){
 		if(typeof value != "number"){
 			errors.push(property+" is not a number");

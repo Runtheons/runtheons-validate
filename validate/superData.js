@@ -1,20 +1,15 @@
 //Definizione di un generale valore
 
 module.exports = class superData{
+	
+	constructor(){
+		this.attr = ["min", "max", "required"];
+	}
+	
 	validate(property, schema, value, errors){
 		for (const pp in schema) {
-			switch(pp){
-				case 'min':
-					this.min(property, schema, value, errors);
-					break
-				case 'max':
-					this.max(property, schema, value, errors);
-					break
-				case 'required':
-					this.required(property, schema, value, errors);
-					break
-				default:
-					break;
+			if(this.attr.includes(pp)){
+				this[pp](property, schema, value, errors);
 			}
 		}
 	}

@@ -2,11 +2,23 @@ const superData = require("./superData");
 
 //String data (string, date, datetime, ip, mac, email.....)
 class stringData extends superData{
+	
+	constructor(){
+		this.attr = ["min", "max", "required", "reg"];
+	}
+	
 	validate(property, schema, value, errors){
 		if(typeof value != "string"){
 			errors.push(property+" is not a string");
 		}else{
 			super.validate(property, schema, value, errors);
+		}
+	}
+	
+	reg(property, schema, value, errors){
+		var reg = schema['reg'];
+		if(!reg.test(value)){
+			errors.push(property+" don't match the reg "+reg);
 		}
 	}
 }

@@ -3,9 +3,9 @@ const moment = require('moment');
 
 //Date data
 class dateData extends stringData{
-	
-	constructor (){
-		super();
+	constructor(){
+		this.attr = ["min", "max", "required"];		
+		//Attribuit x i quali serve una funzione, format viene eseguito sempre con un valore di default
 		this.f = "YYYY-MM-DD";
 	}
 	
@@ -18,8 +18,8 @@ class dateData extends stringData{
 	}
 	
 	min(property, schema, value, errors){
-		var v = moment(value, schema['format'].toUpperCase(), true);
-		var m = moment(schema['min'], schema['format'].toUpperCase(), true);
+		var v = moment(value, schema['format'], true);
+		var m = moment(schema['min'], schema['format'], true);
 		if(!m.isValid()){
 			errors.push("The min setted in "+property+" isn't in the correct format: "+schema['format']);
 		}else{
@@ -34,8 +34,8 @@ class dateData extends stringData{
 	}
 	
 	max(property, schema, value, errors){
-		var v = moment(value, schema['format'].toUpperCase(), true);
-		var m = moment(schema['max'], schema['format'].toUpperCase(), true);
+		var v = moment(value, schema['format'], true);
+		var m = moment(schema['max'], schema['format'], true);
 		if(!m.isValid()){
 			errors.push("The max setted in "+property+" isn't in the correct format: "+schema['format']);
 		}else{
@@ -51,7 +51,7 @@ class dateData extends stringData{
 	
 	format(property, schema, value, errors){
 		//converte il valore in una data partendo dal format
-		if(!moment(value, schema['format'].toUpperCase(), true).isValid()){
+		if(!moment(value, schema['format'], true).isValid()){
 			errors.push(property+" isn't in the correct format: "+schema['format']);
 		}
 	}
@@ -61,15 +61,15 @@ class dateData extends stringData{
 exports.date = dateData
 
 exports.dateTime = class dateTimeData extends dateData{
-	constructor (){
-		super();
-		this.f = "YYYY-MM-DD HH:II:SS";
+	constructor(){
+		this.attr = ["min", "max", "required"];	
+		this.f = "YYYY-MM-DD HH:mm:ss";
 	}
 }
 
 exports.time = class timeData extends dateData{
-	constructor (){
-		super();
-		this.f = "HH:II:SS";
+	constructor(){
+		this.attr = ["min", "max", "required"];	
+		this.f = "HH:mm:ss";
 	}
 }
