@@ -4,6 +4,7 @@ const superData = require("./superData");
 class numberData extends superData{
 	
 	constructor(){
+		super();
 		this.attr = ["min", "max", "required"];
 	}
 	

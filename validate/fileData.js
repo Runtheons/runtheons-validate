@@ -3,6 +3,7 @@ const superData = require("./superData");
 class fileData extends superData{
 	
 	constructor(){
+		super();
 		this.attr = ["required"];	
 	}
 	

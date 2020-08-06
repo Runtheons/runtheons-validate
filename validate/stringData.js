@@ -4,6 +4,7 @@ const superData = require("./superData");
 class stringData extends superData{
 	
 	constructor(){
+		super();
 		this.attr = ["min", "max", "required", "reg"];
 	}
 	
@@ -16,8 +17,8 @@ class stringData extends superData{
 	}
 	
 	reg(property, schema, value, errors){
-		var reg = schema['reg'];
-		if(!reg.test(value)){
+		var reg = new RegExp(schema['reg']);
+		if(!reg.exec(value)){
 			errors.push(property+" don't match the reg "+reg);
 		}
 	}

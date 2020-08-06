@@ -3,7 +3,9 @@ const moment = require('moment');
 
 //Date data
 class dateData extends stringData{
+	
 	constructor(){
+		super();
 		this.attr = ["min", "max", "required"];		
 		//Attribuit x i quali serve una funzione, format viene eseguito sempre con un valore di default
 		this.f = "YYYY-MM-DD";
@@ -61,15 +63,21 @@ class dateData extends stringData{
 exports.date = dateData
 
 exports.dateTime = class dateTimeData extends dateData{
+	
 	constructor(){
+		super();
 		this.attr = ["min", "max", "required"];	
 		this.f = "YYYY-MM-DD HH:mm:ss";
 	}
+	
 }
 
 exports.time = class timeData extends dateData{
+	
 	constructor(){
+		super();
 		this.attr = ["min", "max", "required"];	
 		this.f = "HH:mm:ss";
 	}
+	
 }
