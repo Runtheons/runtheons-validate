@@ -5,7 +5,7 @@ class stringData extends superData{
 	
 	constructor(){
 		super();
-		this.attr = ["required", "reg"];
+		this.attr = ["required", "reg", "maxsize", "minsize"];
 	}
 	
 	validate(property, schema, value, errors){
@@ -20,6 +20,18 @@ class stringData extends superData{
 		var reg = new RegExp(schema['reg']);
 		if(!reg.exec(value)){
 			errors.push(property+" don't match the reg "+reg);
+		}
+	}
+	
+	minsize(property, schema, value, errors){
+		if(value.length < schema['min']){
+			errors.push(property+" length is lower than "+schema['min']);
+		}
+	}
+	
+	maxsize(property, schema, value, errors){
+		if(value.length > schema['maxsize']){
+			errors.push(property+" length is greater than "+schema['max']);
 		}
 	}
 }

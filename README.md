@@ -39,8 +39,9 @@ The types of inputs are:
 - [string](https://github.com/iamousseni/runtheons-validate#string "string")
 - [email](https://github.com/iamousseni/runtheons-validate#email "email")
 - [date](https://github.com/iamousseni/runtheons-validate#date "date")
-- [datetime](https://github.com/iamousseni/runtheons-validate#datetime "time")
+- [datetime](https://github.com/iamousseni/runtheons-validate#datetime "datetime")
 - [time](https://github.com/iamousseni/runtheons-validate#time "time")
+- [file](https://github.com/iamousseni/runtheons-validate#file "file")
 
 Here an example
 ```javascript
@@ -62,21 +63,21 @@ New type
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
 | min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the minimum value that can be the input |
+| max        | int   | Set the maximal value that the input can be |
 | required   | bool  | Set if this field is required               |
 
 ## float
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
 | min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the minimum value that can be the input |
+| max        | int   | Set the maximal value that the input can be |
 | required   | bool  | Set if this field is required               |
 
 ## double
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
 | min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the minimum value that can be the input |
+| max        | int   | Set the maximal value that the input can be |
 | required   | bool  | Set if this field is required               |
 
 ## string
@@ -84,6 +85,8 @@ New type
 |------------|-------|---------------------------------------------|
 | required   | bool  | Set if this field is required               |
 | reg   | string  | A regular expression that must match the input |
+| minlength  | int   | Set the minimal length that the input can be |
+| maxlength | int   | Set the maximal length that the input can be |
 
 
 ## email
@@ -95,25 +98,31 @@ New type
 ## date
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the minimum value that can be the input |
+| min        | int   | Set the minimal date that the input can be |
+| max        | int   | Set the maximal date that the input can be |
 | required   | bool  | Set if this field is required               |
 
 
 ## datetime
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the minimum value that can be the input |
+| min        | int   | Set the minimal datetime that the input can be |
+| max        | int   | Set the maximal datetime that the input can be |
 | required   | bool  | Set if this field is required               |
 
 
 ## time
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the minimum value that can be the input |
+| min        | int   | Set the minimal time that the input can be |
+| max        | int   | Set the maximal time that the input can be |
 | required   | bool  | Set if this field is required               |
+
+## file
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required               |
+| mimetype   | string  | A regular expression that must match the file mimetype |
 
 # Example of use
 

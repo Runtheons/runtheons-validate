@@ -4,7 +4,7 @@ class fileData extends superData{
 	
 	constructor(){
 		super();
-		this.attr = ["required"];	
+		this.attr = ["required", "mimetype"];
 	}
 	
 	validate(property, schema, value, errors){
@@ -17,6 +17,13 @@ class fileData extends superData{
 			value.mimetype == undefined
 		){
 			errors.push(property+" is not a file");
+		}
+	}
+	
+	mimetype(property, schema, value, errors){
+		var reg = new RegExp(schema['mimetype']);
+		if(!reg.exec(value)){
+			errors.push(property+"'s mimetype isn't "+reg);
 		}
 	}
 }
