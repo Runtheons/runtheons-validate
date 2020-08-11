@@ -18,7 +18,7 @@ class stringData extends superData{
 	
 	reg(property, schema, value, errors){
 		var reg = new RegExp(schema['reg']);
-		if(!reg.exec(value)){
+		if(reg.exec(value) != value){
 			errors.push(property+" don't match the reg "+reg);
 		}
 	}
