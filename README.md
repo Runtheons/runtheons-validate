@@ -122,7 +122,7 @@ New type
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
 | required   | bool  | Set if this field is required               |
-| mimetype   | string  | A regular expression that must match the file mimetype |
+| mimetype   | string or Array of string  | A regular expression or array of regular expressions that must match the file mimetype |
 
 # Example of use
 

@@ -21,9 +21,23 @@ class fileData extends superData{
 	}
 	
 	mimetype(property, schema, value, errors){
-		var reg = new RegExp(schema['mimetype']);
-		if(!reg.exec(value)){
-			errors.push(property+"'s mimetype isn't "+reg);
+		value = value.mimeType;
+		if(Array.isArray(schema['mimetype'])){
+			var f = false;
+			for(var i = 0; i < schema['mimetype'].length; i++){
+				var reg = new RegExp(schema['mimetype'][i]);
+				if(reg.exec(value) == value){
+					f = true;
+				}
+			}
+			if(!f){
+				errors.push(property+"'s mimetype isn't in the avaible list");
+			}
+		}else{
+			var reg = new RegExp(schema['mimetype']);
+			if(reg.exec(value) != value){
+				errors.push(property+"'s mimetype isn't "+reg);
+			}
 		}
 	}
 }
