@@ -38,10 +38,11 @@ The types of inputs are:
 - [double](https://github.com/iamousseni/runtheons-validate#double "double")
 - [string](https://github.com/iamousseni/runtheons-validate#string "string")
 - [email](https://github.com/iamousseni/runtheons-validate#email "email")
+- [file](https://github.com/iamousseni/runtheons-validate#file "file")
 - [date](https://github.com/iamousseni/runtheons-validate#date "date")
 - [datetime](https://github.com/iamousseni/runtheons-validate#datetime "datetime")
 - [time](https://github.com/iamousseni/runtheons-validate#time "time")
-- [file](https://github.com/iamousseni/runtheons-validate#file "file")
+	- [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed_data_format_key "Allowed data format key")
 
 Here an example
 ```javascript
@@ -94,12 +95,21 @@ New type
 |------------|-------|---------------------------------------------|
 | required   | bool  | Set if this field is required               |
 
+## file
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required               |
+| mimetype   | string or Array of string  | A regular expression or array of regular expressions that must match the file mimetype |
+
 
 ## date
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
 | min        | int   | Set the minimal date that the input can be |
 | max        | int   | Set the maximal date that the input can be |
+| minage     | object| Set the dinamical minimal date that the input can be <br />Allow keys are: years, quarters, months, weeks, days <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
+| maxage     | object| Set the dinamical maximal date that the input can be <br />Allow keys are: years, quarters, months, weeks, days <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
+| format | string | Set the format of the input value (and the min/max attributes) <br />See below for allowed key|
 | required   | bool  | Set if this field is required               |
 
 
@@ -108,6 +118,9 @@ New type
 |------------|-------|---------------------------------------------|
 | min        | int   | Set the minimal datetime that the input can be |
 | max        | int   | Set the maximal datetime that the input can be |
+| minage     | object| Set the dinamical minimal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
+| maxage     | object| Set the dinamical maximal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br />Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
+| format | string | Set the format of the input value (and the min/max attributes) <br />See below for allowed key|
 | required   | bool  | Set if this field is required               |
 
 
@@ -116,13 +129,28 @@ New type
 |------------|-------|---------------------------------------------|
 | min        | int   | Set the minimal time that the input can be |
 | max        | int   | Set the maximal time that the input can be |
+| minage     | object| Set the dinamical minimal time that the input can be <br /> Allow keys are: hours, minutes, seconds, milliseconds <br/> Es. set the key as 'hours' and the value as 1, for check if is greater than 1 hour|
+| maxage     | object| Set the dinamical maximal time that the input can be <br />Allow keys are: hours, minutes, seconds, milliseconds <br /> Es. set the key as 'hours' and the value as 1, for check if is greater than 1 hour|
+| format | string | Set the format of the input value (and the min/max attributes) <br />See below for allowed key|
 | required   | bool  | Set if this field is required               |
 
-## file
-| parameters | type |                                             |
-|------------|-------|---------------------------------------------|
-| required   | bool  | Set if this field is required               |
-| mimetype   | string or Array of string  | A regular expression or array of regular expressions that must match the file mimetype |
+
+### Allowed data format key
+
+|Input|	Example	|Description|
+|---|---|---|
+|YYYY|	2014	|4 or 2 digit year. Note: Only 4 digit can be parsed on strict mode|
+|YY	|14	|2 digit year|
+|Y	|-25	|Year with any number of digits and sign|
+|Q	|1..4	|Quarter of year. Sets month to first month in quarter.|
+|M MM|	1..12	|Month number|
+|MMM MMMM	|December	|Month name(ENG)|
+|D DD|	1..31	|Day of month|
+|Do|	1st..31st	|Day of month with ordinal|
+|DDD DDDD|	1..365	|Day of year|
+|X|	1410715640.579	|Unix timestamp|
+|x|	1410715640579	|Unix timestamp in milliseconds|
+
 
 # Example of use
 

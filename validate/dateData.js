@@ -6,7 +6,7 @@ class dateData extends stringData{
 	
 	constructor(){
 		super();
-		this.attr = ["min", "max", "required"];		
+		this.attr = ["min", "max", "required", "minage", "maxage"];	
 		//Attribuit x i quali serve una funzione, format viene eseguito sempre con un valore di default
 		this.f = "YYYY-MM-DD";
 	}
@@ -51,6 +51,24 @@ class dateData extends stringData{
 		}
 	}
 	
+	minage(property, schema, value, errors){
+		var v = moment(value);
+		var m = moment().subtract(schema['minage']);
+		var r = moment.min(v, m);	//Trovo il minimo tra i due
+		if(r != v){		//Se il valore minimo non è il valore -> errore
+			errors.push(property+" must be greater");	
+		}
+	}
+
+	maxage(property, schema, value, errors){
+		var v = moment(value);
+		var m = moment().subtract(schema['maxage']);
+		var r = moment.max(v, m);	//Trovo il minimo tra i due
+		if(r != v){		//Se il valore minimo non è il valore -> errore
+			errors.push(property+" must be lower");	
+		}
+	}
+	
 	format(property, schema, value, errors){
 		//converte il valore in una data partendo dal format
 		if(!moment(value, schema['format'], true).isValid()){
@@ -66,7 +84,7 @@ exports.dateTime = class dateTimeData extends dateData{
 	
 	constructor(){
 		super();
-		this.attr = ["min", "max", "required"];	
+		this.attr = ["min", "max", "required", "minage", "maxage"];	
 		this.f = "YYYY-MM-DD HH:mm:ss";
 	}
 	
@@ -76,7 +94,7 @@ exports.time = class timeData extends dateData{
 	
 	constructor(){
 		super();
-		this.attr = ["min", "max", "required"];	
+		this.attr = ["min", "max", "required", "minage", "maxage"];	
 		this.f = "HH:mm:ss";
 	}
 	
