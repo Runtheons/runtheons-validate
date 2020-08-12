@@ -42,7 +42,7 @@ The types of inputs are:
 - [date](https://github.com/iamousseni/runtheons-validate#date "date")
 - [datetime](https://github.com/iamousseni/runtheons-validate#datetime "datetime")
 - [time](https://github.com/iamousseni/runtheons-validate#time "time")
-	- [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed_data_format_key "Allowed data format key")
+	- [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key "Allowed data format key")
 
 Here an example
 ```javascript
