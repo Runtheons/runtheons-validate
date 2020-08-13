@@ -10,6 +10,7 @@ module.exports = {
 	
 	string : new stringData.string,
 	email : new stringData.email,
+	link : new stringData.link,
 	
 	date : new dateData.date,
 	dateTime : new dateData.dateTime,

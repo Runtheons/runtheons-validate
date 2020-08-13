@@ -53,3 +53,19 @@ exports.email = class emailData extends stringData{
 		}
 	}
 }
+
+exports.link = class linkData extends stringData{
+	
+	constructor(){
+		super();
+		this.attr = ["required"];
+	}
+	
+	validate(property, schema, value, errors){
+		super.validate(property, schema, value, errors);
+		var reg = /^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})$/;
+		if(!reg.test(value)){
+			errors.push(property+" is not a link");
+		}
+	}
+}
