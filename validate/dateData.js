@@ -84,7 +84,7 @@ exports.dateTime = class dateTimeData extends dateData{
 	
 	constructor(){
 		super();
-		this.attr = ["min", "max", "required", "minage", "maxage"];	
+		this.attr = ["min", "max", "required", "minage", "maxage", "format"];	
 		this.f = "YYYY-MM-DD HH:mm:ss";
 	}
 	
@@ -94,7 +94,7 @@ exports.time = class timeData extends dateData{
 	
 	constructor(){
 		super();
-		this.attr = ["min", "max", "required", "minage", "maxage"];	
+		this.attr = ["min", "max", "required", "minage", "maxage", "format"];	
 		this.f = "HH:mm:ss";
 	}
 	
