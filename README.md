@@ -63,66 +63,147 @@ New type
 ## int
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the maximal value that the input can be |
+| min        | int   | Set the minimal value that the input can be (value not included) |
+| max        | int   | Set the maximal value that the input can be (value not included) |
 | required   | bool  | Set if this field is required               |
+
+```javascript
+var objSchema = {
+    id: {
+        type: 'int',
+	min: 0, 	//The unique number start at 1
+	max: 1000, 	//Only 999 users are allowed
+        required: true	//Is required
+    }
+}
+```
 
 ## float
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the maximal value that the input can be |
+| min        | int   | Set the minimal value that the input can be (value not included)  |
+| max        | int   | Set the maximal value that the input can be (value not included)  |
 | required   | bool  | Set if this field is required               |
+
+```javascript
+var objSchema = {
+    prize: {
+        type: 'float',
+	min: 0.99, 	//The minimal value is 1€
+	max: 1000, 	//Maximal prize is 999,99€
+        required: true	//Is required
+    }
+}
+```
 
 ## double
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be |
-| max        | int   | Set the maximal value that the input can be |
+| min        | int   | Set the minimal value that the input can be (value not included)  |
+| max        | int   | Set the maximal value that the input can be (value not included)  |
 | required   | bool  | Set if this field is required               |
+
+```javascript
+var objSchema = {
+    prize: {
+        type: 'double',
+	min: 0.99, 	//The minimal value is 1€
+	max: 1000, 	//Maximal prize is 999,99€
+        required: true	//Is required
+    }
+}
+```
 
 ## string
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| required   | bool  | Set if this field is required               |
+| minlength  | int   | Set the minimal length that the input can be (value not included) |
+| maxlength | int   | Set the maximal length that the input can be (value not included) |
 | reg   | string  | A regular expression that must match the input |
-| minlength  | int   | Set the minimal length that the input can be |
-| maxlength | int   | Set the maximal length that the input can be |
+| required   | bool  | Set if this field is required               |
 
+```javascript
+var objSchema = {
+    username: {
+        type: 'string',
+	minlength: 9, 		//The string size must be greater than 8 char
+	maxlength: 1000,	//The string size must be lower than 999 char,
+	reg: "[a-zA-Z]*",	//The string must match this pattern
+        required: true		//Is required
+    }
+}
+```
 
 ## email
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
 | required   | bool  | Set if this field is required               |
 
+```javascript
+var objSchema = {
+    email: {
+        type: 'email',
+        required: true		//Is required
+    }
+}
+```
+
 ## file
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| required   | bool  | Set if this field is required               |
 | mimetype   | string or Array of string  | A regular expression or array of regular expressions that must match the file mimetype |
+| required   | bool  | Set if this field is required               |
 
+```javascript
+var objSchema = {
+    photo: {
+        type: 'file',
+	mimetype: [
+		"image/png",	//Only this type of data are allowed
+		"image/jpg",
+		"image/gif"
+	],
+        required: true		//Is required
+    }
+}
+```
 
 ## date
 | parameters | type |                                             |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal date that the input can be |
-| max        | int   | Set the maximal date that the input can be |
+| min        | int   | Set the minimal date that the input can be (value not included)  |
+| max        | int   | Set the maximal date that the input can be (value not included)  |
 | minage     | object| Set the dinamical minimal date that the input can be <br />Allow keys are: years, quarters, months, weeks, days <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
 | maxage     | object| Set the dinamical maximal date that the input can be <br />Allow keys are: years, quarters, months, weeks, days <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| format | string | Set the format of the input value (and the min/max attributes) <br />See below for allowed key|
+| format | string | Set the format of the input value (and the min/max attributes), default value: YYYY-MM-DD <br />See below for allowed key|
 | required   | bool  | Set if this field is required               |
 
-
-## datetime
-| parameters | type |                                             |
-|------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal datetime that the input can be |
-| max        | int   | Set the maximal datetime that the input can be |
-| minage     | object| Set the dinamical minimal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| maxage     | object| Set the dinamical maximal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br />Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| format | string | Set the format of the input value (and the min/max attributes) <br />See below for allowed key|
-| required   | bool  | Set if this field is required               |
-
+```javascript
+var objSchema = {
+    dateSend: {
+        type: 'date',
+	format: "DD/MM/YYYY",	//The input must be in this format,
+	min: "01/01/2020",	//All the input date must be grater than 1st January 2020
+	max: "31/12/2020",	//All the input date must be lower than 31th December 2020
+				//So the input date must be in the 2020 year
+				//NB: The min and max format must be the same of the format attribute
+        required: true		//Is required
+    },
+    dateBirth: {
+        type: 'date',
+	format: "DD/MM/YYYY",	//The input must be in this format,
+	minage: {
+		"years": 14,	//All the input date must be grater than 14 years and 5 mouth old from now
+		"mounths": 5
+	},
+	maxage: {
+		"years": 99	//All the input date must be lower than 99 years old from now
+	},
+				//For more details of this object look below
+        required: true		//Is required
+    }
+}
+```
 
 ## time
 | parameters | type |                                             |
@@ -131,17 +212,79 @@ New type
 | max        | int   | Set the maximal time that the input can be |
 | minage     | object| Set the dinamical minimal time that the input can be <br /> Allow keys are: hours, minutes, seconds, milliseconds <br/> Es. set the key as 'hours' and the value as 1, for check if is greater than 1 hour|
 | maxage     | object| Set the dinamical maximal time that the input can be <br />Allow keys are: hours, minutes, seconds, milliseconds <br /> Es. set the key as 'hours' and the value as 1, for check if is greater than 1 hour|
-| format | string | Set the format of the input value (and the min/max attributes) <br />See below for allowed key|
+| format | string | Set the format of the input value (and the min/max attributes), default value: HH:mm:ss <br />See below for allowed key|
 | required   | bool  | Set if this field is required               |
 
+```javascript
+var objSchema = {
+    timeSend: {
+        type: 'time',
+	format: "HH:mm:ss",	//The input must be in this format,
+	min: "00:00:01",	//All the input time must be grater than 1 second
+	max: "10:59:59",	//All the input date must be lower than 11 a.m.
+				//NB: The min and max format must be the same of the format attribute
+        required: true		//Is required
+    },
+    timeBirth: {
+        type: 'time',
+	format: "HH:mm:ss",	//The input must be in this format,
+	minage: {
+		"hours": 1	//All the input time must be grater than 1 hours from now
+	},
+	maxage: {
+		"hours": 10	//All the input time must be lower than 10 hours from now
+	},
+				//For more details of this object look below
+        required: true		//Is required
+    }
+}
+```
+
+## datetime
+| parameters | type |                                             |
+|------------|-------|---------------------------------------------|
+| min        | int   | Set the minimal datetime that the input can be |
+| max        | int   | Set the maximal datetime that the input can be |
+| minage     | object| Set the dinamical minimal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
+| maxage     | object| Set the dinamical maximal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br />Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
+| format | string | Set the format of the input value (and the min/max attributes), default value: YYYY-MM-DD HH:mm:ss <br />See below for allowed key|
+| required   | bool  | Set if this field is required               |
+
+```javascript
+var objSchema = {
+    datetimeSend: {
+        type: 'datetime',
+	format: "DD/MM/YYYY HH:mm:ss",	//The input must be in this format,
+	min: "01/01/2020 00:00:01",	//All the input datetime must be grater than 1st January 2020 at 00:00:01
+	max: "31/12/2020 10:59:59",	//All the input datetime must be lower than 31th December 2020 at 11:00:00
+					//NB: The min and max format must be the same of the format attribute
+        required: true			//Is required
+    },
+    datetimeBirth: {
+        type: 'datetime',
+	format: "DD/MM/YYYY HH:mm:ss",	//The input must be in this format,
+	minage: {
+		"years": 14,		//All the input datetime must be grater than 14 years, 5 mouth and 1 hour old from now
+		"mounths": 5,
+		"hours": 1
+	},
+	maxage: {
+		"years": 99		//All the input datetime must be lower than 99 years old from now
+	},
+					//For more details of this object look below
+        required: true			//Is required
+    }
+}
+```
 
 ### Allowed data format key
+
+Look [moment.js](https://momentjs.com/docs/#/manipulating/ "moment.js"), for more datails
 
 |Input|	Example	|Description|
 |---|---|---|
 |YYYY|	2014	|4 or 2 digit year. Note: Only 4 digit can be parsed on strict mode|
 |YY	|14	|2 digit year|
-|Y	|-25	|Year with any number of digits and sign|
 |Q	|1..4	|Quarter of year. Sets month to first month in quarter.|
 |M MM|	1..12	|Month number|
 |MMM MMMM	|December	|Month name(ENG)|
@@ -150,6 +293,14 @@ New type
 |DDD DDDD|	1..365	|Day of year|
 |X|	1410715640.579	|Unix timestamp|
 |x|	1410715640579	|Unix timestamp in milliseconds|
+|H HH|	0..23|	Hours (24 hour time)|
+|h hh|	1..12|	Hours (12 hour time used with a A.)|
+|k kk|	1..24|	Hours (24 hour time from 1 to 24)|
+|a A|	am pm|	Post or ante meridiem (Note the one character a p are also considered valid)|
+|m mm|	0..59|	Minutes|
+|s ss|	0..59|	Seconds|
+|S SS SSS ... SSSSSSSSS|	0..999999999|	Fractional seconds|
+|Z ZZ|	+12:00|	Offset from UTC as +-HH:mm, +-HHmm, or Z|
 
 
 # Example of use
