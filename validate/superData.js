@@ -7,6 +7,11 @@ module.exports = class superData{
 	}
 	
 	validate(property, schema, value, errors){
+		//Valori di default;
+		if(schema.required != true){
+			schema.required = false;
+		}
+		
 		for (const pp in schema) {
 			if(this.attr.includes(pp)){
 				this[pp](property, schema, value, errors);
