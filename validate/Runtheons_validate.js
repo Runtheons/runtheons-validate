@@ -21,6 +21,9 @@ module.exports = class RuntheonsValidate {
 		if(objSchema['type'] == undefined){
 			errors.push(property+" haven't 'type' parameter");
 		}
+		if(objSchema['required'] != true){
+			objSchema['required'] = false;
+		}
 		switch(objSchema['type']){
 			case 'object':
 				if(objSchema['required'] == undefined || objSchema['required'] == true){

@@ -8,16 +8,18 @@ class fileData extends superData{
 	}
 	
 	validate(property, schema, value, errors){
-		super.validate(property, schema, value, errors);
-		if(
-			value.name == undefined ||
-			value.data == undefined ||
-			value.size == undefined ||
-			value.size <= 0 ||
-			value.mimetype == undefined
-		){
-			errors.push(property+" is not a file");
-		}
+		if(schema.required == true || value != undefined){
+			super.validate(property, schema, value, errors);
+			if(
+				value.name == undefined ||
+				value.data == undefined ||
+				value.size == undefined ||
+				value.size <= 0 ||
+				value.mimetype == undefined
+			){
+				errors.push(property+" is not a file");
+			}
+		}		
 	}
 	
 	mimetype(property, schema, value, errors){

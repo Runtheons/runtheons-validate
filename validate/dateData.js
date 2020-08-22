@@ -15,8 +15,10 @@ class dateData extends stringData{
 		if(schema.format == undefined){
 			schema.format = this.f;
 		}
-		this.format(property, schema, value, errors);
-		super.validate(property, schema, value, errors);
+		if(schema.required == true || value != undefined){
+			this.format(property, schema, value, errors);
+			super.validate(property, schema, value, errors);
+		}
 	}
 	
 	min(property, schema, value, errors){
