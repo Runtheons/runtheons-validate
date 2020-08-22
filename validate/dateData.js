@@ -54,7 +54,7 @@ class dateData extends stringData{
 	}
 	
 	minage(property, schema, value, errors){
-		var v = moment(value);
+		var v = moment(value, schema['format'], true);
 		var m = moment().subtract(schema['minage']);
 		var r = moment.min(v, m);	//Trovo il minimo tra i due
 		if(r != v){		//Se il valore minimo non è il valore -> errore
@@ -63,7 +63,7 @@ class dateData extends stringData{
 	}
 
 	maxage(property, schema, value, errors){
-		var v = moment(value);
+		var v = moment(value, schema['format'], true);
 		var m = moment().subtract(schema['maxage']);
 		var r = moment.max(v, m);	//Trovo il minimo tra i due
 		if(r != v){		//Se il valore minimo non è il valore -> errore
