@@ -10,9 +10,11 @@ module.exports = class RuntheonsValidate {
 
 	validate(objSchema, objData) {
 		var errors = [];
-		for (const property in objSchema) {
+
+		for (const property in objData) {
 			this._val(property, objSchema[property], objData[property], errors);
 		}
+
 		var result = (errors.length == 0 ? true : false);
 		return { result: result, errors: errors };
 	}
