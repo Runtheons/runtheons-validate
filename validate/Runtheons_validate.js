@@ -11,6 +11,7 @@ module.exports = class RuntheonsValidate {
 	validate(objSchema, objData) {
 		var errors = [];
 
+		console.log(objData);
 		for (const property in objData) {
 			this._val(property, objSchema[property], objData[property], errors);
 		}
