@@ -1,6 +1,4 @@
-//Definizione di un generale valore
-
-module.exports = class superData {
+module.exports = class AbstractData {
 
 	constructor() {
 		this.attr = ["min", "max", "required"];

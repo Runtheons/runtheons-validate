@@ -1,4 +1,4 @@
-const superData = require("./superData");
+const superData = require("./AbstractData");
 
 //String data (string, date, datetime, ip, mac, email.....)
 class stringData extends superData {

@@ -17,5 +17,4 @@ module.exports = {
 	time: new dateData.time,
 
 	file: new fileData.file
-		//Here we can add new type
 };

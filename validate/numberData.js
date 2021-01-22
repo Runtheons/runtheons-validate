@@ -1,4 +1,4 @@
-const superData = require("./superData");
+const superData = require("./AbstractData");
 
 //Numeric data (int, double, float..)
 class numberData extends superData {

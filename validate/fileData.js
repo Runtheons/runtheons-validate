@@ -1,4 +1,4 @@
-const superData = require("./superData");
+const superData = require("./AbstractData");
 
 class fileData extends superData {
 
