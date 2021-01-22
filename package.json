@@ -8,9 +8,7 @@
 		"npmrc": "^1.1.1"
 	},
 	"devDependencies": {},
-	"scripts": {
-		"test": "node index.js"
-	},
+	"scripts": {},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/iamousseni/runtheons-validate.git"
@@ -18,10 +16,6 @@
 	"keywords": [
 		"endpoint validation",
 		"api validation"
-	],
-	"author": [
-		"iamousseni",
-		"Zexal0807"
 	],
 	"license": "ISC",
 	"bugs": {

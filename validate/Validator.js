@@ -1,6 +1,6 @@
 const data = require('./data.js');
 
-module.exports = class RuntheonsValidate {
+module.exports = class Validator {
 
 	validate(objSchema, objData) {
 		var errors = [];

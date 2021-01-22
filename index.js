@@ -1,3 +1,3 @@
-const Runtheons_validate = require('./validate/Runtheons_validate');
+const Validator = require('./validate/Validator');
 
-module.exports = new Runtheons_validate();
+module.exports = new Validator();
