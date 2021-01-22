@@ -1,7 +1,6 @@
 # runtheons-validate
 npm package to validate endpoints
 
-
 # Index
 
 - [Introduction](https://github.com/iamousseni/runtheons-validate#introduction "Introduction")

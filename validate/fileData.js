@@ -1,44 +1,44 @@
 const superData = require("./superData");
 
-class fileData extends superData{
-	
-	constructor(){
+class fileData extends superData {
+
+	constructor() {
 		super();
 		this.attr = ["required", "mimetype"];
 	}
-	
-	validate(property, schema, value, errors){
-		if(schema.required == true || value != undefined){
+
+	validate(property, schema, value, errors) {
+		if (schema.required == true || value != undefined) {
 			super.validate(property, schema, value, errors);
-			if(
+			if (
 				value.name == undefined ||
 				value.data == undefined ||
 				value.size == undefined ||
 				value.size <= 0 ||
 				value.mimetype == undefined
-			){
-				errors.push(property+" is not a file");
+			) {
+				errors.push(property + " is not a file");
 			}
-		}		
+		}
 	}
-	
-	mimetype(property, schema, value, errors){
+
+	mimetype(property, schema, value, errors) {
 		value = value.mimeType;
-		if(Array.isArray(schema['mimetype'])){
+		if (Array.isArray(schema['mimetype'])) {
 			var f = false;
-			for(var i = 0; i < schema['mimetype'].length; i++){
+			for (var i = 0; i < schema['mimetype'].length; i++) {
 				var reg = new RegExp(schema['mimetype'][i]);
-				if(reg.exec(value) == value){
+				if (reg.exec(value) == value) {
 					f = true;
 				}
 			}
-			if(!f){
-				errors.push(property+"'s mimetype isn't in the avaible list");
+			if (!f) {
+				errors.push(property + "'s mimetype isn't in the avaible list");
 			}
-		}else{
+		} else {
 			var reg = new RegExp(schema['mimetype']);
-			if(reg.exec(value) != value){
-				errors.push(property+"'s mimetype isn't "+reg);
+			if (reg.exec(value) != value) {
+				errors.push(property + "'s mimetype isn't " + reg);
 			}
 		}
 	}
