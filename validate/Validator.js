@@ -2,61 +2,60 @@ const data = require('./data.js');
 
 module.exports = class Validator {
 
-	validate(objSchema, objData) {
+	validate(schema, data) {
 		var errors = [];
 
-		for (const property in objData) {
-			this._val(property, objSchema[property], objData[property], errors);
-		}
+		Object.keys(schema).forEach(key => {
+			var err = this._val(key, schema[key], data[key]);
+			errors = Array.concat(errors, err);
+		});
+
 		return {
 			status: (errors.length == 0 ? true : false),
 			errors: errors
 		};
 	}
 
-	_val(property, objSchema, objData, errors) {
-		if (objSchema['type'] == undefined) {
-			errors.push(property + " haven't 'type' parameter");
+	_val(key, schema, data) {
+		if (schema['type'] == undefined) {
+			errors.push(key + " haven't 'type' parameter");
 		}
-		if (objSchema['required'] != true) {
-			objSchema['required'] = false;
-		}
-		switch (objSchema['type']) {
+		switch (schema['type']) {
 			case 'object':
-				if (objSchema['required'] == undefined || objSchema['required'] == true) {
-					if (objData == undefined) {
-						errors.push(property + " is required");
+				if (schema['required'] == undefined || schema['required'] == true) {
+					if (data == undefined) {
+						errors.push(key + " is required");
 					} else {
 						//controlo se c'è il parametro obbligatorio of
-						if (objSchema.of == undefined) {
-							errors.push(property + " haven't 'of' parameter");
+						if (schema.of == undefined) {
+							errors.push(key + " haven't 'of' parameter");
 						} else {
 							//Alcuni controlli
-							var s = Object.entries(objData);
+							var s = Object.entries(data);
 
 							for (let i = 0; i < s.length; i++) {
-								this._val(property + "." + s[i][0], objSchema.of[s[i][0]], s[i][1], errors);
+								this._val(key + "." + s[i][0], schema.of[s[i][0]], s[i][1]);
 							}
 						}
 					}
 				}
 				break;
 			case 'array':
-				if (objSchema['required'] == undefined || objSchema['required'] == true) {
-					if (objData == undefined) {
-						errors.push(property + " is required");
+				if (schema['required'] == undefined || schema['required'] == true) {
+					if (data == undefined) {
+						errors.push(key + " is required");
 					} else {
 						//controllo se davvero è un array
-						if (!Array.isArray(objData)) {
-							errors.push(property + " is not an Array");
+						if (!Array.isArray(data)) {
+							errors.push(key + " is not an Array");
 						} else {
 							//se davvero è un array controlo se c'è il parametro obbligatorio of
-							if (objSchema.of == undefined) {
-								errors.push(property + " haven't 'of' parameter");
+							if (schema.of == undefined) {
+								errors.push(key + " haven't 'of' parameter");
 							} else {
-								//Controllo che tutti gli elementi siano dello stesso schema indicato in objSchema.of
-								for (let i = 0; i < objData.length; i++) {
-									this._val(property + "." + i, objSchema.of, objData[i], errors);
+								//Controllo che tutti gli elementi siano dello stesso schema indicato in schema.of
+								for (let i = 0; i < data.length; i++) {
+									this._val(key + "." + i, schema.of, data[i]);
 								}
 							}
 						}
@@ -65,10 +64,10 @@ module.exports = class Validator {
 				break;
 
 			default:
-				if (data[objSchema['type']] != undefined) {
-					data[objSchema['type']].validate(property, objSchema, objData, errors);
+				if (data[schema['type']] != undefined) {
+					data[schema['type']].validate(key, schema, data);
 				} else {
-					errors.push(property + " type is unknown");
+					errors.push(key + " type is unknown");
 				}
 				break;
 		}
