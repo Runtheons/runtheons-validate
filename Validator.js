@@ -65,9 +65,8 @@ module.exports = class Validator {
 				return require("./validate/DateTimeValue").validate(key, schema, data);
 			case 'time':
 				return require("./validate/TimeValue").validate(key, schema, data);
-				/*
-					case 'file':
-						return require("./validate/fileData").file.validate(key, schema, data);*/
+			case 'file':
+				return require("./validate/FileValue").validate(key, schema, data);
 		}
 	}
 };
