@@ -1,14 +1,13 @@
 module.exports = class AbstractValue {
 
 	constructor() {
-		this.avaibleAttributes = ["min", "max"];
+		this.avaibleAttributes = ["type", "min", "max"];
 	}
 
 	validate(key, schema, value) {
 		var errors = [];
 
 		var optional = (schema.required != undefined ? schema.required : false);
-
 
 		if (value == undefined) {
 			if (optional) {
@@ -18,10 +17,10 @@ module.exports = class AbstractValue {
 			}
 		}
 
-		Object.keys(schema).forEach(attributes => {
-			if (this.avaibleAttributes.includes(attributes)) {
-				var err = this[attributes](key, schema[attributes], value);
-				errors.concat(err);
+		Object.keys(schema).forEach(attribute => {
+			if (this.avaibleAttributes.includes(attribute)) {
+				var err = this[attribute](key, schema[attribute], value);
+				errors = errors.concat(err);
 			}
 		});
 		return errors;
@@ -31,14 +30,14 @@ module.exports = class AbstractValue {
 		if (dataValue < requiredValue) {
 			return key + " is lower than " + requiredValue;
 		}
-		return "";
+		return [];
 	}
 
 	max(key, requiredValue, dataValue) {
 		if (dataValue > requiredValue) {
 			return key + " is greater than " + requiredValue;
 		}
-		return "";
+		return [];
 	}
 
 }
