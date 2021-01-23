@@ -1,14 +1,14 @@
 # runtheons-validate
 npm package to validate endpoints
 
-
 # Index
 
 - [Introduction](https://github.com/iamousseni/runtheons-validate#introduction "Introduction")
 - [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started "Getting started")
-    - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites "Prerequisites")
-    - [Installation](https://github.com/iamousseni/runtheons-validate#installation "Installation")
+	- [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites "Prerequisites")
+	- [Installation](https://github.com/iamousseni/runtheons-validate#installation "Installation")
 - [Use](https://github.com/iamousseni/runtheons-validate#use "Use")
+	- [Type](https://github.com/iamousseni/runtheons-validate#type "Type")
 - [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use "Example of use")
 - [System structure](https://github.com/iamousseni/runtheons-validate#system-structure "System structure")
 - [Summary System structure](https://github.com/iamousseni/runtheons-validate#summary-system-structure "Summary System structure")
@@ -17,7 +17,6 @@ npm package to validate endpoints
 This repository contains the source code and official documentation of the endpoints validator system. If the aforementioned documentation is not clear or contains errors, please report it immediately to the email address **bugs-documentation@runtheons.com** or report the issue here on GitHub. Please be extremely clear and precise in the description of the issue so that moderators can correct it as soon as possible.
 
 # Getting started
-
 
 ## Prerequisites
 
@@ -32,10 +31,11 @@ This repository contains the source code and official documentation of the endpo
 
 It is necessary to define an object schema that defines the input you want to receive, for each element of the object it is necessary to define its type:
 
+## Type
+
 The types of inputs are:
 - [int](https://github.com/iamousseni/runtheons-validate#int "int")
 - [float](https://github.com/iamousseni/runtheons-validate#float "float")
-- [double](https://github.com/iamousseni/runtheons-validate#double "double")
 - [string](https://github.com/iamousseni/runtheons-validate#string "string")
 - [email](https://github.com/iamousseni/runtheons-validate#email "email")
 - [file](https://github.com/iamousseni/runtheons-validate#file "file")
@@ -44,240 +44,203 @@ The types of inputs are:
 - [time](https://github.com/iamousseni/runtheons-validate#time "time")
 	- [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key "Allowed data format key")
 
-Here an example
-```javascript
-var objSchema = {
-    id: {
-        type: 'int',
-        required: true
-    },
-    description: {
-        type: 'string',
-        required: false
-    }
-}
-```
 
-New type 
-
-## int
-| parameters | type |                                             |
+### int
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required (default : true)|
 | min        | int   | Set the minimal value that the input can be (value not included) |
 | max        | int   | Set the maximal value that the input can be (value not included) |
-| required   | bool  | Set if this field is required               |
 
 ```javascript
 var objSchema = {
-    id: {
-        type: 'int',
-	min: 0, 	//The unique number start at 1
-	max: 1000, 	//Only 999 users are allowed
-        required: true	//Is required
-    }
+	id: {
+		type: 'int',
+		min: 0, 		//The id must be greatear than 0
+		max: 1000, 		//The id must be lower than 1000
+		required: true	//The id is required
+	}
 }
 ```
 
-## float
-| parameters | type |                                             |
+### float
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required (default : true)|
 | min        | int   | Set the minimal value that the input can be (value not included)  |
 | max        | int   | Set the maximal value that the input can be (value not included)  |
-| required   | bool  | Set if this field is required               |
 
 ```javascript
 var objSchema = {
-    prize: {
-        type: 'float',
-	min: 0.99, 	//The minimal value is 1€
-	max: 1000, 	//Maximal prize is 999,99€
-        required: true	//Is required
-    }
+	prize: {
+		type: 'float',
+		min: 0.99, 		//The prize must be greatear than 0,99
+		max: 1000, 		//The prize must be lower than 1000
+		required: true	//The prize is required
+	}
 }
 ```
 
-## double
-| parameters | type |                                             |
+### string
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal value that the input can be (value not included)  |
-| max        | int   | Set the maximal value that the input can be (value not included)  |
-| required   | bool  | Set if this field is required               |
-
-```javascript
-var objSchema = {
-    prize: {
-        type: 'double',
-	min: 0.99, 	//The minimal value is 1€
-	max: 1000, 	//Maximal prize is 999,99€
-        required: true	//Is required
-    }
-}
-```
-
-## string
-| parameters | type |                                             |
-|------------|-------|---------------------------------------------|
-| minlength  | int   | Set the minimal length that the input can be (value not included) |
-| maxlength | int   | Set the maximal length that the input can be (value not included) |
+| required   | bool  | Set if this field is required (default : true)|
+| notEmpty   | bool  | Set if this field must be a not empty string (default : false)|
+| minLength  | int   | Set the minimal length that the input can be (value not included) |
+| maxLength | int   | Set the maximal length that the input can be (value not included) |
 | reg   | string  | A regular expression that must match the input |
-| required   | bool  | Set if this field is required               |
 
 ```javascript
 var objSchema = {
-    username: {
-        type: 'string',
-	minlength: 9, 		//The string size must be greater than 8 char
-	maxlength: 1000,	//The string size must be lower than 999 char,
-	reg: "[a-zA-Z]*",	//The string must match this pattern
-        required: true		//Is required
-    }
+	username: {
+		type: 'string',
+		notEmpty: true,		//The username must not be ""
+		minLength: 9, 		//The username length must be greater than 9 char
+		maxLength: 1000,	//The username length must be lower than 1000 char,
+		reg: "[a-zA-Z]*",	//The username must match this pattern
+		required: true		//The username is required
+	}
 }
 ```
 
-## email
-| parameters | type |                                             |
+### email
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
-| required   | bool  | Set if this field is required               |
+| required   | bool  | Set if this field is required (default : true)|
 
 ```javascript
 var objSchema = {
-    email: {
-        type: 'email',
-        required: true		//Is required
-    }
+	email: {
+		type: 'email',
+		required: true		//The email is required
+	}
 }
 ```
 
-## file
-| parameters | type |                                             |
+### file
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
-| mimetype   | string or Array of string  | A regular expression or array of regular expressions that must match the file mimetype |
-| required   | bool  | Set if this field is required               |
+| required   | bool  | Set if this field is required (default : true)| 
+| mimetype   | string or string[] | A mimetype or a array of mimetype allowed |
 
 ```javascript
 var objSchema = {
-    photo: {
-        type: 'file',
-	mimetype: [
-		"image/png",	//Only this type of data are allowed
-		"image/jpg",
-		"image/gif"
-	],
-        required: true		//Is required
-    }
+	photo: {
+		type: 'file',		//The photo must be a file
+		mimetype: [
+			"image/png",	//The photo must be a .png, .jpg or .gif
+			"image/jpg",
+			"image/gif"
+		],
+		required: true		//The photo is required
+	}
 }
 ```
 
-## date
-| parameters | type |                                             |
+### date
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required (default : true)| 
+| format | string | Set the format of the input value and the min/max attributes (default : YYYY-MM-DD)|
 | min        | int   | Set the minimal date that the input can be (value not included)  |
 | max        | int   | Set the maximal date that the input can be (value not included)  |
-| minage     | object| Set the dinamical minimal date that the input can be <br />Allow keys are: years, quarters, months, weeks, days <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| maxage     | object| Set the dinamical maximal date that the input can be <br />Allow keys are: years, quarters, months, weeks, days <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| format | string | Set the format of the input value (and the min/max attributes), default value: YYYY-MM-DD <br />See below for allowed key|
-| required   | bool  | Set if this field is required               |
+| minAge     | object| Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul>|
+| maxAge     | object| Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul>|
 
 ```javascript
 var objSchema = {
-    dateSend: {
-        type: 'date',
-	format: "DD/MM/YYYY",	//The input must be in this format,
-	min: "01/01/2020",	//All the input date must be grater than 1st January 2020
-	max: "31/12/2020",	//All the input date must be lower than 31th December 2020
-				//So the input date must be in the 2020 year
-				//NB: The min and max format must be the same of the format attribute
-        required: true		//Is required
-    },
-    dateBirth: {
-        type: 'date',
-	format: "DD/MM/YYYY",	//The input must be in this format,
-	minage: {
-		"years": 14,	//All the input date must be grater than 14 years and 5 mouth old from now
-		"mounths": 5
+	dateSend: {
+		type: 'date',
+		format: "DD/MM/YYYY",	//The dateSend must be a date in this format, min and max attributes if setted must be in this format
+		min: "01/01/2020",	//The dateSend must be grater than 1st January 2020
+		max: "31/12/2020",	//The dateSend must be lower than 31th December 2020
+		required: true		//The dateSend is required
 	},
-	maxage: {
-		"years": 99	//All the input date must be lower than 99 years old from now
-	},
-				//For more details of this object look below
-        required: true		//Is required
-    }
+	dateBirth: {
+		type: 'date',
+		minAge: {
+			"years": 14,	//The dateBirth must be min 14 years and 5 mouth old from now
+			"mounths": 5
+		},
+		maxAge: {
+			"years": 99		//The dateBirth must be max 99 years old from now
+		}
+		//For more details about this oubject see below
+	}
 }
 ```
 
-## time
-| parameters | type |                                             |
+
+### time
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal time that the input can be |
-| max        | int   | Set the maximal time that the input can be |
-| minage     | object| Set the dinamical minimal time that the input can be <br /> Allow keys are: hours, minutes, seconds, milliseconds <br/> Es. set the key as 'hours' and the value as 1, for check if is greater than 1 hour|
-| maxage     | object| Set the dinamical maximal time that the input can be <br />Allow keys are: hours, minutes, seconds, milliseconds <br /> Es. set the key as 'hours' and the value as 1, for check if is greater than 1 hour|
-| format | string | Set the format of the input value (and the min/max attributes), default value: HH:mm:ss <br />See below for allowed key|
-| required   | bool  | Set if this field is required               |
+| required   | bool  | Set if this field is required (default : true)| 
+| format | string | Set the format of the input value and the min/max attributes (default : HH:mm:ss)|
+| min        | int   | Set the minimal date that the input can be (value not included)  |
+| max        | int   | Set the maximal date that the input can be (value not included)  |
+| minAge     | object| Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul>|
+| maxAge     | object| Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul>|
 
 ```javascript
 var objSchema = {
-    timeSend: {
-        type: 'time',
-	format: "HH:mm:ss",	//The input must be in this format,
-	min: "00:00:01",	//All the input time must be grater than 1 second
-	max: "10:59:59",	//All the input date must be lower than 11 a.m.
-				//NB: The min and max format must be the same of the format attribute
-        required: true		//Is required
-    },
-    timeBirth: {
-        type: 'time',
-	format: "HH:mm:ss",	//The input must be in this format,
-	minage: {
-		"hours": 1	//All the input time must be grater than 1 hours from now
+	timeSend: {
+		type: 'time',
+		format: "HH:mm:ss",	//The timeSend must be a time in this format, min and max attributes if setted must be in this format
+		min: "00:00:01",	//The timeSend must bee grater than 1 second
+		max: "10:59:59",	//The timeSend must belower than 11 a.m.
+		required: true		//The timeSend is required
 	},
-	maxage: {
-		"hours": 10	//All the input time must be lower than 10 hours from now
-	},
-				//For more details of this object look below
-        required: true		//Is required
-    }
+	timeBirth: {
+		type: 'time',
+		minage: {
+			"hours": 1	//The timeBirth must be min 1 hours old from now
+		},
+		maxage: {
+			"hours": 10	//The timeBirth must be max 10 hours old from now
+		}
+		//For more details of this object look below
+	}
 }
 ```
 
-## datetime
-| parameters | type |                                             |
+
+### datetime
+| Attributes | Type | Description |
 |------------|-------|---------------------------------------------|
-| min        | int   | Set the minimal datetime that the input can be |
-| max        | int   | Set the maximal datetime that the input can be |
-| minage     | object| Set the dinamical minimal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br /> Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| maxage     | object| Set the dinamical maximal datetime that the input can be <br /> Allow keys are: years, quarters, months, weeks, days, hours, minutes, seconds, milliseconds <br />Es. set the key as 'years' and the value as 18, for check if is greater than 18 years old|
-| format | string | Set the format of the input value (and the min/max attributes), default value: YYYY-MM-DD HH:mm:ss <br />See below for allowed key|
-| required   | bool  | Set if this field is required               |
+| required   | bool  | Set if this field is required (default : true)| 
+| format | string | Set the format of the input value and the min/max attributes (default : YYYY-MM-DD HH:mm:ss)|
+| min        | int   | Set the minimal date that the input can be (value not included)  |
+| max        | int   | Set the maximal date that the input can be (value not included)  |
+| minAge     | object| Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul>|
+| maxAge     | object| Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul>|
+
 
 ```javascript
 var objSchema = {
-    datetimeSend: {
-        type: 'datetime',
-	format: "DD/MM/YYYY HH:mm:ss",	//The input must be in this format,
-	min: "01/01/2020 00:00:01",	//All the input datetime must be grater than 1st January 2020 at 00:00:01
-	max: "31/12/2020 10:59:59",	//All the input datetime must be lower than 31th December 2020 at 11:00:00
-					//NB: The min and max format must be the same of the format attribute
-        required: true			//Is required
-    },
-    datetimeBirth: {
-        type: 'datetime',
-	format: "DD/MM/YYYY HH:mm:ss",	//The input must be in this format,
-	minage: {
-		"years": 14,		//All the input datetime must be grater than 14 years, 5 mouth and 1 hour old from now
-		"mounths": 5,
-		"hours": 1
+	dateSend: {
+		type: 'datetime',
+		format: "DD/MM/YYYY HH:mm:ss",	//The dateSend must be a date in this format, min and max attributes if setted must be in this format
+		min: "01/01/2020 00:10:30",	//The dateSend must be grater than 1st January 2020 at 00:10:30
+		max: "31/12/2020 05:30:00",	//The dateSend must be lower than 31th December 2020 at 05:30:00
+		required: true		//The dateSend is required
 	},
-	maxage: {
-		"years": 99		//All the input datetime must be lower than 99 years old from now
-	},
-					//For more details of this object look below
-        required: true			//Is required
-    }
+	dateBirth: {
+		type: 'datetime',
+		minAge: {
+			"years": 14,	//The dateBirth must be min 14 years, 5 mouth and 1 hours old from now
+			"mounths": 5,
+			"hours": 1
+		},
+		maxAge: {
+			"years": 99,	//The dateBirth must be max 99 years and 10 hours old from now
+			"hours": 10
+		}
+		//For more details about this oubject see below
+	}
 }
 ```
 
-### Allowed data format key
+#### Allowed data format key
 
 Look [moment.js](https://momentjs.com/docs/#/manipulating/ "moment.js"), for more datails
 
@@ -311,15 +274,15 @@ When defining an array or object you have to define the attributes as an object
 var validator = require("runtheons-validate");
 
 let objSchema = {
-    id: {
-        type: 'int',
-        required: true,
-        min: 1
-    },
-    description: {
-        type: 'string',
+	id: {
+		type: 'int',
+		required: true,
+		min: 1
+	},
+	description: {
+		type: 'string',
 		required: true
-    },
+	},
 	arr:{
 		type:'array',
 		of: {
@@ -342,8 +305,8 @@ let objSchema = {
 }
 
 let objData = {
-    id: 8,
-    description: "22",
+	id: 8,
+	description: "22",
 	arr: [
 		1,
 		3,
@@ -356,19 +319,17 @@ let objData = {
 }
 
 console.log(validator.validate(objSchema, objData));
-
-Result:
-{
-	result: false,
+/*{
+	status: false,
 	errors: [
 		arr.2 is greater than 10
 	]
-}
+}*/
 
 
-let objData = {
-    id: 8,
-    description: "22",
+objData = {
+	id: 8,
+	description: "22",
 	arr: [
 		1,
 		3
@@ -380,12 +341,10 @@ let objData = {
 }
 
 console.log(validator.validate(objSchema, objData));
-
-Result:
-{
-	result: true,
+/*{
+	status: true,
 	errors: []
-}
+}*/
 ```
 
 # System structure
@@ -398,11 +357,11 @@ When the validator understands the type of input, it calls the validator method 
 # Summary System structure
 
 - root
-    - index.js > Export of the validator
-    - validate/data.js > The export data type of the validator
+	- index.js > Export of the validator
+	- validate/data.js > The export data type of the validator
 	- superData.js > The super class of a data
 	- numberData.js > The class of a number data, it provides int, float and double type
 	- stringData.js > The class of a string data, it provides string and email type
 	- dateData.js > The class of a date data, it provides date, datetime and time type
 	- fileData.js > The class of a file data, it provides file type
-    - validate/Runtheons_validate.js > Main program of the validator
+	- validate/Runtheons_validate.js > Main program of the validator

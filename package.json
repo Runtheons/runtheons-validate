@@ -1,31 +1,25 @@
 {
-  "name": "runtheons-validate",
-  "version": "1.2.0",
-  "description": "useful package to manage in the easiest way possible the validation of data passed through API",
-  "main": "index.js",
-  "dependencies": {
-    "moment": "^2.27.0",
-    "npmrc": "^1.1.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iamousseni/runtheons-validate.git"
-  },
-  "keywords": [
-    "endpoint validation",
-    "api validation"
-  ],
-  "author": [
-    "iamousseni",
-    "Zexal0807"
-  ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iamousseni/runtheons-validate/issues"
-  },
-  "homepage": "https://github.com/iamousseni/runtheons-validate#readme"
+	"name": "@runtheons/validate",
+	"version": "2.0.0",
+	"description": "useful package to manage in the easiest way possible the validation of data passed through API",
+	"main": "index.js",
+	"dependencies": {
+		"moment": "^2.27.0",
+		"npmrc": "^1.1.1"
+	},
+	"devDependencies": {},
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/iamousseni/runtheons-validate.git"
+	},
+	"keywords": [
+		"endpoint validation",
+		"api validation"
+	],
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/iamousseni/runtheons-validate/issues"
+	},
+	"homepage": "https://github.com/iamousseni/runtheons-validate#readme"
 }
