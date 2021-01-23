@@ -55,19 +55,19 @@ module.exports = class Validator {
 				return require("./validate/FloatValue").validate(key, schema, data);
 			case 'string':
 				return require("./validate/StringValue").validate(key, schema, data);
+			case 'email':
+				return require("./validate/EmailValue").validate(key, schema, data);
 				/*
-							case 'email':
-								return require("./validate/stringData").email.validate(key, schema, data);
-							case 'link':
-								return require("./validate/stringData").link.validate(key, schema, data);
-							case 'date':
-								return require("./validate/dateData").date.validate(key, schema, data);
-							case 'datetime':
-								return require("./validate/dateData").datetime.validate(key, schema, data);
-							case 'time':
-								return require("./validate/dateData").time.validate(key, schema, data);
-							case 'file':
-								return require("./validate/fileData").file.validate(key, schema, data);*/
+						case 'link':
+							return require("./validate/stringData").link.validate(key, schema, data);
+						case 'date':
+							return require("./validate/dateData").date.validate(key, schema, data);
+						case 'datetime':
+							return require("./validate/dateData").datetime.validate(key, schema, data);
+						case 'time':
+							return require("./validate/dateData").time.validate(key, schema, data);
+						case 'file':
+							return require("./validate/fileData").file.validate(key, schema, data);*/
 		}
 	}
 };
