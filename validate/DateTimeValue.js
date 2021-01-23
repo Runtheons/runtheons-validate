@@ -1,4 +1,4 @@
-const DateValue = require("./DateValue");
+const DateValue = require("./DateValue").constructor;
 
 module.exports = new class DateTimeValue extends DateValue {
 

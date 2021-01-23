@@ -1,4 +1,4 @@
-const StringValue = require("./StringValue");
+const StringValue = require("./StringValue").constructor;
 const moment = require('moment');
 
 module.exports = new class DateValue extends StringValue {

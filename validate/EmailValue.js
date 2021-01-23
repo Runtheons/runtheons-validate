@@ -1,4 +1,4 @@
-const StringValue = require("./StringValue");
+const StringValue = require("./StringValue").constructor;
 
 module.exports = new class EmailValue extends StringValue {
 
