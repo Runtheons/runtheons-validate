@@ -50,12 +50,10 @@ module.exports = class Validator {
 				};
 				return errors;
 			case 'int':
-				return require("./validate/NumberValue").int.validate(key, schema, data);
+				return require("./validate/IntegerValue").validate(key, schema, data);
+			case 'float':
+				return require("./validate/FloatValue").validate(key, schema, data);
 				/*
-							case 'double':
-								return require("./validate/numberData").double.validate(key, schema, data);
-							case 'float':
-								return require("./validate/numberData").float.validate(key, schema, data);
 							case 'string':
 								return require("./validate/stringData").string.validate(key, schema, data);
 							case 'email':
