@@ -7,13 +7,13 @@ module.exports = class AbstractValue {
 	validate(key, schema, value) {
 		var errors = [];
 
-		var optional = (schema.required != undefined ? schema.required : false);
+		var required = (schema.required != undefined ? schema.required : true);
 
 		if (value == undefined) {
-			if (optional) {
-				return [];
-			} else {
+			if (required) {
 				return [key + " is required"];
+			} else {
+				return [];
 			}
 		}
 
