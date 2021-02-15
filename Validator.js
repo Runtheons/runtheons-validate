@@ -25,6 +25,15 @@ module.exports = class Validator {
 					return [key + "haven't the 'of' parameter"];
 				}
 
+				var required = (schema.required != undefined ? schema.required : true);
+				if (data == undefined) {
+					if (required) {
+						return [key + " is required"];
+					} else {
+						return [];
+					}
+				}
+
 				var errors = [];
 				Object.keys(schema.of).forEach(subkey => {
 					var recursiveKey = key + "." + subkey;
@@ -39,6 +48,15 @@ module.exports = class Validator {
 				}
 				if (schema.of == undefined || schema.of == null) {
 					return [key + "haven't the 'of' parameter"];
+				}
+
+				var required = (schema.required != undefined ? schema.required : true);
+				if (data == undefined) {
+					if (required) {
+						return [key + " is required"];
+					} else {
+						return [];
+					}
 				}
 
 				var errors = [];
