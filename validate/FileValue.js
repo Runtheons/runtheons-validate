@@ -1,6 +1,6 @@
-const AbstractData = require("./AbstractData");
+const AbstractValue = require("./AbstractValue");
 
-class FileValue extends AbstractData {
+module.exports = new class FileValue extends AbstractValue {
 
 	constructor() {
 		super();
@@ -40,5 +40,3 @@ class FileValue extends AbstractData {
 		return [];
 	}
 }
-
-exports.file = fileData
