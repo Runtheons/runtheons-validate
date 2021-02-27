@@ -36,6 +36,7 @@ It is necessary to define an object schema that defines the input you want to re
 The types of inputs are:
 - [int](https://github.com/iamousseni/runtheons-validate#int "int")
 - [float](https://github.com/iamousseni/runtheons-validate#float "float")
+- [boolean](https://github.com/iamousseni/runtheons-validate#boolean "boolean")
 - [string](https://github.com/iamousseni/runtheons-validate#string "string")
 - [email](https://github.com/iamousseni/runtheons-validate#email "email")
 - [file](https://github.com/iamousseni/runtheons-validate#file "file")
@@ -77,6 +78,20 @@ var objSchema = {
 		min: 0.99, 		//The prize must be greatear than 0,99
 		max: 1000, 		//The prize must be lower than 1000
 		required: true	//The prize is required
+	}
+}
+```
+
+### boolean
+| Attributes | Type | Description |
+|------------|-------|---------------------------------------------|
+| required   | bool  | Set if this field is required (default : true)|
+
+```javascript
+var objSchema = {
+	checked: {
+		type: 'boolean'
+		required: true	//The boolean is required
 	}
 }
 ```
