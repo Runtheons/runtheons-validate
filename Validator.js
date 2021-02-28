@@ -71,6 +71,8 @@ module.exports = class Validator {
 				return require("./validate/IntegerValue").validate(key, schema, data);
 			case 'float':
 				return require("./validate/FloatValue").validate(key, schema, data);
+			case 'boolean':
+				return require("./validate/BooleanValue").validate(key, schema, data);
 			case 'string':
 				return require("./validate/StringValue").validate(key, schema, data);
 			case 'email':
