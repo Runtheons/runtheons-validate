@@ -8,9 +8,9 @@ npm package to validate endpoints
 - [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started "Getting started")
   - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites "Prerequisites")
   - [Installation](https://github.com/iamousseni/runtheons-validate#installation "Installation")
+- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use "Example of use")
 - [Use](https://github.com/iamousseni/runtheons-validate#use "Use")
   - [Type](https://github.com/iamousseni/runtheons-validate#type "Type")
-- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use "Example of use")
 - [System structure](https://github.com/iamousseni/runtheons-validate#system-structure "System structure")
 
 # Introduction
@@ -27,6 +27,79 @@ This repository contains the source code and official documentation of the endpo
 ## Installation
 
 1. `npm install https://github.com/iamousseni/runtheons-validate` to add the package to the project
+
+# Example of use
+
+When defining an array or object you have to define the attributes as an object
+
+```javascript
+var validator = require("@runtheons/validate");
+
+let objSchema = {
+  id: {
+    type: "int",
+    required: true,
+    min: 1,
+  },
+  description: {
+    type: "string",
+    required: true,
+  },
+  arr: {
+    type: "array",
+    of: {
+      type: "int",
+      max: 10,
+    },
+  },
+  obj: {
+    type: "object",
+    required: true,
+    of: {
+      id: {
+        type: "int",
+      },
+      description: {
+        type: "string",
+      },
+    },
+  },
+};
+
+let objData = {
+  id: 8,
+  description: "22",
+  arr: [1, 3, 15],
+  obj: {
+    id: 1,
+    description: "My description",
+  },
+};
+
+console.log(validator.validate(objSchema, objData));
+/*{
+	status: false,
+	errors: [
+		arr.2 is greater than 10
+	]
+}*/
+
+objData = {
+  id: 8,
+  description: "22",
+  arr: [1, 3],
+  obj: {
+    id: 1,
+    description: "My description",
+  },
+};
+
+console.log(validator.validate(objSchema, objData));
+/*{
+	status: true,
+	errors: []
+}*/
+```
 
 # Use
 
@@ -286,79 +359,6 @@ Look [moment.js](https://momentjs.com/docs/#/manipulating/ "moment.js"), for mor
 | s ss                   | 0..59          | Seconds                                                                      |
 | S SS SSS ... SSSSSSSSS | 0..999999999   | Fractional seconds                                                           |
 | Z ZZ                   | +12:00         | Offset from UTC as +-HH:mm, +-HHmm, or Z                                     |
-
-# Example of use
-
-When defining an array or object you have to define the attributes as an object
-
-```javascript
-var validator = require("runtheons-validate");
-
-let objSchema = {
-  id: {
-    type: "int",
-    required: true,
-    min: 1,
-  },
-  description: {
-    type: "string",
-    required: true,
-  },
-  arr: {
-    type: "array",
-    of: {
-      type: "int",
-      max: 10,
-    },
-  },
-  obj: {
-    type: "object",
-    required: true,
-    of: {
-      id: {
-        type: "int",
-      },
-      description: {
-        type: "string",
-      },
-    },
-  },
-};
-
-let objData = {
-  id: 8,
-  description: "22",
-  arr: [1, 3, 15],
-  obj: {
-    id: 1,
-    description: "My description",
-  },
-};
-
-console.log(validator.validate(objSchema, objData));
-/*{
-	status: false,
-	errors: [
-		arr.2 is greater than 10
-	]
-}*/
-
-objData = {
-  id: 8,
-  description: "22",
-  arr: [1, 3],
-  obj: {
-    id: 1,
-    description: "My description",
-  },
-};
-
-console.log(validator.validate(objSchema, objData));
-/*{
-	status: true,
-	errors: []
-}*/
-```
 
 # System structure
 
