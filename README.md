@@ -4,14 +4,14 @@ npm package to validate endpoints
 
 # Index
 
-- [Introduction](https://github.com/iamousseni/runtheons-validate#introduction)
-- [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started)
-  - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites)
-  - [Installation](https://github.com/iamousseni/runtheons-validate#installation)
-- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use)
-- [Use](https://github.com/iamousseni/runtheons-validate#use)
-  - [Type](https://github.com/iamousseni/runtheons-validate#type)
-- [System structure](https://github.com/iamousseni/runtheons-validate#system-structure)
+- [Introduction](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#introduction)
+- [Getting started](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#getting-started)
+  - [Prerequisites](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#prerequisites)
+  - [Installation](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#installation)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#example-of-use)
+- [Use](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#use)
+  - [Type](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
+- [System structure](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#system-structure)
 
 # Introduction
 
