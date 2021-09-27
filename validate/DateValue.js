@@ -1,11 +1,11 @@
-const StringValue = require("./StringValue").constructor;
-const moment = require("moment");
+const StringValue = require('./StringValue').constructor;
+const moment = require('moment');
 
 module.exports = new(class DateValue extends StringValue {
 	constructor() {
 		super();
-		this.avaibleAttributes = ["type", "min", "max", "minAge", "maxAge"];
-		this.format = "YYYY-MM-DD";
+		this.avaibleAttributes = ['type', 'min', 'max', 'minAge', 'maxAge'];
+		this.format = 'YYYY-MM-DD';
 	}
 
 	validate(key, schema, value) {
@@ -15,7 +15,7 @@ module.exports = new(class DateValue extends StringValue {
 
 	type(key, requiredValue, dataValue) {
 		if (!moment(dataValue, this.format, true).isValid()) {
-			return [key + " is not a date in format" + this.format];
+			return [key + ' is not a date in format' + this.format];
 		}
 		return [];
 	}
@@ -25,7 +25,7 @@ module.exports = new(class DateValue extends StringValue {
 		var valueAsDate = moment(dataValue, this.format, true);
 		var minAsDate = moment(requiredValue, this.format, true);
 		if (!minAsDate.isValid()) {
-			return ["The min setted in " + key + " isn't in format " + this.format];
+			return ['The min setted in ' + key + " isn't in format " + this.format];
 		} else {
 			// Check if the value is valid (already check in type)
 			if (valueAsDate.isValid()) {
@@ -33,7 +33,7 @@ module.exports = new(class DateValue extends StringValue {
 				var min = moment.min(valueAsDate, minAsDate);
 				//if the min value is the dataValue then the value is lower of the required value
 				if (min == valueAsDate) {
-					return [key + " is lower than " + requiredValue];
+					return [key + ' is lower than ' + requiredValue];
 				}
 			}
 		}
@@ -44,7 +44,7 @@ module.exports = new(class DateValue extends StringValue {
 		var valueAsDate = moment(dataValue, this.format, true);
 		var maxAsDate = moment(requiredValue, this.format, true);
 		if (!maxAsDate.isValid()) {
-			return ["The max setted in " + key + " isn't in format " + this.format];
+			return ['The max setted in ' + key + " isn't in format " + this.format];
 		} else {
 			// Check if the value is valid (already check in type)
 			if (valueAsDate.isValid()) {
@@ -52,7 +52,7 @@ module.exports = new(class DateValue extends StringValue {
 				var max = moment.max(valueAsDate, maxAsDate);
 				//if the max value is the dataValue then the value is greater of the required value
 				if (max == valueAsDate) {
-					return [key + " is greater than " + requiredValue];
+					return [key + ' is greater than ' + requiredValue];
 				}
 			}
 		}
@@ -67,7 +67,7 @@ module.exports = new(class DateValue extends StringValue {
 		var min = moment.min(valueAsDate, ageAsDate);
 		//if the min value isn't the dataValue then the dataValue is grater than the age date
 		if (min != valueAsDate) {
-			return [key + " must be greater"];
+			return [key + ' must be greater'];
 		}
 		return [];
 	}
@@ -81,7 +81,7 @@ module.exports = new(class DateValue extends StringValue {
 		var max = moment.max(valueAsDate, ageAsDate);
 		//if the max value isn't the dataValue then the dataValue is lower than the age date
 		if (max != valueAsDate) {
-			return [key + " must be lower"];
+			return [key + ' must be lower'];
 		}
 		return [];
 	}

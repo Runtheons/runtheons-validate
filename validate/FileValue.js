@@ -1,9 +1,9 @@
-const AbstractValue = require("./AbstractValue");
+const AbstractValue = require('./AbstractValue');
 
 module.exports = new(class FileValue extends AbstractValue {
 	constructor() {
 		super();
-		this.avaibleAttributes = ["type", "mimetype"];
+		this.avaibleAttributes = ['type', 'mimetype'];
 	}
 
 	type(key, requiredValue, dataValue) {
@@ -14,7 +14,7 @@ module.exports = new(class FileValue extends AbstractValue {
 			dataValue.size <= 0 ||
 			dataValue.mimetype == undefined
 		) {
-			return [key + " is not a file"];
+			return [key + ' is not a file'];
 		}
 		return [];
 	}

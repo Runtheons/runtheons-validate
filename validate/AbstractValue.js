@@ -1,6 +1,6 @@
 module.exports = class AbstractValue {
 	constructor() {
-		this.avaibleAttributes = ["type", "min", "max"];
+		this.avaibleAttributes = ['type', 'min', 'max'];
 	}
 
 	validate(key, schema, value) {
@@ -10,7 +10,7 @@ module.exports = class AbstractValue {
 
 		if (value == undefined) {
 			if (required) {
-				return [key + " is required"];
+				return [key + ' is required'];
 			} else {
 				return [];
 			}
@@ -27,14 +27,14 @@ module.exports = class AbstractValue {
 
 	min(key, requiredValue, dataValue) {
 		if (dataValue < requiredValue) {
-			return key + " is lower than " + requiredValue;
+			return key + ' is lower than ' + requiredValue;
 		}
 		return [];
 	}
 
 	max(key, requiredValue, dataValue) {
 		if (dataValue > requiredValue) {
-			return key + " is greater than " + requiredValue;
+			return key + ' is greater than ' + requiredValue;
 		}
 		return [];
 	}
