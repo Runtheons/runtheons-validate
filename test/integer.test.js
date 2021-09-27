@@ -35,4 +35,10 @@ describe('INTEGER', function() {
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
+
+	it('Without parameter', async() => {
+		const result = await Validator.validate(schema, {});
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
 });
