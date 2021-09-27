@@ -1,4 +1,4 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3)
+[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
 
 # INTEGER
 
