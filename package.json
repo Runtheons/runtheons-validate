@@ -17,7 +17,7 @@
 		]
 	},
 	"scripts": {
-		"test": "jest ./test/*",
+		"test": "jest --verbose ./test/*",
 		"testOnFile": "jest --json --outputFile=test.json ./test/*"
 	},
 	"repository": {
