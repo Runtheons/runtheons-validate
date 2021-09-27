@@ -10,6 +10,10 @@ module.exports = class Validator {
 	TIME = 'time';
 	FILE = 'file';
 
+	OBJECT = 'object';
+	ARRAY = 'array';
+	ARRAY_OF_INTEGER = 'array_of_integer';
+
 	validate(schema, data) {
 		var errors = [];
 
@@ -30,7 +34,7 @@ module.exports = class Validator {
 			return [key + " haven't 'type' parameter"];
 		}
 		switch (schema['type']) {
-			case 'object':
+			case this.OBJECT:
 				if (schema.of == undefined || schema.of == null) {
 					return [key + "haven't the 'of' parameter"];
 				}
@@ -52,7 +56,16 @@ module.exports = class Validator {
 					errors = errors.concat(err);
 				});
 				return errors;
-			case 'array':
+			case this.ARRAY_OF_INTEGER:
+				var customSchema = {
+					type: this.ARRAY,
+					of: this.INTEGER,
+					required: schema.required,
+					min: schema.min,
+					max: schema.max
+				};
+				return this._val(key, customSchema, data);
+			case this.ARRAY:
 				if (!Array.isArray(data)) {
 					return [key + ' is not an Array'];
 				}
