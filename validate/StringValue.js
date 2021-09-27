@@ -26,16 +26,16 @@ module.exports = new(class StringValue extends AbstractValue {
 		return [];
 	}
 
-	maxLength(key, requiredValue, dataValue) {
-		if (dataValue.length > requiredValue) {
-			return [key + ' length is greater than ' + requiredValue];
+	minLength(key, requiredValue, dataValue) {
+		if (dataValue.length <= requiredValue) {
+			return [key + ' length is lower than ' + requiredValue];
 		}
 		return [];
 	}
 
-	minLength(key, requiredValue, dataValue) {
-		if (dataValue.length < requiredValue) {
-			return [key + ' length is lower than ' + requiredValue];
+	maxLength(key, requiredValue, dataValue) {
+		if (dataValue.length >= requiredValue) {
+			return [key + ' length is greater than ' + requiredValue];
 		}
 		return [];
 	}
