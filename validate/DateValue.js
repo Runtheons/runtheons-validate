@@ -1,8 +1,7 @@
 const StringValue = require("./StringValue").constructor;
-const moment = require('moment');
+const moment = require("moment");
 
-module.exports = new class DateValue extends StringValue {
-
+module.exports = new(class DateValue extends StringValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ["type", "min", "max", "minAge", "maxAge"];
@@ -10,13 +9,12 @@ module.exports = new class DateValue extends StringValue {
 	}
 
 	validate(key, schema, value) {
-		if (schema.format != undefined)
-			this.format = schema.format;
+		if (schema.format != undefined) this.format = schema.format;
 		return super.validate(key, schema, value);
 	}
 
 	type(key, requiredValue, dataValue) {
-		if (!(moment(dataValue, this.format, true).isValid())) {
+		if (!moment(dataValue, this.format, true).isValid()) {
 			return [key + " is not a date in format" + this.format];
 		}
 		return [];
@@ -26,7 +24,7 @@ module.exports = new class DateValue extends StringValue {
 		//Convert the value and the requiredValue as date with moment.js
 		var valueAsDate = moment(dataValue, this.format, true);
 		var minAsDate = moment(requiredValue, this.format, true);
-		if (!(minAsDate.isValid())) {
+		if (!minAsDate.isValid()) {
 			return ["The min setted in " + key + " isn't in format " + this.format];
 		} else {
 			// Check if the value is valid (already check in type)
@@ -45,7 +43,7 @@ module.exports = new class DateValue extends StringValue {
 		//Convert the value and the requiredValue as date with moment.js
 		var valueAsDate = moment(dataValue, this.format, true);
 		var maxAsDate = moment(requiredValue, this.format, true);
-		if (!(maxAsDate.isValid())) {
+		if (!maxAsDate.isValid()) {
 			return ["The max setted in " + key + " isn't in format " + this.format];
 		} else {
 			// Check if the value is valid (already check in type)
@@ -87,4 +85,4 @@ module.exports = new class DateValue extends StringValue {
 		}
 		return [];
 	}
-}
+})();

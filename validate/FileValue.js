@@ -1,7 +1,6 @@
 const AbstractValue = require("./AbstractValue");
 
-module.exports = new class FileValue extends AbstractValue {
-
+module.exports = new(class FileValue extends AbstractValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ["type", "mimetype"];
@@ -21,22 +20,21 @@ module.exports = new class FileValue extends AbstractValue {
 	}
 
 	mimetype(key, requiredValue, dataValue) {
-
 		if (!Array.isArray(requiredValue)) {
 			requiredValue = [requiredValue];
 		}
 		var recivedMimeType = dataValue.mimetype;
 
 		var correct = false;
-		requiredValue.forEach(mimeType => {
+		requiredValue.forEach((mimeType) => {
 			var reg = new RegExp(mimeType);
 			if (reg.exec(recivedMimeType) != null) {
 				correct = true;
 			}
-		})
+		});
 		if (!correct) {
 			return [key + "'s mimetype isn't in the avaible list"];
 		}
 		return [];
 	}
-}
+})();

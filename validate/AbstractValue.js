@@ -1,5 +1,4 @@
 module.exports = class AbstractValue {
-
 	constructor() {
 		this.avaibleAttributes = ["type", "min", "max"];
 	}
@@ -7,7 +6,7 @@ module.exports = class AbstractValue {
 	validate(key, schema, value) {
 		var errors = [];
 
-		var required = (schema.required != undefined ? schema.required : true);
+		var required = schema.required != undefined ? schema.required : true;
 
 		if (value == undefined) {
 			if (required) {
@@ -17,7 +16,7 @@ module.exports = class AbstractValue {
 			}
 		}
 
-		Object.keys(schema).forEach(attribute => {
+		Object.keys(schema).forEach((attribute) => {
 			if (this.avaibleAttributes.includes(attribute)) {
 				var err = this[attribute](key, schema[attribute], value);
 				errors = errors.concat(err);
@@ -39,5 +38,4 @@ module.exports = class AbstractValue {
 		}
 		return [];
 	}
-
-}
+};

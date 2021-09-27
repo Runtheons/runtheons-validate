@@ -1,10 +1,15 @@
 const AbstractValue = require("./AbstractValue");
 
-module.exports = new class StringValue extends AbstractValue {
-
+module.exports = new(class StringValue extends AbstractValue {
 	constructor() {
 		super();
-		this.avaibleAttributes = ["type", "notEmpty", "maxLength", "minLength", "reg"];
+		this.avaibleAttributes = [
+			"type",
+			"notEmpty",
+			"maxLength",
+			"minLength",
+			"reg",
+		];
 	}
 
 	type(key, requiredValue, dataValue) {
@@ -16,8 +21,7 @@ module.exports = new class StringValue extends AbstractValue {
 
 	notEmpty(key, requiredValue, dataValue) {
 		if (requiredValue) {
-			if (dataValue.length == 0)
-				return [key + " can't be empty"];
+			if (dataValue.length == 0) return [key + " can't be empty"];
 		}
 		return [];
 	}
@@ -43,4 +47,4 @@ module.exports = new class StringValue extends AbstractValue {
 		}
 		return [key + " don't match the reg " + reg];
 	}
-}
+})();
