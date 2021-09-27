@@ -109,8 +109,8 @@ It is necessary to define an object schema that defines the input you want to re
 
 The types of inputs are:
 
-- [int](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer.md)
-- [float](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/float.md)
+- [INTEGER](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer.md)
+- [FLOAT](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/float.md)
 - [boolean](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/boolean.md)
 - [string](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
 - [email](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
@@ -119,25 +119,6 @@ The types of inputs are:
 - [datetime](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
 - [time](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
   - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key 'Allowed data format key')
-
-### float
-
-| Attributes | Type | Description                                                      |
-| ---------- | ---- | ---------------------------------------------------------------- |
-| required   | bool | Set if this field is required (default : true)                   |
-| min        | int  | Set the minimal value that the input can be (value not included) |
-| max        | int  | Set the maximal value that the input can be (value not included) |
-
-```javascript
-var objSchema = {
-	prize: {
-		type: 'float',
-		min: 0.99, //The prize must be greatear than 0,99
-		max: 1000, //The prize must be lower than 1000
-		required: true //The prize is required
-	}
-};
-```
 
 ### boolean
 
