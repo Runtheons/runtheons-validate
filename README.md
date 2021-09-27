@@ -112,36 +112,13 @@ The types of inputs are:
 - [INTEGER](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer.md)
 - [FLOAT](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/float.md)
 - [BOOLEAN](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/boolean.md)
-- [string](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
+- [STRING](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
 - [email](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
 - [file](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/file.md)
 - [date](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
 - [datetime](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
 - [time](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
   - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key 'Allowed data format key')
-
-### string
-
-| Attributes | Type   | Description                                                       |
-| ---------- | ------ | ----------------------------------------------------------------- |
-| required   | bool   | Set if this field is required (default : true)                    |
-| notEmpty   | bool   | Set if this field must be a not empty string (default : false)    |
-| minLength  | int    | Set the minimal length that the input can be (value not included) |
-| maxLength  | int    | Set the maximal length that the input can be (value not included) |
-| reg        | string | A regular expression that must match the input                    |
-
-```javascript
-var objSchema = {
-	username: {
-		type: 'string',
-		notEmpty: true, //The username must not be ""
-		minLength: 9, //The username length must be greater than 9 char
-		maxLength: 1000, //The username length must be lower than 1000 char,
-		reg: '[a-zA-Z]*', //The username must match this pattern
-		required: true //The username is required
-	}
-};
-```
 
 ### email
 
