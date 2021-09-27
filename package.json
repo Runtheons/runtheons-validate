@@ -17,7 +17,8 @@
 		]
 	},
 	"scripts": {
-		"test": "jest --json --outputFile=test.json ./test/*"
+		"test": "jest ./test/*",
+		"testOnFile": "jest --json --outputFile=test.json ./test/*"
 	},
 	"repository": {
 		"type": "git",
