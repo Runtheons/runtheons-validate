@@ -1,11 +1,11 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc)
+[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3)
 
 # INTEGER
 
-- [Attribute](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer#attribute)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer#parameter)
 - [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/integer#example-of-use)
 
-## Attribute
+## Parameter
 
 | Attributes | Type | Description                                                      |
 | ---------- | ---- | ---------------------------------------------------------------- |
