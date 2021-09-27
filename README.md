@@ -113,27 +113,12 @@ The types of inputs are:
 - [FLOAT](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/float.md)
 - [BOOLEAN](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/boolean.md)
 - [STRING](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
-- [email](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
+- [EMAIL](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
 - [file](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/file.md)
 - [date](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
 - [datetime](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
 - [time](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
   - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key 'Allowed data format key')
-
-### email
-
-| Attributes | Type | Description                                    |
-| ---------- | ---- | ---------------------------------------------- |
-| required   | bool | Set if this field is required (default : true) |
-
-```javascript
-var objSchema = {
-	email: {
-		type: 'email',
-		required: true //The email is required
-	}
-};
-```
 
 ### file
 
