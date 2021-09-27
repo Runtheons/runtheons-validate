@@ -26,14 +26,14 @@ module.exports = class AbstractValue {
 	}
 
 	min(key, requiredValue, dataValue) {
-		if (dataValue < requiredValue) {
+		if (dataValue <= requiredValue) {
 			return key + ' is lower than ' + requiredValue;
 		}
 		return [];
 	}
 
 	max(key, requiredValue, dataValue) {
-		if (dataValue > requiredValue) {
+		if (dataValue >= requiredValue) {
 			return key + ' is greater than ' + requiredValue;
 		}
 		return [];
