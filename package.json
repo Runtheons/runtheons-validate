@@ -7,8 +7,18 @@
 		"moment": "^2.29.1",
 		"npmrc": "^1.1.1"
 	},
-	"devDependencies": {},
-	"scripts": {},
+	"devDependencies": {
+		"jest": "^27.2.2"
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"coveragePathIgnorePatterns": [
+			"/node_modules/"
+		]
+	},
+	"scripts": {
+		"test": "jest --json --outputFile=test.json ./test/*"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/iamousseni/runtheons-validate.git"
