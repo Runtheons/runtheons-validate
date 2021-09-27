@@ -1,17 +1,17 @@
-# runtheons-validate
+# Runtheons Validate
 
 npm package to validate endpoints
 
 # Index
 
-- [Introduction](https://github.com/iamousseni/runtheons-validate#introduction "Introduction")
-- [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started "Getting started")
-  - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites "Prerequisites")
-  - [Installation](https://github.com/iamousseni/runtheons-validate#installation "Installation")
-- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use "Example of use")
-- [Use](https://github.com/iamousseni/runtheons-validate#use "Use")
-  - [Type](https://github.com/iamousseni/runtheons-validate#type "Type")
-- [System structure](https://github.com/iamousseni/runtheons-validate#system-structure "System structure")
+- [Introduction](https://github.com/iamousseni/runtheons-validate#introduction)
+- [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started)
+  - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites)
+  - [Installation](https://github.com/iamousseni/runtheons-validate#installation)
+- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use)
+- [Use](https://github.com/iamousseni/runtheons-validate#use)
+  - [Type](https://github.com/iamousseni/runtheons-validate#type)
+- [System structure](https://github.com/iamousseni/runtheons-validate#system-structure)
 
 # Introduction
 
@@ -33,47 +33,47 @@ This repository contains the source code and official documentation of the endpo
 When defining an array or object you have to define the attributes as an object
 
 ```javascript
-var validator = require("@runtheons/validate");
+var validator = require('@runtheons/validate');
 
 let objSchema = {
-  id: {
-    type: "int",
-    required: true,
-    min: 1,
-  },
-  description: {
-    type: "string",
-    required: true,
-  },
-  arr: {
-    type: "array",
-    of: {
-      type: "int",
-      max: 10,
-    },
-  },
-  obj: {
-    type: "object",
-    required: true,
-    of: {
-      id: {
-        type: "int",
-      },
-      description: {
-        type: "string",
-      },
-    },
-  },
+	id: {
+		type: 'int',
+		required: true,
+		min: 1
+	},
+	description: {
+		type: 'string',
+		required: true
+	},
+	arr: {
+		type: 'array',
+		of: {
+			type: 'int',
+			max: 10
+		}
+	},
+	obj: {
+		type: 'object',
+		required: true,
+		of: {
+			id: {
+				type: 'int'
+			},
+			description: {
+				type: 'string'
+			}
+		}
+	}
 };
 
 let objData = {
-  id: 8,
-  description: "22",
-  arr: [1, 3, 15],
-  obj: {
-    id: 1,
-    description: "My description",
-  },
+	id: 8,
+	description: '22',
+	arr: [1, 3, 15],
+	obj: {
+		id: 1,
+		description: 'My description'
+	}
 };
 
 console.log(validator.validate(objSchema, objData));
@@ -85,13 +85,13 @@ console.log(validator.validate(objSchema, objData));
 }*/
 
 objData = {
-  id: 8,
-  description: "22",
-  arr: [1, 3],
-  obj: {
-    id: 1,
-    description: "My description",
-  },
+	id: 8,
+	description: '22',
+	arr: [1, 3],
+	obj: {
+		id: 1,
+		description: 'My description'
+	}
 };
 
 console.log(validator.validate(objSchema, objData));
@@ -109,16 +109,16 @@ It is necessary to define an object schema that defines the input you want to re
 
 The types of inputs are:
 
-- [int](https://github.com/iamousseni/runtheons-validate#int "int")
-- [float](https://github.com/iamousseni/runtheons-validate#float "float")
-- [boolean](https://github.com/iamousseni/runtheons-validate#boolean "boolean")
-- [string](https://github.com/iamousseni/runtheons-validate#string "string")
-- [email](https://github.com/iamousseni/runtheons-validate#email "email")
-- [file](https://github.com/iamousseni/runtheons-validate#file "file")
-- [date](https://github.com/iamousseni/runtheons-validate#date "date")
-- [datetime](https://github.com/iamousseni/runtheons-validate#datetime "datetime")
-- [time](https://github.com/iamousseni/runtheons-validate#time "time")
-  - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key "Allowed data format key")
+- [int](https://github.com/iamousseni/runtheons-validate#int 'int')
+- [float](https://github.com/iamousseni/runtheons-validate#float 'float')
+- [boolean](https://github.com/iamousseni/runtheons-validate#boolean 'boolean')
+- [string](https://github.com/iamousseni/runtheons-validate#string 'string')
+- [email](https://github.com/iamousseni/runtheons-validate#email 'email')
+- [file](https://github.com/iamousseni/runtheons-validate#file 'file')
+- [date](https://github.com/iamousseni/runtheons-validate#date 'date')
+- [datetime](https://github.com/iamousseni/runtheons-validate#datetime 'datetime')
+- [time](https://github.com/iamousseni/runtheons-validate#time 'time')
+  - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key 'Allowed data format key')
 
 ### int
 
@@ -130,12 +130,12 @@ The types of inputs are:
 
 ```javascript
 var objSchema = {
-  id: {
-    type: "int",
-    min: 0, //The id must be greatear than 0
-    max: 1000, //The id must be lower than 1000
-    required: true, //The id is required
-  },
+	id: {
+		type: 'int',
+		min: 0, //The id must be greatear than 0
+		max: 1000, //The id must be lower than 1000
+		required: true //The id is required
+	}
 };
 ```
 
@@ -149,12 +149,12 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  prize: {
-    type: "float",
-    min: 0.99, //The prize must be greatear than 0,99
-    max: 1000, //The prize must be lower than 1000
-    required: true, //The prize is required
-  },
+	prize: {
+		type: 'float',
+		min: 0.99, //The prize must be greatear than 0,99
+		max: 1000, //The prize must be lower than 1000
+		required: true //The prize is required
+	}
 };
 ```
 
@@ -185,14 +185,14 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  username: {
-    type: "string",
-    notEmpty: true, //The username must not be ""
-    minLength: 9, //The username length must be greater than 9 char
-    maxLength: 1000, //The username length must be lower than 1000 char,
-    reg: "[a-zA-Z]*", //The username must match this pattern
-    required: true, //The username is required
-  },
+	username: {
+		type: 'string',
+		notEmpty: true, //The username must not be ""
+		minLength: 9, //The username length must be greater than 9 char
+		maxLength: 1000, //The username length must be lower than 1000 char,
+		reg: '[a-zA-Z]*', //The username must match this pattern
+		required: true //The username is required
+	}
 };
 ```
 
@@ -204,10 +204,10 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  email: {
-    type: "email",
-    required: true, //The email is required
-  },
+	email: {
+		type: 'email',
+		required: true //The email is required
+	}
 };
 ```
 
@@ -220,15 +220,15 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  photo: {
-    type: "file", //The photo must be a file
-    mimetype: [
-      "image/png", //The photo must be a .png, .jpg or .gif
-      "image/jpg",
-      "image/gif",
-    ],
-    required: true, //The photo is required
-  },
+	photo: {
+		type: 'file', //The photo must be a file
+		mimetype: [
+			'image/png', //The photo must be a .png, .jpg or .gif
+			'image/jpg',
+			'image/gif'
+		],
+		required: true //The photo is required
+	}
 };
 ```
 
@@ -245,24 +245,24 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  dateSend: {
-    type: "date",
-    format: "DD/MM/YYYY", //The dateSend must be a date in this format, min and max attributes if setted must be in this format
-    min: "01/01/2020", //The dateSend must be grater than 1st January 2020
-    max: "31/12/2020", //The dateSend must be lower than 31th December 2020
-    required: true, //The dateSend is required
-  },
-  dateBirth: {
-    type: "date",
-    minAge: {
-      years: 14, //The dateBirth must be min 14 years and 5 mouth old from now
-      mounths: 5,
-    },
-    maxAge: {
-      years: 99, //The dateBirth must be max 99 years old from now
-    },
-    //For more details about this oubject see below
-  },
+	dateSend: {
+		type: 'date',
+		format: 'DD/MM/YYYY', //The dateSend must be a date in this format, min and max attributes if setted must be in this format
+		min: '01/01/2020', //The dateSend must be grater than 1st January 2020
+		max: '31/12/2020', //The dateSend must be lower than 31th December 2020
+		required: true //The dateSend is required
+	},
+	dateBirth: {
+		type: 'date',
+		minAge: {
+			years: 14, //The dateBirth must be min 14 years and 5 mouth old from now
+			mounths: 5
+		},
+		maxAge: {
+			years: 99 //The dateBirth must be max 99 years old from now
+		}
+		//For more details about this oubject see below
+	}
 };
 ```
 
@@ -279,23 +279,23 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  timeSend: {
-    type: "time",
-    format: "HH:mm:ss", //The timeSend must be a time in this format, min and max attributes if setted must be in this format
-    min: "00:00:01", //The timeSend must bee grater than 1 second
-    max: "10:59:59", //The timeSend must belower than 11 a.m.
-    required: true, //The timeSend is required
-  },
-  timeBirth: {
-    type: "time",
-    minage: {
-      hours: 1, //The timeBirth must be min 1 hours old from now
-    },
-    maxage: {
-      hours: 10, //The timeBirth must be max 10 hours old from now
-    },
-    //For more details of this object look below
-  },
+	timeSend: {
+		type: 'time',
+		format: 'HH:mm:ss', //The timeSend must be a time in this format, min and max attributes if setted must be in this format
+		min: '00:00:01', //The timeSend must bee grater than 1 second
+		max: '10:59:59', //The timeSend must belower than 11 a.m.
+		required: true //The timeSend is required
+	},
+	timeBirth: {
+		type: 'time',
+		minage: {
+			hours: 1 //The timeBirth must be min 1 hours old from now
+		},
+		maxage: {
+			hours: 10 //The timeBirth must be max 10 hours old from now
+		}
+		//For more details of this object look below
+	}
 };
 ```
 
@@ -312,32 +312,32 @@ var objSchema = {
 
 ```javascript
 var objSchema = {
-  dateSend: {
-    type: "datetime",
-    format: "DD/MM/YYYY HH:mm:ss", //The dateSend must be a date in this format, min and max attributes if setted must be in this format
-    min: "01/01/2020 00:10:30", //The dateSend must be grater than 1st January 2020 at 00:10:30
-    max: "31/12/2020 05:30:00", //The dateSend must be lower than 31th December 2020 at 05:30:00
-    required: true, //The dateSend is required
-  },
-  dateBirth: {
-    type: "datetime",
-    minAge: {
-      years: 14, //The dateBirth must be min 14 years, 5 mouth and 1 hours old from now
-      mounths: 5,
-      hours: 1,
-    },
-    maxAge: {
-      years: 99, //The dateBirth must be max 99 years and 10 hours old from now
-      hours: 10,
-    },
-    //For more details about this oubject see below
-  },
+	dateSend: {
+		type: 'datetime',
+		format: 'DD/MM/YYYY HH:mm:ss', //The dateSend must be a date in this format, min and max attributes if setted must be in this format
+		min: '01/01/2020 00:10:30', //The dateSend must be grater than 1st January 2020 at 00:10:30
+		max: '31/12/2020 05:30:00', //The dateSend must be lower than 31th December 2020 at 05:30:00
+		required: true //The dateSend is required
+	},
+	dateBirth: {
+		type: 'datetime',
+		minAge: {
+			years: 14, //The dateBirth must be min 14 years, 5 mouth and 1 hours old from now
+			mounths: 5,
+			hours: 1
+		},
+		maxAge: {
+			years: 99, //The dateBirth must be max 99 years and 10 hours old from now
+			hours: 10
+		}
+		//For more details about this oubject see below
+	}
 };
 ```
 
 #### Allowed data format key
 
-Look [moment.js](https://momentjs.com/docs/#/manipulating/ "moment.js"), for more datails
+Look [moment.js](https://momentjs.com/docs/#/manipulating/ 'moment.js'), for more datails
 
 | Input                  | Example        | Description                                                                  |
 | ---------------------- | -------------- | ---------------------------------------------------------------------------- |
