@@ -110,8 +110,8 @@ The types of inputs are:
 - [STRING](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
 - [EMAIL](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
 - [file](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/file.md)
-- [date](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
-- [datetime](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
+- [DATE](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
+- [DATETIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
 - [time](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
   - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key)
 
@@ -168,67 +168,6 @@ var objSchema = {
 	}
 };
 ```
-
-### datetime
-
-| Attributes | Type   | Description                                                                                                                                                                                                                     |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| required   | bool   | Set if this field is required (default : true)                                                                                                                                                                                  |
-| format     | string | Set the format of the input value and the min/max attributes (default : YYYY-MM-DD HH:mm:ss)                                                                                                                                    |
-| min        | int    | Set the minimal date that the input can be (value not included)                                                                                                                                                                 |
-| max        | int    | Set the maximal date that the input can be (value not included)                                                                                                                                                                 |
-| minAge     | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
-| maxAge     | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
-
-```javascript
-var objSchema = {
-	dateSend: {
-		type: 'datetime',
-		format: 'DD/MM/YYYY HH:mm:ss', //The dateSend must be a date in this format, min and max attributes if setted must be in this format
-		min: '01/01/2020 00:10:30', //The dateSend must be grater than 1st January 2020 at 00:10:30
-		max: '31/12/2020 05:30:00', //The dateSend must be lower than 31th December 2020 at 05:30:00
-		required: true //The dateSend is required
-	},
-	dateBirth: {
-		type: 'datetime',
-		minAge: {
-			years: 14, //The dateBirth must be min 14 years, 5 mouth and 1 hours old from now
-			mounths: 5,
-			hours: 1
-		},
-		maxAge: {
-			years: 99, //The dateBirth must be max 99 years and 10 hours old from now
-			hours: 10
-		}
-		//For more details about this oubject see below
-	}
-};
-```
-
-#### Allowed data format key
-
-Look [moment.js](https://momentjs.com/docs/#/manipulating/ 'moment.js'), for more datails
-
-| Input                  | Example        | Description                                                                  |
-| ---------------------- | -------------- | ---------------------------------------------------------------------------- |
-| YYYY                   | 2014           | 4 or 2 digit year. Note: Only 4 digit can be parsed on strict mode           |
-| YY                     | 14             | 2 digit year                                                                 |
-| Q                      | 1..4           | Quarter of year. Sets month to first month in quarter.                       |
-| M MM                   | 1..12          | Month number                                                                 |
-| MMM MMMM               | December       | Month name(ENG)                                                              |
-| D DD                   | 1..31          | Day of month                                                                 |
-| Do                     | 1st..31st      | Day of month with ordinal                                                    |
-| DDD DDDD               | 1..365         | Day of year                                                                  |
-| X                      | 1410715640.579 | Unix timestamp                                                               |
-| x                      | 1410715640579  | Unix timestamp in milliseconds                                               |
-| H HH                   | 0..23          | Hours (24 hour time)                                                         |
-| h hh                   | 1..12          | Hours (12 hour time used with a A.)                                          |
-| k kk                   | 1..24          | Hours (24 hour time from 1 to 24)                                            |
-| a A                    | am pm          | Post or ante meridiem (Note the one character a p are also considered valid) |
-| m mm                   | 0..59          | Minutes                                                                      |
-| s ss                   | 0..59          | Seconds                                                                      |
-| S SS SSS ... SSSSSSSSS | 0..999999999   | Fractional seconds                                                           |
-| Z ZZ                   | +12:00         | Offset from UTC as +-HH:mm, +-HHmm, or Z                                     |
 
 # System structure
 
