@@ -9,8 +9,7 @@ npm package to validate endpoints
   - [Prerequisites](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#prerequisites)
   - [Installation](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#installation)
 - [Example of use](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#example-of-use)
-- [Use](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#use)
-  - [Type](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
+- [Type](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
 - [System structure](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#system-structure)
 
 # Introduction
@@ -101,11 +100,7 @@ console.log(validator.validate(objSchema, objData));
 }*/
 ```
 
-# Use
-
-It is necessary to define an object schema that defines the input you want to receive, for each element of the object it is necessary to define its type:
-
-## Type
+# Type
 
 The types of inputs are:
 
@@ -118,7 +113,7 @@ The types of inputs are:
 - [date](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
 - [datetime](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
 - [time](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
-  - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key 'Allowed data format key')
+  - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key)
 
 ### file
 
@@ -137,40 +132,6 @@ var objSchema = {
 			'image/gif'
 		],
 		required: true //The photo is required
-	}
-};
-```
-
-### date
-
-| Attributes | Type   | Description                                                                                                                                                  |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| required   | bool   | Set if this field is required (default : true)                                                                                                               |
-| format     | string | Set the format of the input value and the min/max attributes (default : YYYY-MM-DD)                                                                          |
-| min        | int    | Set the minimal date that the input can be (value not included)                                                                                              |
-| max        | int    | Set the maximal date that the input can be (value not included)                                                                                              |
-| minAge     | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul> |
-| maxAge     | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul> |
-
-```javascript
-var objSchema = {
-	dateSend: {
-		type: 'date',
-		format: 'DD/MM/YYYY', //The dateSend must be a date in this format, min and max attributes if setted must be in this format
-		min: '01/01/2020', //The dateSend must be grater than 1st January 2020
-		max: '31/12/2020', //The dateSend must be lower than 31th December 2020
-		required: true //The dateSend is required
-	},
-	dateBirth: {
-		type: 'date',
-		minAge: {
-			years: 14, //The dateBirth must be min 14 years and 5 mouth old from now
-			mounths: 5
-		},
-		maxAge: {
-			years: 99 //The dateBirth must be max 99 years old from now
-		}
-		//For more details about this oubject see below
 	}
 };
 ```
