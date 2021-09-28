@@ -112,8 +112,7 @@ The types of inputs are:
 - [file](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/file.md)
 - [DATE](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
 - [DATETIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
-- [time](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
-  - [Allowed data format key](https://github.com/iamousseni/runtheons-validate#Allowed-data-format-key)
+- [TIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
 
 ### file
 
@@ -132,39 +131,6 @@ var objSchema = {
 			'image/gif'
 		],
 		required: true //The photo is required
-	}
-};
-```
-
-### time
-
-| Attributes | Type   | Description                                                                                                                                           |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| required   | bool   | Set if this field is required (default : true)                                                                                                        |
-| format     | string | Set the format of the input value and the min/max attributes (default : HH:mm:ss)                                                                     |
-| min        | int    | Set the minimal date that the input can be (value not included)                                                                                       |
-| max        | int    | Set the maximal date that the input can be (value not included)                                                                                       |
-| minAge     | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
-| maxAge     | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
-
-```javascript
-var objSchema = {
-	timeSend: {
-		type: 'time',
-		format: 'HH:mm:ss', //The timeSend must be a time in this format, min and max attributes if setted must be in this format
-		min: '00:00:01', //The timeSend must bee grater than 1 second
-		max: '10:59:59', //The timeSend must belower than 11 a.m.
-		required: true //The timeSend is required
-	},
-	timeBirth: {
-		type: 'time',
-		minage: {
-			hours: 1 //The timeBirth must be min 1 hours old from now
-		},
-		maxage: {
-			hours: 10 //The timeBirth must be max 10 hours old from now
-		}
-		//For more details of this object look below
 	}
 };
 ```
