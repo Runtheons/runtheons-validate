@@ -7,14 +7,14 @@
 
 ## Parameter
 
-| Attributes | Type   | Description                                                                                                                                           |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| required   | bool   | Set if this field is required (default : true)                                                                                                        |
-| format     | string | Set the format of the input value and the min/max attributes (default : HH:mm:ss)                                                                     |
-| min        | int    | Set the minimal date that the input can be (value not included)                                                                                       |
-| max        | int    | Set the maximal date that the input can be (value not included)                                                                                       |
-| minAge     | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
-| maxAge     | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
+| Parameter | Type   | Description                                                                                                                                           |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| required  | bool   | Set if this field is required (default : true)                                                                                                        |
+| format    | string | Set the format of the input value and the min/max attributes (default : HH:mm:ss)                                                                     |
+| min       | int    | Set the minimal date that the input can be (value not included)                                                                                       |
+| max       | int    | Set the maximal date that the input can be (value not included)                                                                                       |
+| minAge    | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
+| maxAge    | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>hours</li><li>minutes</li><li>seconds</li><li>milliseconds</li></ul> |
 
 We use [moment.js](https://momentjs.com/docs/#/manipulating/ 'moment.js') for manipulate the date, so see for more datails
 

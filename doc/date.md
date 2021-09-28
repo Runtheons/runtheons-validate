@@ -7,14 +7,14 @@
 
 ## Parameter
 
-| Attributes | Type   | Description                                                                                                                                                  |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| required   | bool   | Set if this field is required (default : true)                                                                                                               |
-| format     | string | Set the format of the input value and the min/max attributes (default : YYYY-MM-DD)                                                                          |
-| min        | int    | Set the minimal date that the input can be (value is included)                                                                                               |
-| max        | int    | Set the maximal date that the input can be (value is included)                                                                                               |
-| minAge     | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul> |
-| maxAge     | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul> |
+| Parameter | Type   | Description                                                                                                                                                  |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| required  | bool   | Set if this field is required (default : true)                                                                                                               |
+| format    | string | Set the format of the input value and the min/max attributes (default : YYYY-MM-DD)                                                                          |
+| min       | int    | Set the minimal date that the input can be (value is included)                                                                                               |
+| max       | int    | Set the maximal date that the input can be (value is included)                                                                                               |
+| minAge    | object | Set the dinamical minimal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul> |
+| maxAge    | object | Set the dinamical maximal date that the input can be <br>Allow keys are: <ul><li>years</li><li> quarters</li><li>months</li><li>weeks</li><li>days</li></ul> |
 
 We use [moment.js](https://momentjs.com/docs/#/manipulating/ 'moment.js') for manipulate the date, so see for more datails
 

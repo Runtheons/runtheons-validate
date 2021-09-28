@@ -7,13 +7,13 @@
 
 ## Parameter
 
-| Attributes | Type   | Description                                                      |
-| ---------- | ------ | ---------------------------------------------------------------- |
-| required   | bool   | Set if this field is required (default : true)                   |
-| notEmpty   | bool   | Set if this field must be a not empty string (default : false)   |
-| minLength  | int    | Set the minimal length that the input can be (value is included) |
-| maxLength  | int    | Set the maximal length that the input can be (value is included) |
-| reg        | string | A regular expression that must match the input                   |
+| Parameter | Type   | Description                                                      |
+| --------- | ------ | ---------------------------------------------------------------- |
+| required  | bool   | Set if this field is required (default : true)                   |
+| notEmpty  | bool   | Set if this field must be a not empty string (default : false)   |
+| minLength | int    | Set the minimal length that the input can be (value is included) |
+| maxLength | int    | Set the maximal length that the input can be (value is included) |
+| reg       | string | A regular expression that must match the input                   |
 
 ## Example of Use
 

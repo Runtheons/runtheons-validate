@@ -7,9 +7,9 @@
 
 ## Parameter
 
-| Attributes | Type | Description                                    |
-| ---------- | ---- | ---------------------------------------------- |
-| required   | bool | Set if this field is required (default : true) |
+| Parameter | Type | Description                                    |
+| --------- | ---- | ---------------------------------------------- |
+| required  | bool | Set if this field is required (default : true) |
 
 ## Example of Use
 

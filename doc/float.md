@@ -7,11 +7,11 @@
 
 ## Parameter
 
-| Attributes | Type | Description                                                     |
-| ---------- | ---- | --------------------------------------------------------------- |
-| required   | bool | Set if this field is required (default : true)                  |
-| min        | int  | Set the minimal value that the input can be (value is included) |
-| max        | int  | Set the maximal value that the input can be (value is included) |
+| Parameter | Type | Description                                                     |
+| --------- | ---- | --------------------------------------------------------------- |
+| required  | bool | Set if this field is required (default : true)                  |
+| min       | int  | Set the minimal value that the input can be (value is included) |
+| max       | int  | Set the maximal value that the input can be (value is included) |
 
 ## Example of Use
 
