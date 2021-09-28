@@ -1,17 +1,15 @@
-const AbstractValue = require("./AbstractValue");
+const AbstractValue = require('./AbstractValue');
 
-module.exports = new class BooleanValue extends AbstractValue {
-
+module.exports = class BooleanValue extends AbstractValue {
 	constructor() {
 		super();
-		this.avaibleAttributes = ["type"];
+		this.avaibleAttributes = ['type'];
 	}
 
 	type(key, requiredValue, dataValue) {
-		if (typeof dataValue != "boolean") {
-			return [key + " is not a boolean"];
+		if (typeof dataValue != 'boolean') {
+			return [key + ' is not a boolean'];
 		}
 		return [];
 	}
-
-}
+};
