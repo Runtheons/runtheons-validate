@@ -1,6 +1,6 @@
 {
 	"name": "@runtheons/validate",
-	"version": "2.4.3",
+	"version": "3.0.0",
 	"description": "useful package to manage in the easiest way possible the validation of data passed through API",
 	"main": "index.js",
 	"dependencies": {
