@@ -1,4 +1,4 @@
-const FloatValue = require('./FloatValue').constructor;
+const FloatValue = require('./FloatValue');
 
 module.exports = class IntegerValue extends FloatValue {
 	type(key, requiredValue, dataValue) {
