@@ -27,14 +27,13 @@ module.exports = class DateValue extends StringValue {
 		if (!minAsDate.isValid()) {
 			return ['The min setted in ' + key + " isn't in format " + this.format];
 		} else {
-			// Check if the value is valid (already check in type)
-			if (valueAsDate.isValid()) {
-				//Find the min value beetwen the two date
-				var min = moment.min(valueAsDate, minAsDate);
-				//if the min value is the dataValue then the value is lower of the required value
-				if (min == valueAsDate) {
-					return [key + ' is lower than ' + requiredValue];
-				}
+			//Find the min value beetwen the two date
+			var min = moment.min(valueAsDate, minAsDate);
+			//if the min value is the dataValue then the value is lower of the required value
+			if (min == valueAsDate) {
+				return [key + ' is lower than ' + requiredValue];
+			} else {
+				return [];
 			}
 		}
 	}
@@ -46,14 +45,13 @@ module.exports = class DateValue extends StringValue {
 		if (!maxAsDate.isValid()) {
 			return ['The max setted in ' + key + " isn't in format " + this.format];
 		} else {
-			// Check if the value is valid (already check in type)
-			if (valueAsDate.isValid()) {
-				//Find the min value beetwen the two date
-				var max = moment.max(valueAsDate, maxAsDate);
-				//if the max value is the dataValue then the value is greater of the required value
-				if (max == valueAsDate) {
-					return [key + ' is greater than ' + requiredValue];
-				}
+			//Find the min value beetwen the two date
+			var max = moment.max(valueAsDate, maxAsDate);
+			//if the max value is the dataValue then the value is greater of the required value
+			if (max == valueAsDate) {
+				return [key + ' is greater than ' + requiredValue];
+			} else {
+				return [];
 			}
 		}
 	}
