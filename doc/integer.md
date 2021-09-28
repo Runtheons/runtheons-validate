@@ -1,8 +1,8 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
+[<- Back](https://github.com/iamousseni/runtheons-validate#type)
 
 # INTEGER
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer#parameter)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/integer#parameter)
 - [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/integer#example-of-use)
 
 ## Parameter

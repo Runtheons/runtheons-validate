@@ -1,8 +1,8 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
+[<- Back](https://github.com/iamousseni/runtheons-validate#type)
 
 # BOOLEAN
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/boolean#parameter)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/boolean#parameter)
 - [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/boolean#example-of-use)
 
 ## Parameter

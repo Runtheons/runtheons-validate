@@ -1,8 +1,8 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
+[<- Back](https://github.com/iamousseni/runtheons-validate#type)
 
 # EMAIL
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email#parameter)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/email#parameter)
 - [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/email#example-of-use)
 
 ## Parameter

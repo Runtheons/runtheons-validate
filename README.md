@@ -4,13 +4,13 @@ npm package to validate endpoints
 
 # Index
 
-- [Introduction](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#introduction)
-- [Getting started](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#getting-started)
-  - [Prerequisites](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#prerequisites)
-  - [Installation](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#installation)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#example-of-use)
-- [Type](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
-- [System structure](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#system-structure)
+- [Introduction](https://github.com/iamousseni/runtheons-validate#introduction)
+- [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started)
+  - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites)
+  - [Installation](https://github.com/iamousseni/runtheons-validate#installation)
+- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use)
+- [Type](https://github.com/iamousseni/runtheons-validate#type)
+- [System structure](https://github.com/iamousseni/runtheons-validate#system-structure)
 
 # Introduction
 
@@ -104,18 +104,18 @@ console.log(validator.validate(objSchema, objData));
 
 The types of inputs are:
 
-- [INTEGER](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/integer.md)
-- [FLOAT](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/float.md)
-- [BOOLEAN](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/boolean.md)
-- [STRING](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
-- [EMAIL](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
-- [DATE](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
-- [DATETIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
-- [TIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
-- [OBJECT](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#object)
-- [ARRAY](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#file)
-- [ARRAY_OF_INTEGER](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#file)
-- [FILE](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#file)
+- [INTEGER](https://github.com/iamousseni/runtheons-validate/doc/integer.md)
+- [FLOAT](https://github.com/iamousseni/runtheons-validate/doc/float.md)
+- [BOOLEAN](https://github.com/iamousseni/runtheons-validate/doc/boolean.md)
+- [STRING](https://github.com/iamousseni/runtheons-validate/doc/string.md)
+- [EMAIL](https://github.com/iamousseni/runtheons-validate/doc/email.md)
+- [DATE](https://github.com/iamousseni/runtheons-validate/doc/date.md)
+- [DATETIME](https://github.com/iamousseni/runtheons-validate/doc/datetime.md)
+- [TIME](https://github.com/iamousseni/runtheons-validate/doc/time.md)
+- [OBJECT](https://github.com/iamousseni/runtheons-validate/#object)
+- [ARRAY](https://github.com/iamousseni/runtheons-validate/#file)
+- [ARRAY_OF_INTEGER](https://github.com/iamousseni/runtheons-validate/#file)
+- [FILE](https://github.com/iamousseni/runtheons-validate/#file)
 
 ### OBJECT
 

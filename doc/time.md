@@ -1,8 +1,8 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate/tree/2.4.3#type)
+[<- Back](https://github.com/iamousseni/runtheons-validate#type)
 
 # TIME
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time#parameter)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/time#parameter)
 - [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/time#example-of-use)
 
 ## Parameter
