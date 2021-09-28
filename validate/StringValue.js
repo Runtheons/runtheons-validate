@@ -1,6 +1,6 @@
 const AbstractValue = require('./AbstractValue');
 
-module.exports = new(class StringValue extends AbstractValue {
+module.exports = class StringValue extends AbstractValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = [
@@ -48,4 +48,4 @@ module.exports = new(class StringValue extends AbstractValue {
 		}
 		return [key + " don't match the reg " + reg];
 	}
-})();
+};

@@ -91,25 +91,45 @@ module.exports = class Validator {
 				}
 				return errors;
 			case this.INTEGER:
-				return require('./validate/IntegerValue').validate(key, schema, data);
+				var IntegerValue = require('./validate/IntegerValue');
+				IntegerValue = new IntegerValue();
+				return IntegerValue.validate(key, schema, data);
 			case this.FLOAT:
-				return require('./validate/FloatValue').validate(key, schema, data);
+				var FloatValue = require('./validate/FloatValue');
+				FloatValue = new FloatValue();
+				return FloatValue.validate(key, schema, data);
 			case this.BOOLEAN:
-				return require('./validate/BooleanValue').validate(key, schema, data);
+				var BooleanValue = require('./validate/BooleanValue');
+				BooleanValue = new BooleanValue();
+				return BooleanValue.validate(key, schema, data);
 			case this.STRING:
-				return require('./validate/StringValue').validate(key, schema, data);
+				var StringValue = require('./validate/StringValue');
+				StringValue = new StringValue();
+				return StringValue.validate(key, schema, data);
 			case this.EMAIL:
-				return require('./validate/EmailValue').validate(key, schema, data);
+				var EmailValue = require('./validate/EmailValue');
+				EmailValue = new EmailValue();
+				return EmailValue.validate(key, schema, data);
 			case this.LINK:
-				return require('./validate/LinkValue').validate(key, schema, data);
+				var LinkValue = require('./validate/LinkValue');
+				LinkValue = new LinkValue();
+				return LinkValue.validate(key, schema, data);
 			case this.DATE:
-				return require('./validate/DateValue').validate(key, schema, data);
+				var DateValue = require('./validate/DateValue');
+				DateValue = new DateValue();
+				return DateValue.validate(key, schema, data);
 			case this.DATETIME:
-				return require('./validate/DateTimeValue').validate(key, schema, data);
+				var DateTimeValue = require('./validate/DateTimeValue');
+				DateTimeValue = new DateTimeValue();
+				return DateTimeValue.validate(key, schema, data);
 			case this.TIME:
-				return require('./validate/TimeValue').validate(key, schema, data);
+				var TimeValue = require('./validate/TimeValue');
+				TimeValue = new TimeValue();
+				return TimeValue.validate(key, schema, data);
 			case this.FILE:
-				return require('./validate/FileValue').validate(key, schema, data);
+				var FileValue = require('./validate/FileValue');
+				FileValue = new FileValue();
+				return FileValue.validate(key, schema, data);
 		}
 	}
 };

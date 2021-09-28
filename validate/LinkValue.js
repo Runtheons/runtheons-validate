@@ -1,10 +1,11 @@
 const StringValue = require('./StringValue').constructor;
 
-module.exports = new(class LinkValue extends StringValue {
+module.exports = class LinkValue extends StringValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ['type'];
-		//To add protocoll = HTTP/HTTPS, getHost = [www.google.it, www.facebook.it, google.it]
+		//TODO: Add protocoll = HTTP/HTTPS
+		//TODO: Add host = [www.google.it, www.facebook.it, google.it]
 	}
 
 	type(key, requiredValue, dataValue) {
@@ -15,4 +16,4 @@ module.exports = new(class LinkValue extends StringValue {
 		}
 		return [];
 	}
-})();
+};

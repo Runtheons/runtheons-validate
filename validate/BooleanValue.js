@@ -1,6 +1,6 @@
 const AbstractValue = require('./AbstractValue');
 
-module.exports = new(class BooleanValue extends AbstractValue {
+module.exports = class BooleanValue extends AbstractValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ['type'];
@@ -12,4 +12,4 @@ module.exports = new(class BooleanValue extends AbstractValue {
 		}
 		return [];
 	}
-})();
+};

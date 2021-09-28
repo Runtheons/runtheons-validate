@@ -1,6 +1,6 @@
 const FloatValue = require('./FloatValue').constructor;
 
-module.exports = new(class IntegerValue extends FloatValue {
+module.exports = class IntegerValue extends FloatValue {
 	type(key, requiredValue, dataValue) {
 		if (typeof dataValue != 'number') {
 			return [key + ' is not a number'];
@@ -10,4 +10,4 @@ module.exports = new(class IntegerValue extends FloatValue {
 		}
 		return [];
 	}
-})();
+};

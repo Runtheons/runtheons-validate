@@ -1,6 +1,6 @@
 const AbstractValue = require('./AbstractValue');
 
-module.exports = new(class FloatValue extends AbstractValue {
+module.exports = class FloatValue extends AbstractValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ['type', 'min', 'max'];
@@ -12,4 +12,4 @@ module.exports = new(class FloatValue extends AbstractValue {
 		}
 		return [];
 	}
-})();
+};

@@ -1,6 +1,6 @@
 const AbstractValue = require('./AbstractValue');
 
-module.exports = new(class FileValue extends AbstractValue {
+module.exports = class FileValue extends AbstractValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ['type', 'mimetype'];
@@ -37,4 +37,4 @@ module.exports = new(class FileValue extends AbstractValue {
 		}
 		return [];
 	}
-})();
+};

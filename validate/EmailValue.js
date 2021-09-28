@@ -1,6 +1,6 @@
 const StringValue = require('./StringValue').constructor;
 
-module.exports = new(class EmailValue extends StringValue {
+module.exports = class EmailValue extends StringValue {
 	constructor() {
 		super();
 		this.avaibleAttributes = ['type'];
@@ -14,4 +14,4 @@ module.exports = new(class EmailValue extends StringValue {
 		}
 		return [];
 	}
-})();
+};
