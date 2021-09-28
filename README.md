@@ -109,12 +109,83 @@ The types of inputs are:
 - [BOOLEAN](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/boolean.md)
 - [STRING](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/string.md)
 - [EMAIL](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/email.md)
-- [file](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/file.md)
 - [DATE](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/date.md)
 - [DATETIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/datetime.md)
 - [TIME](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/doc/time.md)
+- [OBJECT](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#object)
+- [ARRAY](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#file)
+- [ARRAY_OF_INTEGER](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#file)
+- [FILE](https://github.com/iamousseni/runtheons-validate/tree/2.4.3/#file)
 
-### file
+### OBJECT
+
+| Parameter | Type   | Description                                    |
+| --------- | ------ | ---------------------------------------------- |
+| required  | bool   | Set if this field is required (default : true) |
+| of        | object | Set the field of the object (Is required)      |
+
+```javascript
+var objSchema = {
+	position: {
+		type: Validator.OBJECT,
+		required: true,
+		of: {
+			latitude: {
+				type: Validator.FLOAT,
+				required: true
+			},
+			longitude: {
+				type: Validator.FLOAT,
+				required: true
+			}
+		}
+	}
+};
+```
+
+### ARRAY
+
+| Parameter | Type   | Description                                    |
+| --------- | ------ | ---------------------------------------------- |
+| required  | bool   | Set if this field is required (default : true) |
+| of        | object | Set the type of the array item (Is required)   |
+
+```javascript
+var objSchema = {
+	receivers: {
+		type: Validator.ARRAY,
+		required: true,
+		of: {
+			type: Validator.EMAIL
+		}
+	}
+};
+```
+
+### ARRAY_OF_INTEGER
+
+It's a shortcut
+
+```javascript
+var objSchema = {
+	marks: {
+		type: Validator.ARRAY_OF_INTEGER,
+		required: true
+	}
+};
+var objSchema2 = {
+	marks: {
+		type: Validator.ARRAY,
+		required: true,
+		of: {
+			type: Validator.INTEGER
+		}
+	}
+};
+// Those two schema have same effect
+```
+
+### FILE
 
 | Attributes | Type               | Description                                    |
 | ---------- | ------------------ | ---------------------------------------------- |
@@ -124,7 +195,7 @@ The types of inputs are:
 ```javascript
 var objSchema = {
 	photo: {
-		type: 'file', //The photo must be a file
+		type: Validator.FILE, //The photo must be a file
 		mimetype: [
 			'image/png', //The photo must be a .png, .jpg or .gif
 			'image/jpg',
