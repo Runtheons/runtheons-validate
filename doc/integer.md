@@ -3,7 +3,7 @@
 # INTEGER
 
 - [Parameter](https://github.com/iamousseni/runtheons-validate/doc/integer#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/integer#example-of-use)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/integer#example-of-use)
 
 ## Parameter
 

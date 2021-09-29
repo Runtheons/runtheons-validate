@@ -3,7 +3,7 @@
 # BOOLEAN
 
 - [Parameter](https://github.com/iamousseni/runtheons-validate/doc/boolean#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/boolean#example-of-use)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/boolean#example-of-use)
 
 ## Parameter
 

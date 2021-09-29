@@ -3,7 +3,7 @@
 # STRING
 
 - [Parameter](https://github.com/iamousseni/runtheons-validate/doc/string#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/string#example-of-use)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/string#example-of-use)
 
 ## Parameter
 

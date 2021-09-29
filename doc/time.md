@@ -3,7 +3,7 @@
 # TIME
 
 - [Parameter](https://github.com/iamousseni/runtheons-validate/doc/time#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validatetree/2.4.3/doc/time#example-of-use)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/time#example-of-use)
 
 ## Parameter
 
