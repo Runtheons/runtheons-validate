@@ -104,14 +104,14 @@ console.log(validator.validate(objSchema, objData));
 
 The types of inputs are:
 
-- [INTEGER](https://github.com/iamousseni/runtheons-validate/doc/integer.md)
-- [FLOAT](https://github.com/iamousseni/runtheons-validate/doc/float.md)
-- [BOOLEAN](https://github.com/iamousseni/runtheons-validate/doc/boolean.md)
-- [STRING](https://github.com/iamousseni/runtheons-validate/doc/string.md)
-- [EMAIL](https://github.com/iamousseni/runtheons-validate/doc/email.md)
-- [DATE](https://github.com/iamousseni/runtheons-validate/doc/date.md)
-- [DATETIME](https://github.com/iamousseni/runtheons-validate/doc/datetime.md)
-- [TIME](https://github.com/iamousseni/runtheons-validate/doc/time.md)
+- [INTEGER](https://github.com/iamousseni/runtheons-validate/tree/master/doc/integer.md)
+- [FLOAT](https://github.com/iamousseni/runtheons-validate/tree/master/doc/float.md)
+- [BOOLEAN](https://github.com/iamousseni/runtheons-validate/tree/master/doc/boolean.md)
+- [STRING](https://github.com/iamousseni/runtheons-validate/tree/master/doc/string.md)
+- [EMAIL](https://github.com/iamousseni/runtheons-validate/tree/master/doc/email.md)
+- [DATE](https://github.com/iamousseni/runtheons-validate/tree/master/doc/date.md)
+- [DATETIME](https://github.com/iamousseni/runtheons-validate/tree/master/doc/datetime.md)
+- [TIME](https://github.com/iamousseni/runtheons-validate/tree/master/doc/time.md)
 - [OBJECT](https://github.com/iamousseni/runtheons-validate/#object)
 - [ARRAY](https://github.com/iamousseni/runtheons-validate/#file)
 - [ARRAY_OF_INTEGER](https://github.com/iamousseni/runtheons-validate/#file)

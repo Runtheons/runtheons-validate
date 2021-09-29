@@ -2,8 +2,8 @@
 
 # TIME
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/time.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/time.md#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/master/doc/time.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/master/doc/time.md#example-of-use)
 
 ## Parameter
 

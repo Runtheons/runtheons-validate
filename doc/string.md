@@ -2,8 +2,8 @@
 
 # STRING
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/string.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/string.md#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/master/doc/string.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/master/doc/string.md#example-of-use)
 
 ## Parameter
 
