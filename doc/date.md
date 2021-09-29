@@ -2,8 +2,8 @@
 
 # DATE
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/blob/master/doc/date.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/blob/master/doc/date.md#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/blob/tree/master/doc/date.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/blob/tree/master/doc/date.md#example-of-use)
 
 ## Parameter
 

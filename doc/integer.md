@@ -2,8 +2,8 @@
 
 # INTEGER
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/blob/master/doc/integer.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/blob/master/doc/integer.md#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/blob/tree/master/doc/integer.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/blob/tree/master/doc/integer.md#example-of-use)
 
 ## Parameter
 
