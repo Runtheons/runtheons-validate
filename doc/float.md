@@ -2,8 +2,8 @@
 
 # FLOAT
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/float#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/float#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/float.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/float.md#example-of-use)
 
 ## Parameter
 

@@ -2,8 +2,8 @@
 
 # EMAIL
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/email#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/email#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/doc/email.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/doc/email.md#example-of-use)
 
 ## Parameter
 
