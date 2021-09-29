@@ -2,8 +2,8 @@
 
 # EMAIL
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/master/doc/email.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/master/doc/email.md#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/blob/master/doc/email.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/blob/master/doc/email.md#example-of-use)
 
 ## Parameter
 

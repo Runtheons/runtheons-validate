@@ -2,8 +2,8 @@
 
 # BOOLEAN
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/tree/master/doc/boolean.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/tree/master/doc/boolean.md#example-of-use)
+- [Parameter](https://github.com/iamousseni/runtheons-validate/blob/master/doc/boolean.md#parameter)
+- [Example of use](https://github.com/iamousseni/runtheons-validate/blob/master/doc/boolean.md#example-of-use)
 
 ## Parameter
 
