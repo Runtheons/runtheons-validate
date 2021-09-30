@@ -109,6 +109,8 @@ The types of inputs are:
 - [BOOLEAN](https://github.com/iamousseni/runtheons-validate/blob/master/doc/boolean.md)
 - [STRING](https://github.com/iamousseni/runtheons-validate/blob/master/doc/string.md)
 - [EMAIL](https://github.com/iamousseni/runtheons-validate/blob/master/doc/email.md)
+- [LINK](https://github.com/iamousseni/runtheons-validate/blob/master/doc/link.md)
+- [UUIDV4](https://github.com/iamousseni/runtheons-validate/blob/master/doc/uuidv4.md)
 - [DATE](https://github.com/iamousseni/runtheons-validate/blob/master/doc/date.md)
 - [DATETIME](https://github.com/iamousseni/runtheons-validate/blob/master/doc/datetime.md)
 - [TIME](https://github.com/iamousseni/runtheons-validate/blob/master/doc/time.md)

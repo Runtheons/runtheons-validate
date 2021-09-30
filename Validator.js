@@ -4,6 +4,7 @@ module.exports = class Validator {
 	FLOAT = 'float';
 	STRING = 'string';
 	EMAIL = 'email';
+	UUIDV4 = 'uuidv4';
 	LINK = 'link';
 	DATE = 'date';
 	DATETIME = 'datetime';
@@ -114,6 +115,10 @@ module.exports = class Validator {
 				var LinkValue = require('./validate/LinkValue');
 				LinkValue = new LinkValue();
 				return LinkValue.validate(key, schema, data);
+			case this.UUIDV4:
+				var UUIDV4Value = require('./validate/UUID4Value');
+				UUIDV4Value = new UUIDV4Value();
+				return UUIDV4Value.validate(key, schema, data);
 			case this.DATE:
 				var DateValue = require('./validate/DateValue');
 				DateValue = new DateValue();
