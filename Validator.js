@@ -1,6 +1,6 @@
 module.exports = class Validator {
 	BOOLEAN = 'boolean';
-	INTEGER = 'integer';
+	INTEGER = 'int';
 	FLOAT = 'float';
 	STRING = 'string';
 	EMAIL = 'email';
