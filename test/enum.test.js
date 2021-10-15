@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+var schema1 = {
 	sex: {
 		type: Validator.ENUM,
 		of: Validator.STRING,
@@ -13,25 +13,25 @@ var schema = {
 
 describe('ENUM of STRING', function() {
 	test('Example', async() => {
-		const result = await Validator.validate(schema, { sex: 'M' });
+		const result = await Validator.validate(schema1, { sex: 'M' });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
 	});
 
 	test('With not an string', async() => {
-		const result = await Validator.validate(schema, { sex: 1 });
+		const result = await Validator.validate(schema1, { sex: 1 });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
 
 	it('Without parameter', async() => {
-		const result = await Validator.validate(schema, {});
+		const result = await Validator.validate(schema1, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
 });
 
-schema = {
+var schema2 = {
 	valid: {
 		type: Validator.ENUM,
 		of: Validator.INTEGER,
@@ -42,19 +42,19 @@ schema = {
 
 describe('ENUM of INTEGER', function() {
 	test('Example', async() => {
-		const result = await Validator.validate(schema, { valid: 1 });
+		const result = await Validator.validate(schema2, { valid: 1 });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
 	});
 
 	test('With not an string', async() => {
-		const result = await Validator.validate(schema, { valid: 'M' });
+		const result = await Validator.validate(schema2, { valid: 'M' });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
 
 	it('Without parameter', async() => {
-		const result = await Validator.validate(schema, {});
+		const result = await Validator.validate(schema2, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
