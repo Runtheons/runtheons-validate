@@ -11,6 +11,7 @@ module.exports = class Validator {
 	TIME = 'time';
 	FILE = 'file';
 
+	ENUM = 'enum';
 	OBJECT = 'object';
 	ARRAY = 'array';
 	ARRAY_OF_INTEGER = 'array_of_integer';
@@ -66,6 +67,26 @@ module.exports = class Validator {
 					max: schema.max
 				};
 				return this._val(key, customSchema, data);
+			case this.ENUM:
+				if (schema.values == undefined || schema.values == null) {
+					return [key + "haven't the 'values' parameter"];
+				}
+				if (!Array.isArray(schema.values)) {
+					return [key + " 'values' is not an Array"];
+				}
+				var required = schema.required != undefined ? schema.required : true;
+				if (data == undefined) {
+					if (required) {
+						return [key + ' is required'];
+					} else {
+						return [];
+					}
+				}
+				if (schema.values.includes(data)) {
+					return [];
+				} else {
+					return [key + ' not contains one of available values'];
+				}
 			case this.ARRAY:
 				if (!Array.isArray(data)) {
 					return [key + ' is not an Array'];
