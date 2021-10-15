@@ -117,6 +117,7 @@ The types of inputs are:
 - [OBJECT](https://github.com/iamousseni/runtheons-validate/#object)
 - [ARRAY](https://github.com/iamousseni/runtheons-validate/#file)
 - [ARRAY_OF_INTEGER](https://github.com/iamousseni/runtheons-validate/#file)
+- [ENUM](https://github.com/iamousseni/runtheons-validate/#enum)
 - [FILE](https://github.com/iamousseni/runtheons-validate/#file)
 
 ### OBJECT
@@ -185,6 +186,23 @@ var objSchema2 = {
 	}
 };
 // Those two schema have same effect
+```
+
+### ENUM
+
+| Parameter | Type  | Description                                    |
+| --------- | ----- | ---------------------------------------------- |
+| required  | bool  | Set if this field is required (default : true) |
+| values    | array | Set the available values                       |
+
+```javascript
+var objSchema = {
+	sex: {
+		type: Validator.ENUM,
+		required: true,
+		values: ['M', 'F']
+	}
+};
 ```
 
 ### FILE
