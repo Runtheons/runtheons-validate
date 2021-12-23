@@ -22,8 +22,8 @@ var schema = {
 	}
 };
 
-describe('DATE', function () {
-	test('Example', async () => {
+describe('DATE', function() {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2020',
 			dateBirth: '2000-08-07'
@@ -32,7 +32,7 @@ describe('DATE', function () {
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not a date', async () => {
+	it('With not a date', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: 11,
 			dateBirth: '2000-08-07'
@@ -41,7 +41,7 @@ describe('DATE', function () {
 		assert.equal(result.errors.length, 3);
 	});
 
-	test('With an incorrect format', async () => {
+	it('With an incorrect format', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2020',
 			dateBirth: '07/08/2000'
@@ -50,7 +50,7 @@ describe('DATE', function () {
 		assert.equal(result.errors.length, 1);
 	});
 
-	it('With a date not include in range', async () => {
+	it('With a date not include in range', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2021',
 			dateBirth: '2000-08-07'
@@ -59,7 +59,7 @@ describe('DATE', function () {
 		assert.equal(result.errors.length, 1);
 	});
 
-	it('With a too small date', async () => {
+	it('With a too small date', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2020',
 			dateBirth: '2018-08-07'
@@ -68,7 +68,7 @@ describe('DATE', function () {
 		assert.equal(result.errors.length, 1);
 	});
 
-	it('Without parameter', async () => {
+	it('Without parameter', async() => {
 		const result = await Validator.validate(schema, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);

@@ -10,7 +10,7 @@ var schema = {
 };
 
 describe('EMAIL', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, {
 			email: 'zexal0807@gmail.com'
 		});

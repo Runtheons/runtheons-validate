@@ -13,7 +13,7 @@ var schema = {
 };
 
 describe('TIME', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, {
 			timeSend: '10:10:29'
 		});
@@ -21,7 +21,7 @@ describe('TIME', function() {
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not a time', async() => {
+	it('With not a time', async() => {
 		const result = await Validator.validate(schema, {
 			timeSend: 11
 		});
@@ -29,7 +29,7 @@ describe('TIME', function() {
 		assert.equal(result.errors.length, 3);
 	});
 
-	test('With an incorrect format', async() => {
+	it('With an incorrect format', async() => {
 		const result = await Validator.validate(schema, {
 			timeSend: '10-10-29'
 		});

@@ -10,7 +10,7 @@ var schema = {
 };
 
 describe('UUIDV4', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, {
 			uuidV4: 'a1a2a3a4-a1a2-a1a2-a1a2-a1a2a3a4a5a6'
 		});

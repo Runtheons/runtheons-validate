@@ -11,7 +11,7 @@ var schema1 = {
 };
 
 describe('ENUM of STRING', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema1, { sex: 'M' });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
@@ -33,7 +33,7 @@ var schema2 = {
 };
 
 describe('ENUM of INTEGER', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema2, { valid: 1 });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);

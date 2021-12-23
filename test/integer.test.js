@@ -12,13 +12,13 @@ var schema = {
 };
 
 describe('INTEGER', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, { id: 1 });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not an integer', async() => {
+	it('With not an integer', async() => {
 		const result = await Validator.validate(schema, { id: '1' });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);

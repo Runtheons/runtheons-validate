@@ -10,13 +10,13 @@ var schema = {
 };
 
 describe('BOOLEAN', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, { checked: true });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not a boolean', async() => {
+	it('With not a boolean', async() => {
 		const result = await Validator.validate(schema, { checked: 'false' });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);

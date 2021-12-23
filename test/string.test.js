@@ -14,7 +14,7 @@ var schema = {
 };
 
 describe('STRING', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, {
 			username: 'ZexalIsMyUsername'
 		});
@@ -22,13 +22,13 @@ describe('STRING', function() {
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not a string', async() => {
+	it('With not a string', async() => {
 		const result = await Validator.validate(schema, { username: 1 });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);
 	});
 
-	test('With an empty string', async() => {
+	it('With an empty string', async() => {
 		const result = await Validator.validate(schema, { username: '' });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);

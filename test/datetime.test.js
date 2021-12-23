@@ -24,8 +24,8 @@ var schema = {
 	}
 };
 
-describe('DATETIME', function () {
-	test('Example', async () => {
+describe('DATETIME', function() {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2020 15:10:29',
 			dateBirth: '2000-08-07 08:30:56'
@@ -34,7 +34,7 @@ describe('DATETIME', function () {
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not a datetime', async () => {
+	it('With not a datetime', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: 11,
 			dateBirth: '2000-08-07 08:30:56'
@@ -43,7 +43,7 @@ describe('DATETIME', function () {
 		assert.equal(result.errors.length, 3);
 	});
 
-	test('With an incorrect format', async () => {
+	it('With an incorrect format', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2020 15:10:29',
 			dateBirth: '07/08/2000 08:30:56'
@@ -52,7 +52,7 @@ describe('DATETIME', function () {
 		assert.equal(result.errors.length, 1);
 	});
 
-	it('With a date not include in range', async () => {
+	it('With a date not include in range', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2021 15:10:29',
 			dateBirth: '2000-08-07 08:30:56'
@@ -61,7 +61,7 @@ describe('DATETIME', function () {
 		assert.equal(result.errors.length, 1);
 	});
 
-	it('With a too small datetime', async () => {
+	it('With a too small datetime', async() => {
 		const result = await Validator.validate(schema, {
 			dateSend: '28/09/2020 15:10:29',
 			dateBirth: '2018-08-07 08:30:56'
@@ -70,7 +70,7 @@ describe('DATETIME', function () {
 		assert.equal(result.errors.length, 1);
 	});
 
-	it('Without parameter', async () => {
+	it('Without parameter', async() => {
 		const result = await Validator.validate(schema, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);

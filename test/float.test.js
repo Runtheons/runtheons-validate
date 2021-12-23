@@ -12,13 +12,13 @@ var schema = {
 };
 
 describe('FLOAT', function() {
-	test('Example', async() => {
+	it('Example', async() => {
 		const result = await Validator.validate(schema, { price: 10.0 });
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
 	});
 
-	test('With not an float', async() => {
+	it('With not an float', async() => {
 		const result = await Validator.validate(schema, { price: '2' });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
