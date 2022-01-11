@@ -25,7 +25,7 @@ This repository contains the source code and official documentation of the endpo
 
 ## Installation
 
-1. `npm install https://github.com/iamousseni/runtheons-validate` to add the package to the project
+1. `npm install https://github.com/iamousseni/runtheons-validate#3.3.0` to add the package to the project
 
 # Example of use
 
