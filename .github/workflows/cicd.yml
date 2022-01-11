@@ -28,6 +28,31 @@ jobs:
         run: npm install
       - name: Create a build
         run: npm run build --if-present
+      - name: Save built folders
+        uses: actions/upload-artifact@v2
+        with:
+          name: install-and-build
+          path: |
+            node_modules
+            build
+
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        os: ['ubuntu-latest', 'windows-latest', 'macOS-latest']
+
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download built folders
+        uses: actions/download-artifact@v2
+        with:
+          name: install-and-build
       - name: Unit test
         run: npm run test --if-present
 
