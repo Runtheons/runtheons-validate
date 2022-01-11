@@ -28,12 +28,13 @@ jobs:
         run: npm install
       - name: Create a build
         run: npm run build --if-present
-      - name: Save build folders
-        uses: actions/upload-artifact@v2
-        with:
-          name: install-and-build
-          path: |
-            build
+      # Non used in this project
+      #- name: Save build folders
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #    name: install-and-build
+      #    path: |
+      #      build
 
   test:
     runs-on: ${{ matrix.os }}
@@ -53,10 +54,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Instal dependencies
         run: npm install
-      - name: Download build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: install-and-build
+      # Non used in this project
+      #- name: Download build folders
+      #  uses: actions/download-artifact@v2
+      #  with:
+      #    name: install-and-build
       - name: Unit test
         run: npm run test --if-present
 
