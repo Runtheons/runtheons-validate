@@ -31,6 +31,7 @@ jobs:
       - name: Unit test
       - run: npm run test --if-present
 
-  deploy:
-    steps:
-      - name: Deploy on AWS
+  #deploy:
+  #  needs: build
+  #  steps:
+  #    - name: Deploy on AWS
