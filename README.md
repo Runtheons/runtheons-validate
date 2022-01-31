@@ -4,13 +4,13 @@ npm package to validate endpoints
 
 # Index
 
-- [Introduction](https://github.com/iamousseni/runtheons-validate#introduction)
-- [Getting started](https://github.com/iamousseni/runtheons-validate#getting-started)
-  - [Prerequisites](https://github.com/iamousseni/runtheons-validate#prerequisites)
-  - [Installation](https://github.com/iamousseni/runtheons-validate#installation)
-- [Example of use](https://github.com/iamousseni/runtheons-validate#example-of-use)
-- [Type](https://github.com/iamousseni/runtheons-validate#type)
-- [System structure](https://github.com/iamousseni/runtheons-validate#system-structure)
+- [Introduction](https://github.com/Runtheons/runtheons-validate#introduction)
+- [Getting started](https://github.com/Runtheons/runtheons-validate#getting-started)
+  - [Prerequisites](https://github.com/Runtheons/runtheons-validate#prerequisites)
+  - [Installation](https://github.com/Runtheons/runtheons-validate#installation)
+- [Example of use](https://github.com/Runtheons/runtheons-validate#example-of-use)
+- [Type](https://github.com/Runtheons/runtheons-validate#type)
+- [System structure](https://github.com/Runtheons/runtheons-validate#system-structure)
 
 # Introduction
 
@@ -25,7 +25,7 @@ This repository contains the source code and official documentation of the endpo
 
 ## Installation
 
-1. `npm install https://github.com/iamousseni/runtheons-validate#3.3.0` to add the package to the project
+1. `npm install https://github.com/Runtheons/runtheons-validate#3.3.0` to add the package to the project
 
 # Example of use
 
@@ -104,21 +104,21 @@ console.log(validator.validate(objSchema, objData));
 
 The types of inputs are:
 
-- [INTEGER](https://github.com/iamousseni/runtheons-validate/blob/master/doc/integer.md)
-- [FLOAT](https://github.com/iamousseni/runtheons-validate/blob/master/doc/float.md)
-- [BOOLEAN](https://github.com/iamousseni/runtheons-validate/blob/master/doc/boolean.md)
-- [STRING](https://github.com/iamousseni/runtheons-validate/blob/master/doc/string.md)
-- [EMAIL](https://github.com/iamousseni/runtheons-validate/blob/master/doc/email.md)
-- [LINK](https://github.com/iamousseni/runtheons-validate/blob/master/doc/link.md)
-- [UUIDV4](https://github.com/iamousseni/runtheons-validate/blob/master/doc/uuidv4.md)
-- [DATE](https://github.com/iamousseni/runtheons-validate/blob/master/doc/date.md)
-- [DATETIME](https://github.com/iamousseni/runtheons-validate/blob/master/doc/datetime.md)
-- [TIME](https://github.com/iamousseni/runtheons-validate/blob/master/doc/time.md)
-- [OBJECT](https://github.com/iamousseni/runtheons-validate/#object)
-- [ARRAY](https://github.com/iamousseni/runtheons-validate/#file)
-- [ARRAY_OF_INTEGER](https://github.com/iamousseni/runtheons-validate/#file)
-- [ENUM](https://github.com/iamousseni/runtheons-validate/#enum)
-- [FILE](https://github.com/iamousseni/runtheons-validate/#file)
+- [INTEGER](https://github.com/Runtheons/runtheons-validate/blob/master/doc/integer.md)
+- [FLOAT](https://github.com/Runtheons/runtheons-validate/blob/master/doc/float.md)
+- [BOOLEAN](https://github.com/Runtheons/runtheons-validate/blob/master/doc/boolean.md)
+- [STRING](https://github.com/Runtheons/runtheons-validate/blob/master/doc/string.md)
+- [EMAIL](https://github.com/Runtheons/runtheons-validate/blob/master/doc/email.md)
+- [LINK](https://github.com/Runtheons/runtheons-validate/blob/master/doc/link.md)
+- [UUIDV4](https://github.com/Runtheons/runtheons-validate/blob/master/doc/uuidv4.md)
+- [DATE](https://github.com/Runtheons/runtheons-validate/blob/master/doc/date.md)
+- [DATETIME](https://github.com/Runtheons/runtheons-validate/blob/master/doc/datetime.md)
+- [TIME](https://github.com/Runtheons/runtheons-validate/blob/master/doc/time.md)
+- [OBJECT](https://github.com/Runtheons/runtheons-validate/#object)
+- [ARRAY](https://github.com/Runtheons/runtheons-validate/#file)
+- [ARRAY_OF_INTEGER](https://github.com/Runtheons/runtheons-validate/#file)
+- [ENUM](https://github.com/Runtheons/runtheons-validate/#enum)
+- [FILE](https://github.com/Runtheons/runtheons-validate/#file)
 
 ### OBJECT
 

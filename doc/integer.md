@@ -1,9 +1,9 @@
-[<- Back](https://github.com/iamousseni/runtheons-validate#type)
+[<- Back](https://github.com/Runtheons/runtheons-validate#type)
 
 # INTEGER
 
-- [Parameter](https://github.com/iamousseni/runtheons-validate/blob/master/doc/integer.md#parameter)
-- [Example of use](https://github.com/iamousseni/runtheons-validate/blob/master/doc/integer.md#example-of-use)
+- [Parameter](https://github.com/Runtheons/runtheons-validate/blob/master/doc/integer.md#parameter)
+- [Example of use](https://github.com/Runtheons/runtheons-validate/blob/master/doc/integer.md#example-of-use)
 
 ## Parameter
 
