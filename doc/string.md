@@ -20,11 +20,11 @@
 We want receive a object that must contais attribute `username` as a string, that must be not a empty string, that is length between 8 and 150 char, but only alphabetich char
 
 ```javascript
-const Validator = require('@runtheons-validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 var objSchema = {
 	username: {
-		type: Validator.STRING,
+		type: ValidatorConst.STRING,
 		notEmpty: true,
 		minLength: 8,
 		maxLength: 150,

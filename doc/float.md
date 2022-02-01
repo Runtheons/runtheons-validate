@@ -18,11 +18,11 @@
 We want receive a object that must contais attribute `price` as an float, that is greater than 1.00 and lower than 100
 
 ```javascript
-const Validator = require('@runtheons-validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 var objSchema = {
 	price: {
-		type: Validator.FLOAT,
+		type: ValidatorConst.FLOAT,
 		min: 1,
 		max: 100,
 		required: true // Could be omitted

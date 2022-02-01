@@ -32,34 +32,35 @@ This repository contains the source code and official documentation of the endpo
 When defining an array or object you have to define the attributes as an object
 
 ```javascript
-var validator = require('@runtheons/validate');
+const Validator = require('@runtheons/validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 let objSchema = {
 	id: {
-		type: 'int',
+		type: ValidatorConst.INTEGER,
 		required: true,
 		min: 1
 	},
 	description: {
-		type: 'string',
+		type: ValidatorConst.STRING,
 		required: true
 	},
 	arr: {
-		type: 'array',
+		type: ValidatorConst.ARRAY,
 		of: {
-			type: 'int',
+			type: ValidatorConst.INTEGER,
 			max: 10
 		}
 	},
 	obj: {
-		type: 'object',
+		type: ValidatorConst.OBJECT,
 		required: true,
 		of: {
 			id: {
-				type: 'int'
+				type: ValidatorConst.INTEGER
 			},
 			description: {
-				type: 'string'
+				type: ValidatorConst.STRING
 			}
 		}
 	}

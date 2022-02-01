@@ -16,11 +16,11 @@
 We want receive a object that must contais attribute `checked` as a boolean
 
 ```javascript
-const Validator = require('@runtheons-validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 var objSchema = {
 	checked: {
-		type: Validator.BOOLEAN,
+		type: ValidatorConst.BOOLEAN,
 		required: true
 	}
 };

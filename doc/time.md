@@ -21,11 +21,11 @@ We use [moment.js](https://momentjs.com/docs/#/manipulating/ 'moment.js') for ma
 We want receive a object that must contais attribute `timeSend` as a time in format HH:mm:ss, that must be in range 00:00:00 and 11:00:00
 
 ```javascript
-const Validator = require('@runtheons-validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 var objSchema = {
 	timeSend: {
-		type: Validator.TIME,
+		type: ValidatorConst.TIME,
 		format: 'HH:mm:ss',
 		min: '00:00:00',
 		max: '11:00:00',

@@ -16,11 +16,11 @@
 We want receive a object that must contais attribute `uuidV4` as an uuidV4
 
 ```javascript
-const Validator = require('@runtheons-validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 var objSchema = {
 	uuidV4: {
-		type: Validator.UUIDV4,
+		type: ValidatorConst.UUIDV4,
 		required: true
 	}
 };

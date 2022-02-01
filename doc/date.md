@@ -23,18 +23,18 @@ We use [moment.js](https://momentjs.com/docs/#/manipulating/ 'moment.js') for ma
 We want receive a object that must contais attribute `dateSend` as a date in format DD/MM/YYYY, that must be in the year 2020, then must contains attribute `dateBirth` as a date, that must be 14 years and 5 mounths old, but max 99 years old
 
 ```javascript
-const Validator = require('@runtheons-validate');
+const ValidatorConst = require('@runtheons/validate/Validator');
 
 var objSchema = {
 	dateSend: {
-		type: Validator.DATE,
+		type: ValidatorConst.DATE,
 		format: 'DD/MM/YYYY',
 		min: '01/01/2020',
 		max: '31/12/2020',
 		required: true // Could be omitted
 	},
 	dateBirth: {
-		type: Validator.DATE,
+		type: ValidatorConst.DATE,
 		minAge: {
 			years: 14,
 			mounths: 5
