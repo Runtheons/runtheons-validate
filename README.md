@@ -33,34 +33,33 @@ When defining an array or object you have to define the attributes as an object
 
 ```javascript
 const Validator = require('@runtheons/validate');
-const ValidatorConst = require('@runtheons/validate/Validator');
 
 let objSchema = {
 	id: {
-		type: ValidatorConst.INTEGER,
+		type: Validator.INTEGER,
 		required: true,
 		min: 1
 	},
 	description: {
-		type: ValidatorConst.STRING,
+		type: Validator.STRING,
 		required: true
 	},
 	arr: {
-		type: ValidatorConst.ARRAY,
+		type: Validator.ARRAY,
 		of: {
-			type: ValidatorConst.INTEGER,
+			type: Validator.INTEGER,
 			max: 10
 		}
 	},
 	obj: {
-		type: ValidatorConst.OBJECT,
+		type: Validator.OBJECT,
 		required: true,
 		of: {
 			id: {
-				type: ValidatorConst.INTEGER
+				type: Validator.INTEGER
 			},
 			description: {
-				type: ValidatorConst.STRING
+				type: Validator.STRING
 			}
 		}
 	}

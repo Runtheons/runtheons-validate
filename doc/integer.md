@@ -18,11 +18,11 @@
 We want receive a object that must contais attribute `id` as an integer, that is greater than 0 and lower than 1000
 
 ```javascript
-const ValidatorConst = require('@runtheons/validate/Validator');
+const Validator = require('@runtheons/validate');
 
 var objSchema = {
 	id: {
-		type: ValidatorConst.INTEGER,
+		type: Validator.INTEGER,
 		min: 0,
 		max: 1000,
 		required: true // Could be omitted

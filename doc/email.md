@@ -16,11 +16,11 @@
 We want receive a object that must contais attribute `email` as an email
 
 ```javascript
-const ValidatorConst = require('@runtheons/validate/Validator');
+const Validator = require('@runtheons/validate');
 
 var objSchema = {
 	email: {
-		type: ValidatorConst.EMAIL,
+		type: Validator.EMAIL,
 		required: true
 	}
 };
