@@ -17,6 +17,29 @@ describe('ENUM of STRING', function() {
 		assert.equal(result.errors.length, 0);
 	});
 
+	it("With out 'values' params", async() => {
+		const result = await Validator.validate({
+			sex: {
+				type: Validator.ENUM,
+				required: true
+			}
+		}, {});
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
+	it("With 'values' params not an array", async() => {
+		const result = await Validator.validate({
+			sex: {
+				type: Validator.ENUM,
+				values: { 0: 'M', 1: 'F' },
+				required: true
+			}
+		}, {});
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
 	it('Without parameter', async() => {
 		const result = await Validator.validate(schema1, {});
 		assert.equal(result.status, false);
@@ -33,6 +56,12 @@ describe('ENUM of STRING', function() {
 		}, {});
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
+	});
+
+	it('With invalid value', async() => {
+		const result = await Validator.validate(schema1, { sex: 'X' });
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
 	});
 });
 
@@ -51,6 +80,29 @@ describe('ENUM of INTEGER', function() {
 		assert.equal(result.errors.length, 0);
 	});
 
+	it("With out 'values' params", async() => {
+		const result = await Validator.validate({
+			sex: {
+				type: Validator.ENUM,
+				required: true
+			}
+		}, {});
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
+	it("With 'values' params not an array", async() => {
+		const result = await Validator.validate({
+			sex: {
+				type: Validator.ENUM,
+				values: { 0: 0, 1: 1 },
+				required: true
+			}
+		}, {});
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
 	it('Without parameter', async() => {
 		const result = await Validator.validate(schema2, {});
 		assert.equal(result.status, false);
@@ -67,5 +119,11 @@ describe('ENUM of INTEGER', function() {
 		}, {});
 		assert.equal(result.status, true);
 		assert.equal(result.errors.length, 0);
+	});
+
+	it('With invalid value', async() => {
+		const result = await Validator.validate(schema1, { sex: 2 });
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
 	});
 });

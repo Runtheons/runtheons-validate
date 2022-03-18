@@ -61,7 +61,7 @@ module.exports = class Validator {
 			case this.ARRAY_OF_INTEGER:
 				var customSchema = {
 					type: this.ARRAY,
-					of: this.INTEGER,
+					of: { type: this.INTEGER },
 					required: schema.required,
 					min: schema.min,
 					max: schema.max
@@ -96,13 +96,6 @@ module.exports = class Validator {
 				}
 
 				var required = schema.required != undefined ? schema.required : true;
-				if (data == undefined) {
-					if (required) {
-						return [key + ' is required'];
-					} else {
-						return [];
-					}
-				}
 
 				var errors = [];
 				for (let i = 0; i < data.length; i++) {

@@ -30,7 +30,6 @@ describe('STRING', function() {
 
 	it('With an empty string', async() => {
 		const result = await Validator.validate(schema, { username: '' });
-		console.log(result);
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);
 	});
