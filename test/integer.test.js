@@ -18,8 +18,14 @@ describe('INTEGER', function() {
 		assert.equal(result.errors.length, 0);
 	});
 
-	it('With not an integer', async() => {
+	it('With not a number', async() => {
 		const result = await Validator.validate(schema, { id: '1' });
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
+	it('With not an integer', async() => {
+		const result = await Validator.validate(schema, { id: 1.5 });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
@@ -40,5 +46,16 @@ describe('INTEGER', function() {
 		const result = await Validator.validate(schema, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
+	});
+
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			id: {
+				type: Validator.INTEGER,
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
 	});
 });

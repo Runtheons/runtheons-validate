@@ -47,4 +47,15 @@ describe('FLOAT', function() {
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
+
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			price: {
+				type: Validator.FLOAT,
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
+	});
 });

@@ -23,4 +23,22 @@ describe('UUIDV4', function() {
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
+
+	it('With an incorrect parameter', async() => {
+		const result = await Validator.validate(schema, {
+			uuidV4: 'incoreect-uuidv4'
+		});
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			uuidV4: {
+				type: Validator.UUIDV4,
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
+	});
 });

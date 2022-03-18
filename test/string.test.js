@@ -30,6 +30,7 @@ describe('STRING', function() {
 
 	it('With an empty string', async() => {
 		const result = await Validator.validate(schema, { username: '' });
+		console.log(result);
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);
 	});
@@ -60,5 +61,16 @@ describe('STRING', function() {
 		const result = await Validator.validate(schema, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
+	});
+
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			username: {
+				type: Validator.STRING,
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
 	});
 });

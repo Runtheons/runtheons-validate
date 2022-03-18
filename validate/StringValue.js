@@ -20,8 +20,8 @@ module.exports = class StringValue extends AbstractValue {
 	}
 
 	notEmpty(key, requiredValue, dataValue) {
-		if (requiredValue) {
-			if (dataValue.length == 0) return [key + " can't be empty"];
+		if (requiredValue && dataValue.length == 0) {
+			return [key + " can't be empty"];
 		}
 		return [];
 	}

@@ -75,4 +75,15 @@ describe('DATETIME', function() {
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 2);
 	});
+
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			dateSend: {
+				type: Validator.DATETIME,
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
+	});
 });

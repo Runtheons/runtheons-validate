@@ -22,6 +22,18 @@ describe('ENUM of STRING', function() {
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
+
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			valid: {
+				type: Validator.ENUM,
+				values: ['M', 'F'],
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
+	});
 });
 
 var schema2 = {
@@ -43,5 +55,17 @@ describe('ENUM of INTEGER', function() {
 		const result = await Validator.validate(schema2, {});
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
+	});
+
+	it('With a not required parameter', async() => {
+		const result = await Validator.validate({
+			valid: {
+				type: Validator.ENUM,
+				values: [0, 1],
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
 	});
 });
