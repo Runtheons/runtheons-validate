@@ -28,6 +28,18 @@ describe('ENUM of STRING', function() {
 		assert.equal(result.errors.length, 1);
 	});
 
+	it('With undefined required params', async() => {
+		const result = await Validator.validate({
+			sex: {
+				type: Validator.ENUM,
+				values: ['M', 'F']
+			}
+		}, { sex: 'M' });
+		console.log(result);
+		assert.equal(result.status, true);
+		assert.equal(result.errors.length, 0);
+	});
+
 	it("With 'values' params not an array", async() => {
 		const result = await Validator.validate({
 			sex: {

@@ -18,6 +18,12 @@ describe('INTEGER', function() {
 		assert.equal(result.errors.length, 0);
 	});
 
+	it('With undefined type', async() => {
+		const result = await Validator.validate({ id: {} }, { id: '1' });
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
 	it('With not a number', async() => {
 		const result = await Validator.validate(schema, { id: '1' });
 		assert.equal(result.status, false);
