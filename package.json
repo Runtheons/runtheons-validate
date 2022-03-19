@@ -1,6 +1,6 @@
 {
 	"name": "@runtheons/validate",
-	"version": "3.4.1",
+	"version": "3.4.2",
 	"description": "useful package to manage in the easiest way possible the validation of data passed through API",
 	"main": "index.js",
 	"repository": {
@@ -21,7 +21,7 @@
 	},
 	"scripts": {
 		"test": "jest --verbose ./test/* --coverage",
-		"testOnFile": "jest --json --outputFile=test.json ./test/*"
+		"testOnFile": "jest --json --outputFile=test.json ./test/* --coverage"
 	},
 	"jest": {
 		"testEnvironment": "node",
