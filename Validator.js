@@ -1,20 +1,22 @@
 module.exports = class Validator {
-	BOOLEAN = 'boolean';
-	INTEGER = 'int';
-	FLOAT = 'float';
-	STRING = 'string';
-	EMAIL = 'email';
-	UUIDV4 = 'uuidv4';
-	LINK = 'link';
-	DATE = 'date';
-	DATETIME = 'datetime';
-	TIME = 'time';
-	FILE = 'file';
+	constructor() {
+		this.BOOLEAN = 'boolean';
+		this.INTEGER = 'int';
+		this.FLOAT = 'float';
+		this.STRING = 'string';
+		this.EMAIL = 'email';
+		this.UUIDV4 = 'uuidv4';
+		this.LINK = 'link';
+		this.DATE = 'date';
+		this.DATETIME = 'datetime';
+		this.TIME = 'time';
+		this.FILE = 'file';
 
-	ENUM = 'enum';
-	OBJECT = 'object';
-	ARRAY = 'array';
-	ARRAY_OF_INTEGER = 'array_of_integer';
+		this.ENUM = 'enum';
+		this.OBJECT = 'object';
+		this.ARRAY = 'array';
+		this.ARRAY_OF_INTEGER = 'array_of_integer';
+	}
 
 	validate(schema, data) {
 		var errors = [];
