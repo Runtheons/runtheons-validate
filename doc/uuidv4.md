@@ -21,7 +21,7 @@ const Validator = require('@runtheons/validate');
 var objSchema = {
 	uuidV4: {
 		type: Validator.UUIDV4,
-		required: true
+		required: Validator.REQUIRED
 	}
 };
 ```

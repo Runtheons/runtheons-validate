@@ -25,7 +25,7 @@ var objSchema = {
 		type: Validator.FLOAT,
 		min: 1,
 		max: 100,
-		required: true // Could be omitted
+		required: Validator.REQUIRED
 	}
 };
 ```

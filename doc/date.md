@@ -31,7 +31,7 @@ var objSchema = {
 		format: 'DD/MM/YYYY',
 		min: '01/01/2020',
 		max: '31/12/2020',
-		required: true // Could be omitted
+		required: Validator.REQUIRED
 	},
 	dateBirth: {
 		type: Validator.DATE,

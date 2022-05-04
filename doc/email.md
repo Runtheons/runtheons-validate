@@ -21,7 +21,7 @@ const Validator = require('@runtheons/validate');
 var objSchema = {
 	email: {
 		type: Validator.EMAIL,
-		required: true
+		required: Validator.REQUIRED
 	}
 };
 ```

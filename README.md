@@ -25,7 +25,7 @@ This repository contains the source code and official documentation of the endpo
 
 ## Installation
 
-1. `npm install https://github.com/Runtheons/runtheons-validate#v3.4.4` to add the package to the project
+1. `npm install https://github.com/Runtheons/runtheons-validate#v3.5.0` to add the package to the project
 
 # Example of use
 
@@ -37,12 +37,12 @@ const Validator = require('@runtheons/validate');
 let objSchema = {
 	id: {
 		type: Validator.INTEGER,
-		required: true,
+		required: Validator.REQUIRED,
 		min: 1
 	},
 	description: {
 		type: Validator.STRING,
-		required: true
+		required: Validator.REQUIRED
 	},
 	arr: {
 		type: Validator.ARRAY,
@@ -53,7 +53,7 @@ let objSchema = {
 	},
 	obj: {
 		type: Validator.OBJECT,
-		required: true,
+		required: Validator.REQUIRED,
 		of: {
 			id: {
 				type: Validator.INTEGER
@@ -131,15 +131,15 @@ The types of inputs are:
 var objSchema = {
 	position: {
 		type: Validator.OBJECT,
-		required: true,
+		required: Validator.REQUIRED,
 		of: {
 			latitude: {
 				type: Validator.FLOAT,
-				required: true
+				required: Validator.REQUIRED
 			},
 			longitude: {
 				type: Validator.FLOAT,
-				required: true
+				required: Validator.REQUIRED
 			}
 		}
 	}
@@ -157,7 +157,7 @@ var objSchema = {
 var objSchema = {
 	receivers: {
 		type: Validator.ARRAY,
-		required: true,
+		required: Validator.REQUIRED,
 		of: {
 			type: Validator.EMAIL
 		}
@@ -173,13 +173,13 @@ It's a shortcut
 var objSchema = {
 	marks: {
 		type: Validator.ARRAY_OF_INTEGER,
-		required: true
+		required: Validator.REQUIRED
 	}
 };
 var objSchema2 = {
 	marks: {
 		type: Validator.ARRAY,
-		required: true,
+		required: Validator.REQUIRED,
 		of: {
 			type: Validator.INTEGER
 		}
@@ -199,7 +199,7 @@ var objSchema2 = {
 var objSchema = {
 	sex: {
 		type: Validator.ENUM,
-		required: true,
+		required: Validator.REQUIRED,
 		values: ['M', 'F']
 	}
 };
@@ -221,7 +221,7 @@ var objSchema = {
 			'image/jpg',
 			'image/gif'
 		],
-		required: true //The photo is required
+		required: Validator.REQUIRED //The photo is required
 	}
 };
 ```

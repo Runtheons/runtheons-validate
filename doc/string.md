@@ -29,7 +29,7 @@ var objSchema = {
 		minLength: 8,
 		maxLength: 150,
 		reg: '[a-zA-Z]*',
-		required: true
+		required: Validator.REQUIRED
 	}
 };
 ```

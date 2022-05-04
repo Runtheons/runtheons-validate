@@ -21,7 +21,7 @@ const Validator = require('@runtheons/validate');
 var objSchema = {
 	checked: {
 		type: Validator.BOOLEAN,
-		required: true
+		required: Validator.REQUIRED
 	}
 };
 ```

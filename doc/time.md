@@ -29,7 +29,7 @@ var objSchema = {
 		format: 'HH:mm:ss',
 		min: '00:00:00',
 		max: '11:00:00',
-		required: true // Could be omitted
+		required: Validator.REQUIRED
 	}
 };
 ```
