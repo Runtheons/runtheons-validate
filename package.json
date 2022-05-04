@@ -1,32 +1,32 @@
 {
-	"name": "@runtheons/validate",
-	"version": "3.4.3",
-	"description": "useful package to manage in the easiest way possible the validation of data passed through API",
-	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Runtheons/runtheons-validate.git"
-	},
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Runtheons/runtheons-validate/issues"
-	},
-	"homepage": "https://github.com/Runtheons/runtheons-validate#readme",
-	"dependencies": {
-		"moment": "^2.29.1",
-		"npmrc": "^1.1.1"
-	},
-	"devDependencies": {
-		"jest": "^27.2.2"
-	},
-	"scripts": {
-		"test": "jest --verbose ./test/* --coverage",
-		"testOnFile": "jest --json --outputFile=test.json ./test/* --coverage"
-	},
-	"jest": {
-		"testEnvironment": "node",
-		"coveragePathIgnorePatterns": [
-			"/node_modules/"
-		]
-	}
+    "name": "@runtheons/validate",
+    "version": "3.4.4",
+    "description": "useful package to manage in the easiest way possible the validation of data passed through API",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Runtheons/runtheons-validate.git"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Runtheons/runtheons-validate/issues"
+    },
+    "homepage": "https://github.com/Runtheons/runtheons-validate#readme",
+    "dependencies": {
+        "moment": "^2.29.3",
+        "npmrc": "^1.1.1"
+    },
+    "devDependencies": {
+        "jest": "^27.2.2"
+    },
+    "scripts": {
+        "test": "jest --verbose ./test/* --coverage",
+        "testOnFile": "jest --json --outputFile=test.json ./test/* --coverage"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    }
 }
