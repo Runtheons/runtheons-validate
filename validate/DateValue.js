@@ -9,7 +9,8 @@ module.exports = class DateValue extends StringValue {
 	}
 
 	validate(key, schema, value) {
-		if (schema.format != undefined) this.format = schema.format;
+		if (schema.format != undefined)
+			this.format = schema.format;
 		return super.validate(key, schema, value);
 	}
 

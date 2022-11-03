@@ -5,6 +5,10 @@
 - [Parameter](https://github.com/Runtheons/runtheons-validate/blob/master/doc/integer.md#parameter)
 - [Example of use](https://github.com/Runtheons/runtheons-validate/blob/master/doc/integer.md#example-of-use)
 
+## Watch out
+
+By default charachter `'1'` is parsed into `1`
+
 ## Parameter
 
 | Parameter | Type | Description                                                     |

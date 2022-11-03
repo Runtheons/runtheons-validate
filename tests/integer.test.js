@@ -7,7 +7,8 @@ var schema = {
 		type: Validator.INTEGER,
 		min: 0,
 		max: 1000,
-		required: true
+		required: true,
+		parse: Validator.PARSE_INTEGER
 	}
 };
 
@@ -25,10 +26,25 @@ describe('INTEGER', function() {
 	});
 
 	it('With not a number', async() => {
-		const result = await Validator.validate(schema, { id: '1' });
+		const result = await Validator.validate(schema, { id: 'a' });
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
+
+	it('With not a number (parse disable)', async() => {
+		const result = await Validator.validate({
+			id: {
+				type: Validator.INTEGER,
+				min: 0,
+				max: 1000,
+				required: true,
+				parse: Validator.NOT_PARSE_INTEGER
+			}
+		}, { id: 'a' });
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
+
 
 	it('With not an integer', async() => {
 		const result = await Validator.validate(schema, { id: 1.5 });
