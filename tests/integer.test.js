@@ -45,6 +45,19 @@ describe('INTEGER', function() {
 		assert.equal(result.errors.length, 1);
 	});
 
+	it('With not a number (parse disable)', async() => {
+		const result = await Validator.validate({
+			id: {
+				type: Validator.INTEGER,
+				min: 0,
+				max: 1000,
+				required: true,
+				parse: Validator.NOT_PARSE_INTEGER
+			}
+		}, { id: '3a' });
+		assert.equal(result.status, false);
+		assert.equal(result.errors.length, 1);
+	});
 
 	it('With not an integer', async() => {
 		const result = await Validator.validate(schema, { id: 1.5 });

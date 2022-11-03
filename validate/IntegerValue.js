@@ -15,7 +15,7 @@ module.exports = class IntegerValue extends FloatValue {
 			if (this.parse) {
 				let old = dataValue;
 				dataValue = parseFloat(dataValue);
-				if ("" + parseFloat(old) != dataValue) {
+				if ("" + dataValue != old) {
 					return [key + ' is not a number'];
 				}
 			}
