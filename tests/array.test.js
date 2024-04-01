@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	ids: {
 		type: Validator.ARRAY,
 		of: {
@@ -42,4 +42,19 @@ describe('ARRAY', function() {
 		assert.equal(result.status, false);
 		assert.equal(result.errors.length, 1);
 	});
+
+	it('With required false', async() => {
+		const result = await Validator.validate({
+			ids: {
+				type: Validator.ARRAY,
+				of: {
+					type: Validator.INTEGER,
+					required: true
+				},
+				required: false
+			}
+		}, {});
+		assert.equal(result.status, true);
+	});
+
 });

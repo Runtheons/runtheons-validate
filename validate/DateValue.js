@@ -23,13 +23,13 @@ module.exports = class DateValue extends StringValue {
 
 	min(key, requiredValue, dataValue) {
 		//Convert the value and the requiredValue as date with moment.js
-		var valueAsDate = moment(dataValue, this.format, true);
-		var minAsDate = moment(requiredValue, this.format, true);
+		let valueAsDate = moment(dataValue, this.format, true);
+		let minAsDate = moment(requiredValue, this.format, true);
 		if (!minAsDate.isValid()) {
 			return ['The min setted in ' + key + " isn't in format " + this.format];
 		} else {
 			//Find the min value beetwen the two date
-			var min = moment.min(valueAsDate, minAsDate);
+			let min = moment.min(valueAsDate, minAsDate);
 			//if the min value is the dataValue then the value is lower of the required value
 			if (min == valueAsDate) {
 				return [key + ' is lower than ' + requiredValue];
@@ -41,13 +41,13 @@ module.exports = class DateValue extends StringValue {
 
 	max(key, requiredValue, dataValue) {
 		//Convert the value and the requiredValue as date with moment.js
-		var valueAsDate = moment(dataValue, this.format, true);
-		var maxAsDate = moment(requiredValue, this.format, true);
+		let valueAsDate = moment(dataValue, this.format, true);
+		let maxAsDate = moment(requiredValue, this.format, true);
 		if (!maxAsDate.isValid()) {
 			return ['The max setted in ' + key + " isn't in format " + this.format];
 		} else {
 			//Find the min value beetwen the two date
-			var max = moment.max(valueAsDate, maxAsDate);
+			let max = moment.max(valueAsDate, maxAsDate);
 			//if the max value is the dataValue then the value is greater of the required value
 			if (max == valueAsDate) {
 				return [key + ' is greater than ' + requiredValue];
@@ -59,11 +59,11 @@ module.exports = class DateValue extends StringValue {
 
 	minAge(key, requiredValue, dataValue) {
 		//Convert the value as date with moment.js
-		var valueAsDate = moment(dataValue, this.format, true);
+		let valueAsDate = moment(dataValue, this.format, true);
 		//Create a new date from now, with required value as age
-		var ageAsDate = moment().subtract(requiredValue);
+		let ageAsDate = moment().subtract(requiredValue);
 		//Find the min value beetwen the two date
-		var min = moment.min(valueAsDate, ageAsDate);
+		let min = moment.min(valueAsDate, ageAsDate);
 		//if the min value isn't the dataValue then the dataValue is grater than the age date
 		if (min != valueAsDate) {
 			return [key + ' must be greater'];
@@ -73,11 +73,11 @@ module.exports = class DateValue extends StringValue {
 
 	maxAge(key, requiredValue, dataValue) {
 		//Convert the value as date with moment.js
-		var valueAsDate = moment(dataValue, this.format, true);
+		let valueAsDate = moment(dataValue, this.format, true);
 		//Create a new date from now, with required value as age
-		var ageAsDate = moment().subtract(requiredValue);
+		let ageAsDate = moment().subtract(requiredValue);
 		//Find the max value beetwen the two date
-		var max = moment.max(valueAsDate, ageAsDate);
+		let max = moment.max(valueAsDate, ageAsDate);
 		//if the max value isn't the dataValue then the dataValue is lower than the age date
 		if (max != valueAsDate) {
 			return [key + ' must be lower'];

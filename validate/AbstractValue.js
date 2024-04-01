@@ -4,9 +4,9 @@ module.exports = class AbstractValue {
 	}
 
 	validate(key, schema, value) {
-		var errors = [];
+		let errors = [];
 
-		var required = schema.required != undefined ? schema.required : true;
+		let required = schema.required != undefined ? schema.required : true;
 
 		if (value == undefined) {
 			if (required) {
@@ -18,7 +18,7 @@ module.exports = class AbstractValue {
 
 		Object.keys(schema).forEach((attribute) => {
 			if (this.avaibleAttributes.includes(attribute)) {
-				var err = this[attribute](key, schema[attribute], value);
+				let err = this[attribute](key, schema[attribute], value);
 				errors = errors.concat(err);
 			}
 		});

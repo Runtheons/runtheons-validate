@@ -23,11 +23,11 @@ module.exports = class FileValue extends AbstractValue {
 		if (!Array.isArray(requiredValue)) {
 			requiredValue = [requiredValue];
 		}
-		var recivedMimeType = dataValue.mimetype;
+		let recivedMimeType = dataValue.mimetype;
 
-		var correct = false;
+		let correct = false;
 		requiredValue.forEach((mimeType) => {
-			var reg = new RegExp(mimeType);
+			let reg = new RegExp(mimeType);
 			if (reg.exec(recivedMimeType) != null) {
 				correct = true;
 			}

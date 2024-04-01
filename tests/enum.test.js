@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema1 = {
+let schema1 = {
 	sex: {
 		type: Validator.ENUM,
 		values: ['M', 'F'],
@@ -77,7 +77,7 @@ describe('ENUM of STRING', function() {
 	});
 });
 
-var schema2 = {
+let schema2 = {
 	valid: {
 		type: Validator.ENUM,
 		values: [0, 1],

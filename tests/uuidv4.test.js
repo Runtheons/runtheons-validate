@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	uuidV4: {
 		type: Validator.UUIDV4,
 		required: true

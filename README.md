@@ -128,7 +128,7 @@ The types of inputs are:
 | of        | object | Set the field of the object (Is required)      |
 
 ```javascript
-var objSchema = {
+let objSchema = {
 	position: {
 		type: Validator.OBJECT,
 		required: Validator.REQUIRED,
@@ -154,7 +154,7 @@ var objSchema = {
 | of        | object | Set the type of the array item (Is required)   |
 
 ```javascript
-var objSchema = {
+let objSchema = {
 	receivers: {
 		type: Validator.ARRAY,
 		required: Validator.REQUIRED,
@@ -170,13 +170,13 @@ var objSchema = {
 It's a shortcut
 
 ```javascript
-var objSchema = {
+let objSchema = {
 	marks: {
 		type: Validator.ARRAY_OF_INTEGER,
 		required: Validator.REQUIRED
 	}
 };
-var objSchema2 = {
+let objSchema2 = {
 	marks: {
 		type: Validator.ARRAY,
 		required: Validator.REQUIRED,
@@ -196,7 +196,7 @@ var objSchema2 = {
 | values    | array | Set the available values                       |
 
 ```javascript
-var objSchema = {
+let objSchema = {
 	sex: {
 		type: Validator.ENUM,
 		required: Validator.REQUIRED,
@@ -213,7 +213,7 @@ var objSchema = {
 | mimetype   | string or string[] | A mimetype or a array of mimetype allowed      |
 
 ```javascript
-var objSchema = {
+let objSchema = {
 	photo: {
 		type: Validator.FILE, //The photo must be a file
 		mimetype: [

@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	price: {
 		type: Validator.FLOAT,
 		min: 1,

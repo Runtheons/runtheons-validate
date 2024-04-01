@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	ids: {
 		type: Validator.ARRAY_OF_INTEGER,
 		required: true

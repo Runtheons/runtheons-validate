@@ -23,7 +23,7 @@ We want receive a object that must contais attribute `timeSend` as a time in for
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	timeSend: {
 		type: Validator.TIME,
 		format: 'HH:mm:ss',

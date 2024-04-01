@@ -18,7 +18,7 @@ We want receive a object that must contais attribute `email` as an email
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	email: {
 		type: Validator.EMAIL,
 		required: Validator.REQUIRED

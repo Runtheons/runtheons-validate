@@ -24,7 +24,7 @@ We want receive a object that must contais attribute `id` as an integer, that is
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	id: {
 		type: Validator.INTEGER,
 		min: 0,

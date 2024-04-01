@@ -18,7 +18,7 @@ We want receive a object that must contais attribute `checked` as a boolean
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	checked: {
 		type: Validator.BOOLEAN,
 		required: Validator.REQUIRED

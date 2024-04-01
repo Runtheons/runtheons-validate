@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	timeSend: {
 		type: Validator.TIME,
 		format: 'HH:mm:ss',

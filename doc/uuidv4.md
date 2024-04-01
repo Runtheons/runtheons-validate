@@ -18,7 +18,7 @@ We want receive a object that must contais attribute `uuidV4` as an uuidV4
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	uuidV4: {
 		type: Validator.UUIDV4,
 		required: Validator.REQUIRED

@@ -20,7 +20,7 @@ We want receive a object that must contais attribute `price` as an float, that i
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	price: {
 		type: Validator.FLOAT,
 		min: 1,

@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	checked: {
 		type: Validator.BOOLEAN,
 		required: true

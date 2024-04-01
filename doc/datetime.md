@@ -25,7 +25,7 @@ We want receive a object that must contais attribute `dateSend` as a datetime in
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	dateSend: {
 		type: Validator.DATETIME,
 		format: 'DD/MM/YYYY HH:mm:ss',

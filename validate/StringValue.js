@@ -41,8 +41,8 @@ module.exports = class StringValue extends AbstractValue {
 	}
 
 	reg(key, requiredValue, dataValue) {
-		var reg = new RegExp(requiredValue);
-		var executed = reg.exec(dataValue);
+		let reg = new RegExp(requiredValue);
+		let executed = reg.exec(dataValue);
 		if (executed != null && executed[0] == dataValue) {
 			return [];
 		}

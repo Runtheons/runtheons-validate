@@ -22,7 +22,7 @@ We want receive a object that must contais attribute `username` as a string, tha
 ```javascript
 const Validator = require('@runtheons/validate');
 
-var objSchema = {
+let objSchema = {
 	username: {
 		type: Validator.STRING,
 		notEmpty: true,

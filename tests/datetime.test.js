@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const Validator = require('../index');
 
-var schema = {
+let schema = {
 	dateSend: {
 		type: Validator.DATETIME,
 		format: 'DD/MM/YYYY HH:mm:ss',
